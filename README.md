@@ -7,9 +7,12 @@ The client is then self-hosted and deployed alongside the rest of their JavaScri
 resources.
 
 This repository contains the framework "core" component. This component is meant
-to be added into your own project along with one or more providers. These are then
-imported by your code, and everything is compiled to produce a client JavaScript
-file deployable to production.
+to be added to the site ownder's project along with one or more providers. The
+providers are then imported by the site owner's code, and everything is compiled
+to produce a client JavaScript file deployable to production.
+
+See [Open Insights CBSi Demo](https://github.com/cbsinteractive/open-insights-cbsi-demo)
+for a demonstration of how to compile a client.
 
 ## Why Use It
 
