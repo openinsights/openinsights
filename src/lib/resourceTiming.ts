@@ -1,3 +1,4 @@
+/// <reference path="../@types/index.d.ts" />
 /*eslint guard-for-in:0*/
 import PerformanceObserver from "@fastly/performance-observer-polyfill";
 import compose from "../util/compose";
