@@ -32,11 +32,6 @@ interface Client {
     [key: string]: string | number;
 }
 
-interface Fastly {
-    client: Agent;
-    results: Beacon[];
-}
-
 interface Host {
     host: string;
     lookup: string;
