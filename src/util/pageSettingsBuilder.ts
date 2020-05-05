@@ -1,6 +1,3 @@
-import { PageSettings } from "../types/pageSettings"
-import { Provider } from "../types/provider"
-
 export class PageSettingsBuilder {
     private data: PageSettings = {
         providers: []
