@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build:dev": "webpack --config webpack.dev.js",
-    "build:dev:watch": "webpack --config webpack.dev.js --watch --info-verbosity verbose"
+    "build:dev:watch": "webpack --config webpack.dev.js --watch"
   },
   "devDependencies": {
     "ts-loader": "^7.0.1",
