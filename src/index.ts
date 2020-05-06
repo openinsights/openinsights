@@ -1,7 +1,5 @@
 import loadWhenReady from './util/loadWhenDocumentReady'
 import { DefaultPageSettings } from './util/defaultPageSettings'
-import { PageSettings } from './types/pageSettings'
-import { Provider } from './types/provider'
 export { PageSettingsBuilder } from './util/pageSettingsBuilder'
 
 export function init(settings: PageSettings): void {
