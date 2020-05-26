@@ -1,11 +1,8 @@
 import loadWhenReady from './util/loadWhenDocumentReady'
-import { DefaultPageSettings } from './util/defaultPageSettings'
-export { PageSettingsBuilder } from './util/pageSettingsBuilder'
+import { ClientSettings } from './@types'
 
-export function init(settings: PageSettings): void {
+export function init(settings: ClientSettings): void {
     loadWhenReady(() => {
-        console.log('Document loaded and ready')
-        settings = settings || DefaultPageSettings
         if (settings.preConfigStartDelay) {
             setTimeout(startLater(settings), settings.preConfigStartDelay)
         } else {
@@ -14,31 +11,27 @@ export function init(settings: PageSettings): void {
     })
 }
 
-function startLater(settings: PageSettings): () => void {
+function startLater(settings: ClientSettings): () => void {
     return function () {
         start(settings)
     }
 }
 
-function start(settings: PageSettings): void {
-    const promises = settings.providers
-        .filter(p => p.testUserAgent())
-        .map(p => p.fetchConfig())
-    if (promises.length) {
-        Promise.all(promises)
-            .then(providerConfigs => {
-                const temp = <[Provider, unknown, unknown[]][]>providerConfigs
-                for (let config of temp) {
-                    let provider: Provider = config[0]
-                    for (let task of config[2]) {
-                        provider.executeTask(config[1], task)
-                    }
-                }
+function start(settings: ClientSettings): Promise<any> {
+    return new Promise<any>(resolve => {
+        Promise.all(
+            settings.providers
+                .filter(provider => provider.shouldRun())
+                .map(provider => provider.fetchSessionConfig())
+        ).then(sessionConfigs => {
+            sessionConfigs.forEach((v, i) => {
+                settings.providers[i].setSessionConfig(v)
+                settings.providers[i].expandTasks()
             })
-            .catch(error => {
-                console.error(error)
-            })
-    } else {
-        console.log('No providers promised to make config calls')
-    }
+            return settings.sequence(sessionConfigs)
+        }).then(data => {
+            console.log('Finished!')
+            console.log(data)
+        })
+    })
 }

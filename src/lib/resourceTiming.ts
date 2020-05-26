@@ -1,8 +1,8 @@
-/// <reference path="../@types/index.d.ts" />
 /*eslint guard-for-in:0*/
 import PerformanceObserver from "@fastly/performance-observer-polyfill";
 import compose from "../util/compose";
 import camelCaseToSnakeCase from "../util/camelCaseToSnakeCase";
+import { ResourceTimingEntry } from "../@types";
 
 const EXCLUDED_PROPS = ["name", "initiatorType", "entryType"];
 
@@ -30,11 +30,13 @@ function asyncGetEntry(
         list: PerformanceObserverEntryList,
         observer: PerformanceObserver
       ): void => {
+        console.log(`Looking for resource: ${name}`)
         const namedEntries = list.getEntriesByName(name);
         entry = namedEntries.pop();
 
         if (entry) {
           observer.disconnect();
+          console.log(`Found resource: ${name}`)
           resolve((entry as any) as ResourceTimingEntry);
         }
       }
@@ -43,6 +45,7 @@ function asyncGetEntry(
     setTimeout((): void => {
       if (!entry) {
         observer.disconnect();
+        console.warn(`Resource not found: ${name}`)
         reject(new Error("Timed out observing resource timing"));
       }
     }, timeout);

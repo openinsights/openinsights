@@ -1,4 +1,5 @@
 import "unfetch/polyfill";
+import { ClientInfo, FetchResponse } from "../@types";
 
 interface Cache {
   [key: string]: Promise<ClientInfo>;
@@ -17,7 +18,9 @@ function reset(url: string): void {
  * Memoizes responses to ensure that we only hit the API once
  */
 function getClientInfo(url: string): Promise<ClientInfo> {
+  console.log(`Inside getClientInfo; url: ${url}`)
   if (cache[url]) {
+    console.log('Returning cached result')
     return cache[url];
   }
   cache[url] = fetch(url).then(
