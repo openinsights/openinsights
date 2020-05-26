@@ -17,7 +17,7 @@ export abstract class FetchBase extends TestBase {
         ])
             .then(
                 ([id, entry]): ResourceTimingEntry => {
-                    throw new Error('Fuck!')
+                    throw new Error('Not implemented')
                     // const timing = normalizeEntry(entry)
                     // return this.provider.createFetchResult(timing, id, this.fetchConfig)
                 }
