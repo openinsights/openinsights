@@ -1,4 +1,4 @@
-import { TaskInterface, ProviderInterface } from "../@types";
+import { TaskInterface, ProviderInterface } from "../@types"
 import { beacon } from "../util/beacon"
 
 interface State {
@@ -6,7 +6,9 @@ interface State {
 }
 
 export abstract class TestBase implements TaskInterface {
-    public state: State = { hasRan: false };
+    public state: State = { hasRan: false }
+    protected beaconData: unknown
+    protected testConfig: unknown
     constructor(protected provider: ProviderInterface) {
         if (!this.provider.sessionConfig) {
             throw new Error('TestBase ctor called before Provider.setSessionConfig')
@@ -17,11 +19,12 @@ export abstract class TestBase implements TaskInterface {
      * This is the logic function for conducting an individual test.
      */
     execute(): Promise<unknown> {
-        console.warn('Test.execute...WIP')
-        console.log(`Inside Test.execute for ${this.provider.name} test id: ${this.provider.getCurrentTestId()}`)
-        const steps = this.makeTestSteps()
-        const result = steps
-            .then((data): unknown => this.makeBeaconData(...data))
+        const result = this.makeTestSteps()
+            .then((data): unknown => {
+                const result: any = this.provider.makeBeaconData(this.testConfig, data)
+                this.setBeaconData(result)
+                return result
+            })
             .then((data): string => this.encodeBeaconData(data))
             .then((data): void => this.sendBeacon(data))
             .then((): unknown => this.returnBeacon())
@@ -31,6 +34,10 @@ export abstract class TestBase implements TaskInterface {
                 return Promise.resolve<unknown>('Replace me!')
             })
         return result
+    }
+
+    setBeaconData(value: any) {
+        this.beaconData = value
     }
 
     sendBeacon(data: string): void {
@@ -45,10 +52,10 @@ export abstract class TestBase implements TaskInterface {
         return JSON.stringify(data)
     }
 
-    /**
-     * A subclass implements this method in order to define its beacon format
-     */
-    abstract makeBeaconData(...data: unknown[]): unknown
+    // /**
+    //  * A subclass implements this method in order to define its beacon format
+    //  */
+    // abstract makeBeaconData(...data: unknown[]): unknown
 
     /**
      * A subclass implements this method in order to define its specialized mechanics

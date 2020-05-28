@@ -24,9 +24,11 @@ function start(settings: ClientSettings): Promise<any> {
                 .filter(provider => provider.shouldRun())
                 .map(provider => provider.fetchSessionConfig())
         ).then(sessionConfigs => {
+            // There is an inconsistency here with how we expect fetchSessionConfig to return
+            // an object and expandTasks to update internal members
             sessionConfigs.forEach((v, i) => {
+                v.tasks.push(...settings.providers[i].expandTasks())
                 settings.providers[i].setSessionConfig(v)
-                settings.providers[i].expandTasks()
             })
             return settings.sequence(sessionConfigs)
         }).then(data => {

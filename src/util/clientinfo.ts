@@ -1,15 +1,15 @@
-import "unfetch/polyfill";
-import { ClientInfo, FetchResponse } from "../@types";
+import "unfetch/polyfill"
+import { FetchResponse, ClientInfoResponseFunc } from "../@types"
 
 interface Cache {
-  [key: string]: Promise<ClientInfo>;
+  [key: string]: Promise<unknown>
 }
 
-const cache: Cache = {};
+const cache: Cache = {}
 
 /** Cleans the cache: necessary for testing */
-function reset(url: string): void {
-  delete cache[url];
+export function reset(url: string): void {
+  delete cache[url]
 }
 
 // TODO: Need to handle errors and retry
@@ -17,17 +17,10 @@ function reset(url: string): void {
  * Function that performs a unique API query to get client data
  * Memoizes responses to ensure that we only hit the API once
  */
-function getClientInfo(url: string): Promise<ClientInfo> {
-  console.log(`Inside getClientInfo; url: ${url}`)
+export function getClientInfo(url: string, resultFun: ClientInfoResponseFunc): Promise<unknown> {
   if (cache[url]) {
-    console.log('Returning cached result')
-    return cache[url];
+    return cache[url]
   }
-  cache[url] = fetch(url).then(
-    (res: FetchResponse): Promise<ClientInfo> =>
-      res.json() as Promise<ClientInfo>
-  );
-  return cache[url];
+  cache[url] = fetch(url).then((res: FetchResponse): Promise<unknown> => resultFun(res.json()))
+  return cache[url]
 }
-
-export { getClientInfo, reset };

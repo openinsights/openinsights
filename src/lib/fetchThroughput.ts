@@ -1,11 +1,8 @@
 import { FetchBase } from "./fetchBase"
-import { FetchResult, FetchThroughputConfig } from "./fetch"
-import { ClientInfo, ProviderInterface } from "../@types"
-
-interface FetchThroughputBeaconData {}
+import { ProviderInterface } from "../@types"
 
 export default class FetchThroughput extends FetchBase {
-    constructor(provider: ProviderInterface, protected fetchConfig: FetchThroughputConfig) {
+    constructor(provider: ProviderInterface, protected fetchConfig: unknown) {
         super(provider)
         // this.fetchConfig.resource = templateResource(this.fetchConfig.resource, this.provider.sessionConfig as SessionConfig)
     }
@@ -21,10 +18,10 @@ export default class FetchThroughput extends FetchBase {
     returnBeacon(): unknown {
         throw new Error("Method not implemented.")
     }
-    makeBeaconData(testResult: FetchResult, clientInfo: ClientInfo): FetchThroughputBeaconData {
-        // const result: FetchThroughputBeaconData = this.provider.makeFetchBeaconData(this.fetchConfig, testResult, clientInfo)
-        // this.beaconData = result
-        // return result
-        return {}
-    }
+    // makeBeaconData(testResult: FetchResult, clientInfo: ClientInfo): FetchThroughputBeaconData {
+    //     // const result: FetchThroughputBeaconData = this.provider.makeFetchBeaconData(this.fetchConfig, testResult, clientInfo)
+    //     // this.beaconData = result
+    //     // return result
+    //     return {}
+    // }
 }
