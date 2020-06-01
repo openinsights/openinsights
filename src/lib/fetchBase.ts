@@ -3,26 +3,34 @@ import { ResourceTimingEntry } from "../@types"
 import { asyncGetEntry, normalizeEntry } from "./resourceTiming"
 
 export abstract class FetchBase extends TestBase {
-    abstract getResourceUrl(): string
+    createFetchResult(timing: ResourceTimingEntry, id: string): ResourceTimingEntry {
+        return this.provider.createFetchResult(timing, id, this.config)
+    }
+
+    getResourceUrl(): string {
+        return this.provider.getResourceUrl(this.config)
+    }
+
     makeTestSteps(): Promise<unknown[]> {
         return Promise.all<unknown>([
             this.test(),
             this.provider.makeClientInfoPromise(this),
         ])
     }
+
     test(): Promise<ResourceTimingEntry> {
         return Promise.all<string, ResourceTimingEntry>([
             this.fetchObjectAndId(),
-            asyncGetEntry(this.getResourceUrl(), 1000)
+            asyncGetEntry(this.getResourceUrl(), 5000)
         ])
             .then(
                 ([id, entry]): ResourceTimingEntry => {
-                    throw new Error('Not implemented')
-                    // const timing = normalizeEntry(entry)
-                    // return this.provider.createFetchResult(timing, id, this.fetchConfig)
+                    const timing = normalizeEntry(entry)
+                    return this.createFetchResult(timing, id)
                 }
             )
     }
+
     fetchObjectAndId(): Promise<string> {
         return fetch(this.getResourceUrl())
             .then((res): string => {

@@ -1,11 +1,10 @@
-import { FetchResult, FetchBeaconData, FetchConfig } from "../lib/fetch"
-
 export interface FetchResponse {
     json(): Promise<any>
 }
 
 export interface SessionConfig {
-    tasks: TaskInterface[]
+    getExpandedTasks(): TaskInterface[]
+    setExpandedTasks(value: TaskInterface[]): void
 }
 
 export interface ResourceTimingEntry {
@@ -69,9 +68,11 @@ export interface ProviderInterface {
     shouldRun(): boolean
     fetchSessionConfig(): Promise<SessionConfig>
     expandTasks(): TaskInterface[]
-    createFetchResult(timing: ResourceTimingEntry, id: string, taskConfig: unknown): ResourceTimingEntry
+    createFetchResult(timing: ResourceTimingEntry, id: string, testConfig: unknown): ResourceTimingEntry
     makeBeaconData(testConfig: unknown, testData: unknown): unknown
-    makeFetchBeaconURL(sessionConfig: SessionConfig): string
+    makeFetchBeaconURL(testConfig: unknown): string
+    getResourceUrl(config: unknown): string
+    sendBeacon(testConfig: unknown, encodedBeaconData: string): void
 }
 
 export interface PromiseSequenceFunc {

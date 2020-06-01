@@ -8,12 +8,7 @@ interface State {
 export abstract class TestBase implements TaskInterface {
     public state: State = { hasRan: false }
     protected beaconData: unknown
-    protected testConfig: unknown
-    constructor(protected provider: ProviderInterface) {
-        if (!this.provider.sessionConfig) {
-            throw new Error('TestBase ctor called before Provider.setSessionConfig')
-        }
-    }
+    constructor(protected provider: ProviderInterface, protected config: unknown) {}
 
     /**
      * This is the logic function for conducting an individual test.
@@ -21,13 +16,12 @@ export abstract class TestBase implements TaskInterface {
     execute(): Promise<unknown> {
         const result = this.makeTestSteps()
             .then((data): unknown => {
-                const result: any = this.provider.makeBeaconData(this.testConfig, data)
+                const result: any = this.provider.makeBeaconData(this.config, data)
                 this.setBeaconData(result)
                 return result
             })
-            .then((data): string => this.encodeBeaconData(data))
-            .then((data): void => this.sendBeacon(data))
-            .then((): unknown => this.returnBeacon())
+            .then((data): void => this.provider.sendBeacon(this.config, this.encodeBeaconData(data)))
+            .then((): unknown => this.beaconData)
             .catch((e): Promise<unknown> => {
                 console.log(`Error caught in TestBase.execute: ${e}`)
                 console.log(result)
@@ -38,10 +32,6 @@ export abstract class TestBase implements TaskInterface {
 
     setBeaconData(value: any) {
         this.beaconData = value
-    }
-
-    sendBeacon(data: string): void {
-        beacon(this.makeBeaconURL(), data)
     }
 
     /**
@@ -63,6 +53,4 @@ export abstract class TestBase implements TaskInterface {
     abstract makeTestSteps(): Promise<unknown[]>
 
     abstract makeBeaconURL(): string
-
-    abstract returnBeacon(): unknown
 }
