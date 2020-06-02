@@ -9,7 +9,6 @@ export default abstract class ProviderBase implements ProviderInterface {
     abstract expandTasks(): TaskInterface[]
     abstract makeBeaconData(testConfig: unknown, testData: unknown): unknown
     abstract getResourceUrl(config: unknown): string
-    abstract makeFetchBeaconURL(testConfig: unknown): string
     abstract createFetchResult(timing: ResourceTimingEntry, id: string, testConfig: unknown): ResourceTimingEntry
 
     sendBeacon(testConfig: unknown, encodedBeaconData: string): void {
@@ -26,5 +25,17 @@ export default abstract class ProviderBase implements ProviderInterface {
 
     makeClientInfoPromise(task: TaskInterface): Promise<unknown> {
         return Promise.resolve<unknown>(null)
+    }
+
+    /**
+     * A subclass might not override this if it overrides ProviderBase::sendBeacon instead
+     * @param testConfig
+     */
+    makeFetchBeaconURL(testConfig: unknown): string {
+        throw new Error("Method not implemented.")
+    }
+
+    markTestStart(config: unknown): void {
+        // Do nothing
     }
 }

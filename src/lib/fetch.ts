@@ -12,6 +12,7 @@ export default class Fetch extends TestBase {
     }
 
     makeTestSteps(): Promise<unknown[]> {
+        this.provider.markTestStart(this.config)
         return Promise.all<unknown>([
             this.test(),
             this.provider.makeClientInfoPromise(this),

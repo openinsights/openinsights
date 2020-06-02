@@ -63,6 +63,7 @@ export interface TaskInterface {
 export interface ProviderInterface {
     name: any
     sessionConfig?: SessionConfig
+    markTestStart(config: unknown): void
     setSessionConfig(value: SessionConfig): void
     makeClientInfoPromise(task: TaskInterface): Promise<unknown>
     shouldRun(): boolean
