@@ -1,4 +1,4 @@
-import { ProviderInterface, TaskInterface, SessionConfig, ResourceTimingEntry } from "../@types"
+import { ProviderInterface, IExecutable, SessionConfig, ResourceTimingEntry } from "../@types"
 import { beacon } from "../util/beacon"
 
 export default abstract class ProviderBase implements ProviderInterface {
@@ -6,7 +6,7 @@ export default abstract class ProviderBase implements ProviderInterface {
 
     abstract name: string
     abstract fetchSessionConfig(): Promise<SessionConfig>
-    abstract expandTasks(): TaskInterface[]
+    abstract expandTasks(): IExecutable[]
     abstract makeBeaconData(testConfig: unknown, testData: unknown): unknown
     abstract getResourceUrl(config: unknown): string
     abstract createFetchResult(timing: ResourceTimingEntry, id: string, testConfig: unknown): ResourceTimingEntry
@@ -23,7 +23,7 @@ export default abstract class ProviderBase implements ProviderInterface {
         this.sessionConfig = value
     }
 
-    makeClientInfoPromise(task: TaskInterface): Promise<unknown> {
+    makeClientInfoPromise(task: IExecutable): Promise<unknown> {
         return Promise.resolve<unknown>(null)
     }
 

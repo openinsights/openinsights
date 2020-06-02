@@ -1,11 +1,10 @@
-import { TaskInterface, ProviderInterface } from "../@types"
-import { beacon } from "../util/beacon"
+import { IExecutable, ProviderInterface } from "../@types"
 
 interface State {
     hasRan: boolean
 }
 
-export abstract class TestBase implements TaskInterface {
+export abstract class TestBase implements IExecutable {
     public state: State = { hasRan: false }
     protected beaconData: unknown
     constructor(protected provider: ProviderInterface, protected config: unknown) {}
@@ -41,11 +40,6 @@ export abstract class TestBase implements TaskInterface {
     protected encodeBeaconData(data: unknown): string {
         return JSON.stringify(data)
     }
-
-    // /**
-    //  * A subclass implements this method in order to define its beacon format
-    //  */
-    // abstract makeBeaconData(...data: unknown[]): unknown
 
     /**
      * A subclass implements this method in order to define its specialized mechanics
