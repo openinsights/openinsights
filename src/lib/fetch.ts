@@ -35,7 +35,7 @@ export default class Fetch extends TestBase {
     fetchObjectAndId(): Promise<string> {
         return fetch(this.getResourceUrl())
             .then((res): string => {
-                return res.headers.get("X-Datacenter") || ""
+                return this.provider.getFetchHeaders(res.headers, this.config)
             })
     }
 }

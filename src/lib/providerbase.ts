@@ -38,4 +38,12 @@ export default abstract class ProviderBase implements ProviderInterface {
     markTestStart(config: unknown): void {
         // Do nothing
     }
+
+    /**
+     * A subclass overrides this if it wants to obtain the value of any fetch response headers
+     * @param headers
+     */
+    getFetchHeaders(headers: Headers, testConfig: unknown): string {
+        return ''
+    }
 }

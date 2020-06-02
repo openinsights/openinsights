@@ -74,6 +74,7 @@ export interface ProviderInterface {
     makeFetchBeaconURL(testConfig: unknown): string
     getResourceUrl(config: unknown): string
     sendBeacon(testConfig: unknown, encodedBeaconData: string): void
+    getFetchHeaders(headers: Headers, testConfig: unknown): string
 }
 
 export interface PromiseSequenceFunc {
