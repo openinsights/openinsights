@@ -77,13 +77,9 @@ export interface Provider {
     getFetchHeaders(headers: Headers, testConfig: unknown): string
 }
 
-export interface PromiseSequenceFunc {
-    (sessionConfigs: SessionConfig[]): Promise<unknown>
-}
+export type PromiseSequenceFunc = (sessionConfigs: SessionConfig[]) => Promise<unknown>
 
-export interface ClientInfoResponseFunc {
-    (response: Promise<any>): Promise<unknown>
-}
+export type ClientInfoResponseFunc = ()(response: Promise<any>) =>  Promise<unknown>
 
 export interface ClientSettings {
     preConfigStartDelay?: number
