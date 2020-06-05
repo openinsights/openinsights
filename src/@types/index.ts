@@ -79,7 +79,7 @@ export interface Provider {
 
 export type PromiseSequenceFunc = (sessionConfigs: SessionConfig[]) => Promise<unknown>
 
-export type ClientInfoResponseFunc = ()(response: Promise<any>) =>  Promise<unknown>
+export type ClientInfoResponseFunc = (response: Promise<any>) =>  Promise<unknown>
 
 export interface ClientSettings {
     preConfigStartDelay?: number
