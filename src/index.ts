@@ -18,20 +18,18 @@ function startLater(settings: ClientSettings): () => void {
 }
 
 function start(settings: ClientSettings): Promise<any> {
-    return new Promise<any>(resolve => {
-        Promise.all(
-            settings.providers
-                .filter(provider => provider.shouldRun())
-                .map(provider => provider.fetchSessionConfig())
-        ).then(sessionConfigs => {
-            sessionConfigs.forEach((v, i) => {
-                settings.providers[i].setSessionConfig(v)
-                v.setExpandedTasks(settings.providers[i].expandTasks())
-            })
-            return settings.sequence(sessionConfigs)
-        }).then(data => {
-            console.log('Finished!')
-            console.log(data)
+    return Promise.all(
+        settings.providers
+            .filter(provider => provider.shouldRun())
+            .map(provider => provider.fetchSessionConfig())
+    ).then(sessionConfigs => {
+        sessionConfigs.forEach((v, i) => {
+            settings.providers[i].setSessionConfig(v)
+            v.setExpandedTasks(settings.providers[i].expandTasks())
         })
+        return settings.sequence(sessionConfigs)
+    }).then(data => {
+        console.log('Finished!')
+        console.log(data)
     })
 }
