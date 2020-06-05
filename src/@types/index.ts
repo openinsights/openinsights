@@ -3,8 +3,8 @@ export interface FetchResponse {
 }
 
 export interface SessionConfig {
-    getExpandedTasks(): IExecutable[]
-    setExpandedTasks(value: IExecutable[]): void
+    getExpandedTasks(): Executable[]
+    setExpandedTasks(value: Executable[]): void
 }
 
 export interface ResourceTimingEntry {
@@ -56,19 +56,19 @@ export interface NetworkInformation {
     | boolean
 }
 
-export interface IExecutable {
+export interface Executable {
     execute(): Promise<unknown>
 }
 
-export interface ProviderInterface {
+export interface Provider {
     name: any
     sessionConfig?: SessionConfig
     markTestStart(config: unknown): void
     setSessionConfig(value: SessionConfig): void
-    makeClientInfoPromise(task: IExecutable): Promise<unknown>
+    makeClientInfoPromise(task: Executable): Promise<unknown>
     shouldRun(): boolean
     fetchSessionConfig(): Promise<SessionConfig>
-    expandTasks(): IExecutable[]
+    expandTasks(): Executable[]
     createFetchResult(timing: ResourceTimingEntry, id: string, testConfig: unknown): ResourceTimingEntry
     makeBeaconData(testConfig: unknown, testData: unknown): unknown
     makeFetchBeaconURL(testConfig: unknown): string
@@ -87,6 +87,6 @@ export interface ClientInfoResponseFunc {
 
 export interface ClientSettings {
     preConfigStartDelay?: number
-    providers: ProviderInterface[]
+    providers: Provider[]
     sequence: PromiseSequenceFunc
 }

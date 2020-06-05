@@ -1,4 +1,4 @@
-import { ClientSettings, ProviderInterface, PromiseSequenceFunc } from "../@types"
+import { ClientSettings, Provider, PromiseSequenceFunc } from "../@types"
 import defaultSequenceFunc from "./defaultSequenceFunc"
 
 export default class ClientSettingsBuilder {
@@ -10,7 +10,7 @@ export default class ClientSettingsBuilder {
     setPreConfigStartDelay(a: number): void {
         this.value.preConfigStartDelay = a
     }
-    addProvider(a: ProviderInterface): void {
+    addProvider(a: Provider): void {
         this.value.providers.push(a)
     }
     setSequence(a: PromiseSequenceFunc): void {

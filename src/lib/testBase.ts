@@ -1,13 +1,13 @@
-import { IExecutable, ProviderInterface } from "../@types"
+import { Executable, Provider } from "../@types"
 
 interface State {
     hasRan: boolean
 }
 
-export abstract class TestBase implements IExecutable {
+export abstract class TestBase implements Executable {
     public state: State = { hasRan: false }
     protected beaconData: unknown
-    constructor(protected provider: ProviderInterface, protected config: unknown) {}
+    constructor(protected provider: Provider, protected config: unknown) {}
 
     /**
      * This is the logic function for conducting an individual test.

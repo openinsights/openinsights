@@ -1,4 +1,4 @@
-import { IExecutable, SessionConfig } from "../@types"
+import { Executable, SessionConfig } from "../@types"
 import sequence from "./promiseSequence"
 
 /**
@@ -7,10 +7,10 @@ import sequence from "./promiseSequence"
  */
 export default (sessionConfigs: SessionConfig[]): Promise<unknown[]> => {
     console.log(sessionConfigs)
-    const tasks: IExecutable[] = []
+    const tasks: Executable[] = []
     for (const c of sessionConfigs) {
         tasks.push(...c.getExpandedTasks())
     }
-    const makeTaskExecFun = (task: IExecutable) => () => task.execute()
+    const makeTaskExecFun = (task: Executable) => () => task.execute()
     return sequence<unknown>(tasks.map(makeTaskExecFun))
 }
