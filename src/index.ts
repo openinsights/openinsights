@@ -28,8 +28,5 @@ function start(settings: ClientSettings): Promise<any> {
             v.setExpandedTasks(settings.providers[i].expandTasks())
         })
         return settings.sequence(sessionConfigs)
-    }).then(data => {
-        console.log('Finished!')
-        console.log(data)
     })
 }

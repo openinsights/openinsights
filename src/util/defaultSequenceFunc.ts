@@ -6,7 +6,6 @@ import sequence from "./promiseSequence"
  * generation sequence algorithm to execute them.
  */
 export default (sessionConfigs: SessionConfig[]): Promise<unknown[]> => {
-    console.log(sessionConfigs)
     const tasks: Executable[] = []
     for (const c of sessionConfigs) {
         tasks.push(...c.getExpandedTasks())

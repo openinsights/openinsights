@@ -69,12 +69,11 @@ export interface Provider {
     shouldRun(): boolean
     fetchSessionConfig(): Promise<SessionConfig>
     expandTasks(): Executable[]
-    createFetchResult(timing: ResourceTimingEntry, id: string, testConfig: unknown): ResourceTimingEntry
+    createFetchResult(timing: ResourceTimingEntry, response: Response, testConfig: unknown): ResourceTimingEntry
     makeBeaconData(testConfig: unknown, testData: unknown): unknown
     makeFetchBeaconURL(testConfig: unknown): string
     getResourceUrl(config: unknown): string
     sendBeacon(testConfig: unknown, encodedBeaconData: string): void
-    getFetchHeaders(headers: Headers, testConfig: unknown): string
 }
 
 export type PromiseSequenceFunc = (sessionConfigs: SessionConfig[]) => Promise<unknown>

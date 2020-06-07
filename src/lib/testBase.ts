@@ -22,8 +22,6 @@ export abstract class TestBase implements Executable {
             .then((data): void => this.provider.sendBeacon(this.config, this.encodeBeaconData(data)))
             .then((): unknown => this.beaconData)
             .catch((e): Promise<unknown> => {
-                console.log(`Error caught in TestBase.execute: ${e}`)
-                console.log(result)
                 return Promise.resolve<unknown>('Replace me!')
             })
         return result

@@ -9,7 +9,7 @@ export default abstract class ProviderBase implements Provider {
     abstract expandTasks(): Executable[]
     abstract makeBeaconData(testConfig: unknown, testData: unknown): unknown
     abstract getResourceUrl(config: unknown): string
-    abstract createFetchResult(timing: ResourceTimingEntry, id: string, testConfig: unknown): ResourceTimingEntry
+    abstract createFetchResult(timing: ResourceTimingEntry, response: Response, testConfig: unknown): ResourceTimingEntry
     abstract shouldRun(): boolean
 
     sendBeacon(testConfig: unknown, encodedBeaconData: string): void {
@@ -34,13 +34,5 @@ export default abstract class ProviderBase implements Provider {
 
     markTestStart(config: unknown): void {
         // Do nothing
-    }
-
-    /**
-     * A subclass overrides this if it wants to obtain the value of any fetch response headers
-     * @param headers
-     */
-    getFetchHeaders(headers: Headers, testConfig: unknown): string {
-        return ''
     }
 }

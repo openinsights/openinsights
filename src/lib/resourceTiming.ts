@@ -30,13 +30,11 @@ function asyncGetEntry(
         list: PerformanceObserverEntryList,
         observer: PerformanceObserver
       ): void => {
-        console.log(`Looking for resource: ${name}`)
         const namedEntries = list.getEntriesByName(name);
         entry = namedEntries.pop();
 
         if (entry) {
           observer.disconnect();
-          console.log(`Found resource: ${name}`)
           resolve((entry as any) as ResourceTimingEntry);
         }
       }
@@ -45,7 +43,6 @@ function asyncGetEntry(
     setTimeout((): void => {
       if (!entry) {
         observer.disconnect();
-        console.warn(`Resource not found: ${name}`)
         reject(new Error("Timed out observing resource timing"));
       }
     }, timeout);

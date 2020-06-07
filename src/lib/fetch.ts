@@ -20,22 +20,19 @@ export default class Fetch extends TestBase {
     }
 
     test(): Promise<ResourceTimingEntry> {
-        return Promise.all<string, ResourceTimingEntry>([
-            this.fetchObjectAndId(),
+        return Promise.all<Response, ResourceTimingEntry>([
+            this.fetchObject(),
             asyncGetEntry(this.getResourceUrl(), 5000)
         ])
             .then(
-                ([id, entry]): ResourceTimingEntry => {
+                ([response, entry]): ResourceTimingEntry => {
                     const timing = normalizeEntry(entry)
-                    return this.provider.createFetchResult(timing, id, this.config)
+                    return this.provider.createFetchResult(timing, response, this.config)
                 }
             )
     }
 
-    fetchObjectAndId(): Promise<string> {
+    fetchObject(): Promise<Response> {
         return fetch(this.getResourceUrl())
-            .then((res): string => {
-                return this.provider.getFetchHeaders(res.headers, this.config)
-            })
     }
 }
