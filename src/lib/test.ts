@@ -1,18 +1,26 @@
 import { Executable, Provider } from "../@types"
 
-interface State {
-    hasRan: boolean
+enum TestState {
+    NotStarted,
+    Error,
+    Running,
+    Finished,
 }
 
 export abstract class Test implements Executable {
-    public state: State = { hasRan: false }
+    private _state: TestState = TestState.NotStarted
     protected beaconData: unknown
-    constructor(protected provider: Provider, protected config: unknown) {}
+    constructor(protected provider: Provider, protected config: unknown) { }
+
+    get state(): TestState {
+        return this._state
+    }
 
     /**
      * This is the logic function for conducting an individual test.
      */
     execute(): Promise<unknown> {
+        this._state = TestState.Running
         const result = this.makeTestSteps()
             .then((data): unknown => {
                 const result: any = this.provider.makeBeaconData(this.config, data)
@@ -20,8 +28,12 @@ export abstract class Test implements Executable {
                 return result
             })
             .then((data): void => this.provider.sendBeacon(this.config, this.encodeBeaconData(data)))
-            .then((): unknown => this.beaconData)
+            .then((): unknown => {
+                this._state = TestState.Finished
+                return this.beaconData
+            })
             .catch((e): Promise<unknown> => {
+                this._state = TestState.Error
                 return Promise.resolve<unknown>('Replace me!')
             })
         return result
