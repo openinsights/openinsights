@@ -1,10 +1,24 @@
 /*eslint guard-for-in:0*/
-import PerformanceObserver from "@fastly/performance-observer-polyfill";
-import compose from "../util/compose";
-import camelCaseToSnakeCase from "../util/camelCaseToSnakeCase";
-import { ResourceTimingEntry } from "../@types";
+import PerformanceObserver from "@fastly/performance-observer-polyfill"
+import compose from "../util/compose"
+import camelCaseToSnakeCase from "../util/camelCaseToSnakeCase"
+import { ResourceTimingEntry } from "../@types"
 
-const EXCLUDED_PROPS = ["name", "initiatorType", "entryType"];
+const EXCLUDED_PROPS = ["name", "initiatorType", "entryType"]
+
+function getValidEntry(
+  list: PerformanceEntryList
+): ResourceTimingEntry | undefined {
+  let k = 0
+  while (k < list.length) {
+    const e = (list[k] as any) as ResourceTimingEntry
+    if (e.requestStart !== 0 && e.connectStart !== e.connectEnd) {
+      return e
+    }
+    k++
+  }
+  return undefined
+}
 
 /**
  * Asyncronusly gets a resource timing entry from the performance timeline
@@ -23,88 +37,89 @@ function asyncGetEntry(
   timeout = 5000
 ): Promise<ResourceTimingEntry> {
   return new Promise((resolve, reject): void => {
-    let entry: PerformanceEntry | undefined;
+    let entry: ResourceTimingEntry | undefined
 
     const observer = new PerformanceObserver(
       (
         list: PerformanceObserverEntryList,
         observer: PerformanceObserver
       ): void => {
-        const namedEntries = list.getEntriesByName(name);
-        entry = namedEntries.pop();
+        const namedEntries = list.getEntriesByName(name)
+        entry = getValidEntry(namedEntries)
 
         if (entry) {
-          observer.disconnect();
-          resolve((entry as any) as ResourceTimingEntry);
+          observer.disconnect()
+          resolve(entry)
         }
       }
-    );
+    )
 
     setTimeout((): void => {
       if (!entry) {
-        observer.disconnect();
-        reject(new Error("Timed out observing resource timing"));
+        observer.disconnect()
+        reject(new Error("Timed out observing resource timing"))
       }
-    }, timeout);
+    }, timeout)
 
     try {
-      observer.observe({ entryTypes: ["resource"] });
+      observer.observe({ entryTypes: ["resource"] })
     } catch (e) {
-      reject(e);
+      reject(e)
     }
-  });
+  })
 }
 
 function cloneEntry(entry: ResourceTimingEntry): ResourceTimingEntry {
-  const result: ResourceTimingEntry = {};
+  const result: ResourceTimingEntry = {}
   for (const key in entry) {
-    const type = typeof entry[key];
+    const type = typeof entry[key]
     if (type === "number" || type === "string") {
-      result[key] = entry[key];
+      result[key] = entry[key]
     }
   }
-  return result;
+  return result
 }
 
 function removeEntryProps(
   entry: ResourceTimingEntry,
   props: string[]
 ): ResourceTimingEntry {
-  const result: ResourceTimingEntry = {};
+  const result: ResourceTimingEntry = {}
   return Object.keys(entry).reduce((res, key): ResourceTimingEntry => {
     if (props.indexOf(key) < 0) {
-      res[key] = entry[key];
+      res[key] = entry[key]
     }
-    return res;
-  }, result);
+    return res
+  }, result)
 }
 
 function normalizeEntryKeys(entry: ResourceTimingEntry): ResourceTimingEntry {
-  const result: ResourceTimingEntry = {};
+  const result: ResourceTimingEntry = {}
   return Object.keys(entry).reduce((res, key): ResourceTimingEntry => {
-    const newKey = camelCaseToSnakeCase(key);
-    res[newKey] = entry[key];
-    return res;
-  }, result);
+    const newKey = camelCaseToSnakeCase(key)
+    res[newKey] = entry[key]
+    return res
+  }, result)
 }
 
 function normalizeEntryProps(
   props: string[]
 ): (entry: ResourceTimingEntry) => ResourceTimingEntry {
-  return (entry): ResourceTimingEntry => removeEntryProps(entry, props);
+  return (entry): ResourceTimingEntry => removeEntryProps(entry, props)
 }
 
 const normalizeEntry = compose(
   normalizeEntryKeys,
   normalizeEntryProps(EXCLUDED_PROPS),
   cloneEntry
-);
+)
 
 export {
   asyncGetEntry,
+  getValidEntry,
   cloneEntry,
   removeEntryProps,
   normalizeEntryKeys,
   normalizeEntryProps,
   normalizeEntry
-};
+}
