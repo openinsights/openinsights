@@ -1,8 +1,8 @@
-import { TestBase } from "./testBase"
+import { Test } from "./test"
 import { ResourceTimingEntry } from "../@types"
 import { asyncGetEntry, normalizeEntry } from "./resourceTiming"
 
-export default class Fetch extends TestBase {
+export default class Fetch extends Test {
     makeBeaconURL(): string {
         return this.provider.makeFetchBeaconURL(this.config)
     }

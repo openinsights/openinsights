@@ -4,7 +4,7 @@ interface State {
     hasRan: boolean
 }
 
-export abstract class TestBase implements Executable {
+export abstract class Test implements Executable {
     public state: State = { hasRan: false }
     protected beaconData: unknown
     constructor(protected provider: Provider, protected config: unknown) {}
