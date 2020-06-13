@@ -1,5 +1,6 @@
-import { Provider, Executable, SessionConfig, ResourceTimingEntry } from "../@types"
-import { beacon } from "../util/beacon"
+import { Provider, Executable, SessionConfig, ResourceTimingEntry, ResultBundle } from "../@types"
+import * as Beacon from './beacon'
+import beacon from '../util/beacon'
 
 export default abstract class ProviderBase implements Provider {
     sessionConfig?: SessionConfig
@@ -7,10 +8,21 @@ export default abstract class ProviderBase implements Provider {
     abstract name: string
     abstract fetchSessionConfig(): Promise<SessionConfig>
     abstract expandTasks(): Executable[]
-    abstract makeBeaconData(testConfig: unknown, testData: unknown): unknown
+    abstract createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: unknown): Promise<ResultBundle>
+    abstract makeBeaconData(testConfig: unknown, testData: ResultBundle): Beacon.Data
     abstract getResourceUrl(config: unknown): string
-    abstract createFetchResult(timing: ResourceTimingEntry, response: Response, testConfig: unknown): ResourceTimingEntry
     abstract shouldRun(): boolean
+
+    /**
+     * Providers override this if they wish to perform something aside from
+     * simple JSON-encoding.
+     *
+     * @param testConfig
+     * @param data
+     */
+    encodeBeaconData(testConfig: unknown, data: Beacon.Data): string {
+        return JSON.stringify(data)
+    }
 
     sendBeacon(testConfig: unknown, encodedBeaconData: string): void {
         beacon(this.makeFetchBeaconURL(testConfig), encodedBeaconData)

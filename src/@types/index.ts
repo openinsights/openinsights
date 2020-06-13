@@ -1,3 +1,4 @@
+import { Data as BeaconData } from '../lib/beacon'
 export interface FetchResponse {
     json(): Promise<any>
 }
@@ -7,8 +8,21 @@ export interface SessionConfig {
     setExpandedTasks(value: Executable[]): void
 }
 
+export interface TestConfiguration {
+    type: string
+}
+
 export interface ResourceTimingEntry {
     [key: string]: string | number
+}
+
+export interface Result {
+    [key: string]: any
+}
+
+export interface ResultBundle {
+    testType: string
+    data: Result[]
 }
 
 // NetworkInformation
@@ -69,16 +83,17 @@ export interface Provider {
     shouldRun(): boolean
     fetchSessionConfig(): Promise<SessionConfig>
     expandTasks(): Executable[]
-    createFetchResult(timing: ResourceTimingEntry, response: Response, testConfig: unknown): ResourceTimingEntry
-    makeBeaconData(testConfig: unknown, testData: unknown): unknown
+    createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: unknown): Promise<ResultBundle>
+    makeBeaconData(testConfig: unknown, testData: ResultBundle): BeaconData
     makeFetchBeaconURL(testConfig: unknown): string
     getResourceUrl(config: unknown): string
+    encodeBeaconData(testConfig: unknown, data: BeaconData): string
     sendBeacon(testConfig: unknown, encodedBeaconData: string): void
 }
 
 export type PromiseSequenceFunc = (sessionConfigs: SessionConfig[]) => Promise<unknown>
 
-export type ClientInfoResponseFunc = (response: Promise<any>) =>  Promise<unknown>
+export type ClientInfoResponseFunc = (response: Promise<any>) => Promise<unknown>
 
 export interface ClientSettings {
     preConfigStartDelay?: number
