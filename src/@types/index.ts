@@ -25,6 +25,10 @@ export interface ResultBundle {
     data: Result[]
 }
 
+export interface ClientInfo {
+    [key: string]: string | number | Date
+}
+
 // NetworkInformation
 // ---------------------------------------------------------------------------
 /// W3C Spec Draft http://wicg.github.io/netinfo/
@@ -93,7 +97,7 @@ export interface Provider {
 
 export type PromiseSequenceFunc = (sessionConfigs: SessionConfig[]) => Promise<unknown>
 
-export type ClientInfoResponseFunc = (response: Promise<any>) => Promise<unknown>
+export type ClientInfoResponseFunc = (response: Promise<any>) => Promise<ClientInfo>
 
 export interface ClientSettings {
     preConfigStartDelay?: number
