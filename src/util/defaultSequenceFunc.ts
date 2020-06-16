@@ -10,6 +10,6 @@ export default (sessionConfigs: SessionConfig[]): Promise<unknown[]> => {
     for (const c of sessionConfigs) {
         tasks.push(...c.getExpandedTasks())
     }
-    const makeTaskExecFun = (task: Executable) => () => task.execute()
-    return sequence<unknown>(tasks.map(makeTaskExecFun))
+    const makeTaskExecFunc = (task: Executable) => () => task.execute()
+    return sequence<unknown>(tasks.map(makeTaskExecFunc))
 }
