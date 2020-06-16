@@ -8,6 +8,6 @@ export interface Data {
     state: State
     testType: string
     data?: {
-        [key: string]: string | number | object
+        [key: string]: any
     }
 }

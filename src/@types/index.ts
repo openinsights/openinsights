@@ -1,4 +1,4 @@
-import { Data as BeaconData } from '../lib/beacon'
+import * as Beacon from '../lib/beacon'
 export interface FetchResponse {
     json(): Promise<any>
 }
@@ -75,7 +75,7 @@ export interface NetworkInformation {
 }
 
 export interface Executable {
-    execute(): Promise<unknown>
+    execute(): Promise<Beacon.Data>
 }
 
 export interface Provider {
@@ -83,21 +83,22 @@ export interface Provider {
     sessionConfig?: SessionConfig
     markTestStart(config: unknown): void
     setSessionConfig(value: SessionConfig): void
-    makeClientInfoPromise(task: Executable): Promise<unknown>
     shouldRun(): boolean
     fetchSessionConfig(): Promise<SessionConfig>
     expandTasks(): Executable[]
     createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: unknown): Promise<ResultBundle>
-    makeBeaconData(testConfig: unknown, testData: ResultBundle): BeaconData
+    makeBeaconData(testConfig: unknown, testData: ResultBundle): Beacon.Data
     makeFetchBeaconURL(testConfig: unknown): string
     getResourceUrl(config: unknown): string
-    encodeBeaconData(testConfig: unknown, data: BeaconData): string
+    encodeBeaconData(testConfig: unknown, data: Beacon.Data): string
     sendBeacon(testConfig: unknown, encodedBeaconData: string): void
 }
 
 export type PromiseSequenceFunc = (sessionConfigs: SessionConfig[]) => Promise<unknown>
 
 export type ClientInfoResponseFunc = (response: Promise<any>) => Promise<ClientInfo>
+
+export type ResourceTimingEntryValidationPredicate = (entry: ResourceTimingEntry) => boolean
 
 export interface ClientSettings {
     preConfigStartDelay?: number

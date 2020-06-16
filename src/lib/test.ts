@@ -38,7 +38,6 @@ export abstract class Test implements Executable {
             .catch((e): Promise<Beacon.Data> => {
                 this._state = TestState.Error
                 // TODO: notify subscribers of error
-                console.log(e)
                 return Promise.resolve({
                     state: Beacon.State.Unknown,
                     testType: 'foo',

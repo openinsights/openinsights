@@ -32,10 +32,6 @@ export default abstract class ProviderBase implements Provider {
         this.sessionConfig = value
     }
 
-    makeClientInfoPromise(task: Executable): Promise<unknown> {
-        return Promise.resolve<unknown>(null)
-    }
-
     /**
      * A subclass might not override this if it overrides ProviderBase::sendBeacon instead
      * @param testConfig

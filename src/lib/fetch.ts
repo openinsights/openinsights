@@ -1,13 +1,20 @@
 import { Test } from "./test"
-import { ResourceTimingEntry, ResultBundle } from "../@types"
+import { ResourceTimingEntry, ResultBundle, ResourceTimingEntryValidationPredicate, Provider, TestConfiguration } from "../@types"
 import { asyncGetEntry, normalizeEntry } from "./resourceTiming"
 
 export default class Fetch extends Test {
+
+    constructor(provider: Provider, config: TestConfiguration,
+        private isValidEntryFunc: ResourceTimingEntryValidationPredicate =
+            (e) => e.requestStart !== 0 && e.connectStart !== e.connectEnd) {
+        super(provider, config)
+    }
+
     test(): Promise<ResultBundle> {
         this.provider.markTestStart(this.config)
         return Promise.all<Response, ResourceTimingEntry>([
             this.fetchObject(),
-            asyncGetEntry(this.getResourceUrl(), 5000),
+            asyncGetEntry(this.getResourceUrl(), 5000, this.isValidEntryFunc),
         ]).then(
             ([response, entry]): Promise<ResultBundle> => {
                 return this.provider.createTestResult(normalizeEntry(entry), response, this.config)
@@ -22,27 +29,6 @@ export default class Fetch extends Test {
     getResourceUrl(): string {
         return this.provider.getResourceUrl(this.config)
     }
-
-    // makeTestSteps(): Promise<unknown[]> {
-    //     this.provider.markTestStart(this.config)
-    //     return Promise.all<unknown>([
-    //         this.test(),
-    //         this.provider.makeClientInfoPromise(this),
-    //     ])
-    // }
-
-    // test(): Promise<ResourceTimingEntry> {
-    //     return Promise.all<Response, ResourceTimingEntry>([
-    //         this.fetchObject(),
-    //         asyncGetEntry(this.getResourceUrl(), 5000)
-    //     ])
-    //         .then(
-    //             ([response, entry]): ResourceTimingEntry => {
-    //                 const timing = normalizeEntry(entry)
-    //                 return this.provider.createFetchResult(timing, response, this.config)
-    //             }
-    //         )
-    // }
 
     fetchObject(): Promise<Response> {
         return fetch(this.getResourceUrl())

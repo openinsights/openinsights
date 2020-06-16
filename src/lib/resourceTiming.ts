@@ -2,17 +2,18 @@
 import PerformanceObserver from "@fastly/performance-observer-polyfill"
 import compose from "../util/compose"
 import camelCaseToSnakeCase from "../util/camelCaseToSnakeCase"
-import { ResourceTimingEntry } from "../@types"
+import { ResourceTimingEntry, ResourceTimingEntryValidationPredicate } from "../@types"
 
 const EXCLUDED_PROPS = ["name", "initiatorType", "entryType"]
 
 function getValidEntry(
-  list: PerformanceEntryList
+  list: PerformanceEntryList,
+  isValidEntryFunc: ResourceTimingEntryValidationPredicate
 ): ResourceTimingEntry | undefined {
   let k = 0
   while (k < list.length) {
     const e = (list[k] as any) as ResourceTimingEntry
-    if (e.requestStart !== 0 && e.connectStart !== e.connectEnd) {
+    if (isValidEntryFunc(e)) {
       return e
     }
     k++
@@ -34,7 +35,8 @@ function getValidEntry(
  */
 function asyncGetEntry(
   name: string,
-  timeout = 5000
+  timeout = 5000,
+  isValidEntryFunc: ResourceTimingEntryValidationPredicate
 ): Promise<ResourceTimingEntry> {
   return new Promise((resolve, reject): void => {
     let entry: ResourceTimingEntry | undefined
@@ -45,7 +47,7 @@ function asyncGetEntry(
         observer: PerformanceObserver
       ): void => {
         const namedEntries = list.getEntriesByName(name)
-        entry = getValidEntry(namedEntries)
+        entry = getValidEntry(namedEntries, isValidEntryFunc)
 
         if (entry) {
           observer.disconnect()
@@ -57,7 +59,7 @@ function asyncGetEntry(
     setTimeout((): void => {
       if (!entry) {
         observer.disconnect()
-        reject(new Error("Timed out observing resource timing"))
+        reject(new Error(`Timed out observing resource timing (${name})`))
       }
     }, timeout)
 
