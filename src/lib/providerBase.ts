@@ -20,11 +20,11 @@ export default abstract class ProviderBase implements Provider {
      * @param testConfig
      * @param data
      */
-    encodeBeaconData(testConfig: unknown, data: Beacon.Data): string {
+    encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string {
         return JSON.stringify(data)
     }
 
-    sendBeacon(testConfig: unknown, encodedBeaconData: string): void {
+    sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void {
         beacon(this.makeFetchBeaconURL(testConfig), encodedBeaconData)
     }
 
@@ -36,7 +36,7 @@ export default abstract class ProviderBase implements Provider {
      * A subclass might not override this if it overrides ProviderBase::sendBeacon instead
      * @param testConfig
      */
-    makeFetchBeaconURL(testConfig: unknown): string {
+    makeFetchBeaconURL(testConfig: TestConfiguration): string {
         throw new Error("Method not implemented.")
     }
 
