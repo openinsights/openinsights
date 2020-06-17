@@ -8,9 +8,9 @@ export default abstract class ProviderBase implements Provider {
     abstract name: string
     abstract fetchSessionConfig(): Promise<SessionConfig>
     abstract expandTasks(): Executable[]
-    abstract createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: unknown, setupResult: TestSetupResult): Promise<ResultBundle>
-    abstract makeBeaconData(testConfig: unknown, testData: ResultBundle): Beacon.Data
-    abstract getResourceUrl(config: unknown): string
+    abstract createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: TestConfiguration, setupResult: TestSetupResult): Promise<ResultBundle>
+    abstract makeBeaconData(testConfig: TestConfiguration, testData: ResultBundle): Beacon.Data
+    abstract getResourceUrl(testConfig: TestConfiguration): URL
     abstract shouldRun(): boolean
 
     /**

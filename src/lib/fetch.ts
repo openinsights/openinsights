@@ -15,7 +15,7 @@ export default class Fetch extends Test {
             .then((setupResult) => {
                 return Promise.all<Response, ResourceTimingEntry>([
                     this.fetchObject(),
-                    asyncGetEntry(this.getResourceUrl(), 5000, this.isValidEntryFunc),
+                    asyncGetEntry(this.getResourceUrl().href, 5000, this.isValidEntryFunc),
                 ]).then(([response, entry]): Promise<ResultBundle> => {
                     return this.provider.createTestResult(normalizeEntry(entry), response, this.config, setupResult)
                 })
@@ -26,11 +26,11 @@ export default class Fetch extends Test {
         return this.provider.makeFetchBeaconURL(this.config)
     }
 
-    getResourceUrl(): string {
+    getResourceUrl(): URL {
         return this.provider.getResourceUrl(this.config)
     }
 
     fetchObject(): Promise<Response> {
-        return fetch(this.getResourceUrl())
+        return fetch(this.getResourceUrl().href)
     }
 }

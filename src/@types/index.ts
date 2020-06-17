@@ -107,7 +107,7 @@ export interface Provider {
     createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: TestConfiguration, setupResult: TestSetupResult): Promise<ResultBundle>
     makeBeaconData(testConfig: TestConfiguration, testData: ResultBundle): Beacon.Data
     makeFetchBeaconURL(testConfig: TestConfiguration): string
-    getResourceUrl(config: TestConfiguration): string
+    getResourceUrl(testConfig: TestConfiguration): URL
     encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string
     sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void
 }
