@@ -27,6 +27,7 @@ export interface Result {
 }
 
 export interface ResultBundle {
+    beaconData?: Beacon.Data
     testType: string
     data: Result[]
     setupResult: TestSetupResult
@@ -34,6 +35,10 @@ export interface ResultBundle {
 
 export interface ClientInfo {
     [key: string]: string | number | Date
+}
+
+export interface SessionResult {
+    testResults: ResultBundle[]
 }
 
 // NetworkInformation
@@ -82,7 +87,7 @@ export interface NetworkInformation {
 }
 
 export interface Executable {
-    execute(): Promise<Beacon.Data>
+    execute(): Promise<ResultBundle>
 }
 
 export interface Provider {
@@ -99,15 +104,15 @@ export interface Provider {
     shouldRun(): boolean
     fetchSessionConfig(): Promise<SessionConfig>
     expandTasks(): Executable[]
-    createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: unknown, setupResult: TestSetupResult): Promise<ResultBundle>
-    makeBeaconData(testConfig: unknown, testData: ResultBundle): Beacon.Data
-    makeFetchBeaconURL(testConfig: unknown): string
-    getResourceUrl(config: unknown): string
-    encodeBeaconData(testConfig: unknown, data: Beacon.Data): string
-    sendBeacon(testConfig: unknown, encodedBeaconData: string): void
+    createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: TestConfiguration, setupResult: TestSetupResult): Promise<ResultBundle>
+    makeBeaconData(testConfig: TestConfiguration, testData: ResultBundle): Beacon.Data
+    makeFetchBeaconURL(testConfig: TestConfiguration): string
+    getResourceUrl(config: TestConfiguration): string
+    encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string
+    sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void
 }
 
-export type PromiseSequenceFunc = (sessionConfigs: SessionConfig[]) => Promise<unknown>
+export type PromiseSequenceFunc = (sessionConfigs: SessionConfig[]) => Promise<SessionResult>
 
 export type ClientInfoResponseFunc = (response: Promise<any>) => Promise<ClientInfo>
 

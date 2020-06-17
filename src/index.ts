@@ -1,23 +1,26 @@
-import loadWhenReady from './util/loadWhenDocumentReady'
-import { ClientSettings } from './@types'
+import whenReady from './util/loadWhenDocumentReady'
+import { ClientSettings, SessionResult } from './@types'
 
-export function init(settings: ClientSettings): void {
-    loadWhenReady(() => {
-        if (settings.preConfigStartDelay) {
-            setTimeout(startLater(settings), settings.preConfigStartDelay)
-        } else {
+export function init(settings: ClientSettings): Promise<SessionResult> {
+    return whenReady()
+        .then(() => {
+            if (settings.preConfigStartDelay) {
+                return startLater(settings)
+            }
+            return start(settings)
+        })
+}
+
+function startLater(settings: ClientSettings): Promise<SessionResult> {
+    return new Promise(resolve => {
+        setTimeout(() => {
             start(settings)
-        }
+                .then(result => resolve(result))
+        }, settings.preConfigStartDelay)
     })
 }
 
-function startLater(settings: ClientSettings): () => void {
-    return function () {
-        start(settings)
-    }
-}
-
-function start(settings: ClientSettings): Promise<any> {
+function start(settings: ClientSettings): Promise<SessionResult> {
     return Promise.all(
         settings.providers
             .filter(provider => provider.shouldRun())

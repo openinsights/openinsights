@@ -11,7 +11,6 @@ enum TestState {
 export abstract class Test implements Executable {
 
     private _state: TestState = TestState.NotStarted
-    private _beaconData?: Beacon.Data
     constructor(protected provider: Provider, protected config: TestConfiguration) { }
 
     get state(): TestState {
@@ -21,26 +20,25 @@ export abstract class Test implements Executable {
     /**
      * This is the logic function for conducting an individual test.
      */
-    execute(): Promise<Beacon.Data> {
+    execute(): Promise<ResultBundle> {
         this._state = TestState.Running
         return this.test()
-            .then((bundle): Beacon.Data => {
-                return this._beaconData = this.provider.makeBeaconData(this.config, bundle)
-            })
-            .then((beaconData): void => this.provider.sendBeacon(this.config, this.provider.encodeBeaconData(this.config, beaconData)))
-            .then((): Beacon.Data => {
+            .then(bundle => {
+                // Add beacon data to the result bundle
+                bundle.beaconData = this.provider.makeBeaconData(this.config, bundle)
+                this.provider.sendBeacon(this.config, this.provider.encodeBeaconData(this.config, bundle.beaconData))
                 this._state = TestState.Finished
-                if (this._beaconData) {
-                    return this._beaconData
-                }
-                throw new Error('Beacon data not set.')
+                return bundle
             })
-            .catch((e): Promise<Beacon.Data> => {
+            .catch((e): Promise<ResultBundle> => {
                 this._state = TestState.Error
                 // TODO: notify subscribers of error
                 return Promise.resolve({
-                    state: Beacon.State.Unknown,
-                    testType: 'foo',
+                    testType: this.config.type,
+                    data: [],
+                    setupResult: {
+                        data: {}
+                    }
                 })
             })
     }
