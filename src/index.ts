@@ -1,7 +1,7 @@
 import whenReady from './util/loadWhenDocumentReady'
 import { ClientSettings, SessionResult } from './@types'
 
-export function init(settings: ClientSettings): Promise<SessionResult> {
+export default function init(settings: ClientSettings): Promise<SessionResult> {
     return whenReady()
         .then(() => {
             if (settings.preConfigStartDelay) {
