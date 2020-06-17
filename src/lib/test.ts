@@ -27,7 +27,7 @@ export abstract class Test implements Executable {
             .then((bundle): Beacon.Data => {
                 return this._beaconData = this.provider.makeBeaconData(this.config, bundle)
             })
-            .then((data): void => this.provider.sendBeacon(this.config, this.provider.encodeBeaconData(this.config, data)))
+            .then((beaconData): void => this.provider.sendBeacon(this.config, this.provider.encodeBeaconData(this.config, beaconData)))
             .then((): Beacon.Data => {
                 this._state = TestState.Finished
                 if (this._beaconData) {

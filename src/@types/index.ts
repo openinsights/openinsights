@@ -12,6 +12,12 @@ export interface TestConfiguration {
     type: string
 }
 
+export interface TestSetupResult {
+    data: {
+        [key: string]: any
+    }
+}
+
 export interface ResourceTimingEntry {
     [key: string]: string | number
 }
@@ -23,6 +29,7 @@ export interface Result {
 export interface ResultBundle {
     testType: string
     data: Result[]
+    setupResult: TestSetupResult
 }
 
 export interface ClientInfo {
@@ -81,12 +88,18 @@ export interface Executable {
 export interface Provider {
     name: any
     sessionConfig?: SessionConfig
-    markTestStart(config: unknown): void
+
+    /**
+     * Called before a test begins, giving the provider an opportunity to perform any pre-test setup that it would like to do, such as record a timestamp.
+     * @param config The configuration object of the test about to start
+     */
+    testSetup(config: TestConfiguration): Promise<TestSetupResult>
+
     setSessionConfig(value: SessionConfig): void
     shouldRun(): boolean
     fetchSessionConfig(): Promise<SessionConfig>
     expandTasks(): Executable[]
-    createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: unknown): Promise<ResultBundle>
+    createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: unknown, setupResult: TestSetupResult): Promise<ResultBundle>
     makeBeaconData(testConfig: unknown, testData: ResultBundle): Beacon.Data
     makeFetchBeaconURL(testConfig: unknown): string
     getResourceUrl(config: unknown): string

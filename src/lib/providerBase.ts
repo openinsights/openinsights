@@ -1,4 +1,4 @@
-import { Provider, Executable, SessionConfig, ResourceTimingEntry, ResultBundle } from "../@types"
+import { Provider, Executable, SessionConfig, ResourceTimingEntry, ResultBundle, TestConfiguration, TestSetupResult } from "../@types"
 import * as Beacon from './beacon'
 import beacon from '../util/beacon'
 
@@ -8,7 +8,7 @@ export default abstract class ProviderBase implements Provider {
     abstract name: string
     abstract fetchSessionConfig(): Promise<SessionConfig>
     abstract expandTasks(): Executable[]
-    abstract createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: unknown): Promise<ResultBundle>
+    abstract createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: unknown, setupResult: TestSetupResult): Promise<ResultBundle>
     abstract makeBeaconData(testConfig: unknown, testData: ResultBundle): Beacon.Data
     abstract getResourceUrl(config: unknown): string
     abstract shouldRun(): boolean
@@ -40,7 +40,11 @@ export default abstract class ProviderBase implements Provider {
         throw new Error("Method not implemented.")
     }
 
-    markTestStart(config: unknown): void {
-        // Do nothing
+    /**
+     * A no-op implementation of {@link Provider.testSetup}
+     * @param config
+     */
+    testSetup(config: TestConfiguration): Promise<TestSetupResult> {
+        return Promise.resolve({ data: {} })
     }
 }
