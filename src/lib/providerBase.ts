@@ -1,6 +1,6 @@
 import { Provider, Executable, SessionConfig, ResourceTimingEntry, ResultBundle, TestConfiguration, TestSetupResult, HttpHeader } from "../@types"
-import * as Beacon from './beacon'
-import beacon from '../util/beacon'
+import * as Beacon from "./beacon"
+import beacon from "../util/beacon"
 
 export default abstract class ProviderBase implements Provider {
     sessionConfig?: SessionConfig

@@ -13,7 +13,7 @@ export default class Fetch extends Test {
     test(setupResult: TestSetupResult): Promise<ResultBundle> {
         return Promise.all<Response, ResourceTimingEntry>([
             this.fetchObject(),
-            asyncGetEntry(this.getResourceUrl().href, 5000, this.isValidEntryFunc),
+            asyncGetEntry(this.getResourceUrl().href, 5000, this.isValidEntryFunc)
         ]).then(([response, entry]): Promise<ResultBundle> => {
             return this.provider.createTestResult(normalizeEntry(entry), response, this.config, setupResult)
         })

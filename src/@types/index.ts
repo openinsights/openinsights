@@ -1,4 +1,4 @@
-import * as Beacon from '../lib/beacon'
+import * as Beacon from "../lib/beacon"
 export interface FetchResponse {
     json(): Promise<any>
 }

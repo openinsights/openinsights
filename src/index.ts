@@ -1,5 +1,5 @@
-import whenReady from './util/loadWhenDocumentReady'
-import { ClientSettings, SessionResult } from './@types'
+import whenReady from "./util/loadWhenDocumentReady"
+import { ClientSettings, SessionResult } from "./@types"
 
 export default function init(settings: ClientSettings): Promise<SessionResult> {
     return whenReady()

@@ -1,5 +1,5 @@
 import { Executable, Provider, ResultBundle, TestConfiguration, TestSetupResult } from "../@types"
-import * as Beacon from './beacon'
+import * as Beacon from "./beacon"
 
 enum TestState {
     NotStarted,
