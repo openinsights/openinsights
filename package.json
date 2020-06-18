@@ -7,14 +7,17 @@
   "scripts": {
     "build:dev": "webpack --config webpack.dev.js",
     "build:dev:watch": "webpack --config webpack.dev.js --watch",
+    "build:doc": "rimraf doc && typedoc",
     "test": "jest --coverage"
   },
   "devDependencies": {
     "@fastly/performance-observer-polyfill": "^1.1.1",
     "@types/jest": "^25.2.3",
     "jest": "^26.0.1",
+    "rimraf": "^3.0.2",
     "ts-jest": "^26.1.0",
     "ts-loader": "^7.0.5",
+    "typedoc": "^0.17.7",
     "typescript": "^3.9.3",
     "unfetch": "^4.1.0",
     "webpack": "^4.43.0",

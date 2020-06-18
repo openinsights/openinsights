@@ -122,7 +122,11 @@ export type ClientInfoResponseFunc = (response: Promise<any>) => Promise<ClientI
 
 export type ResourceTimingEntryValidationPredicate = (entry: ResourceTimingEntry) => boolean
 
+/**
+ * Used by the tag owner to pass settings to the client at runtime. In general, these settings affect core module behavior at the page level. For example, the site might pass different settings to the client on one page than it doesn on another.
+ */
 export interface ClientSettings {
+
     preConfigStartDelay?: number
     providers: Provider[]
     sequence: PromiseSequenceFunc

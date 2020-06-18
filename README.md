@@ -43,3 +43,9 @@ npm install
 ```bash
 npm run test
 ```
+
+### Build Code Documentation
+
+```bash
+npm run build:doc
+```
