@@ -18,6 +18,6 @@ module.exports = {
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
         library: "openInsights",
-        libraryTarget: "window"
+        libraryTarget: "window",
     }
 };

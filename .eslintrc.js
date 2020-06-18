@@ -2,11 +2,9 @@ module.exports = {
     parser: "@typescript-eslint/parser",
     parserOptions: {
         ecmaVersion: 2020,
-        sourceType: "module"
+        sourceType: "module",
     },
-    extends: [
-        "plugin:@typescript-eslint/recommended"
-    ],
+    extends: ["plugin:@typescript-eslint/recommended", "prettier/@typescript-eslint", "plugin:prettier/recommended"],
     rules: {
         "comma-dangle": ["error"],
         "max-len": ["error", { comments: 80 }],

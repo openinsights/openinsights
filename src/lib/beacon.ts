@@ -11,9 +11,9 @@ export enum State {
  * Beacon.Data represents test data to be sent back according to provider specifications
  */
 export interface Data {
-    state: State
-    testType: string
+    state: State;
+    testType: string;
     data?: {
-        [key: string]: any
-    }
+        [key: string]: any;
+    };
 }

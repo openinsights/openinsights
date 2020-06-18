@@ -1,18 +1,32 @@
-import { Provider, Executable, SessionConfig, ResourceTimingEntry, ResultBundle, TestConfiguration, TestSetupResult, HttpHeader } from "../@types"
-import * as Beacon from "./beacon"
-import beacon from "../util/beacon"
+import {
+    Provider,
+    Executable,
+    SessionConfig,
+    ResourceTimingEntry,
+    ResultBundle,
+    TestConfiguration,
+    TestSetupResult,
+    HttpHeader
+} from "../@types";
+import * as Beacon from "./beacon";
+import beacon from "../util/beacon";
 
 export default abstract class ProviderBase implements Provider {
-    sessionConfig?: SessionConfig
+    sessionConfig?: SessionConfig;
 
-    abstract name: string
-    abstract fetchSessionConfig(): Promise<SessionConfig>
-    abstract expandTasks(): Executable[]
-    abstract createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: TestConfiguration, setupResult: TestSetupResult): Promise<ResultBundle>
-    abstract makeBeaconData(testConfig: TestConfiguration, testData: ResultBundle): Beacon.Data
-    abstract getResourceUrl(testConfig: TestConfiguration): URL
-    abstract getResourceRequestHeaders(testConfig: TestConfiguration): HttpHeader[]
-    abstract shouldRun(): boolean
+    abstract name: string;
+    abstract fetchSessionConfig(): Promise<SessionConfig>;
+    abstract expandTasks(): Executable[];
+    abstract createTestResult(
+        timingEntry: ResourceTimingEntry,
+        response: Response,
+        testConfig: TestConfiguration,
+        setupResult: TestSetupResult,
+    ): Promise<ResultBundle>;
+    abstract makeBeaconData(testConfig: TestConfiguration, testData: ResultBundle): Beacon.Data;
+    abstract getResourceUrl(testConfig: TestConfiguration): URL;
+    abstract getResourceRequestHeaders(testConfig: TestConfiguration): HttpHeader[];
+    abstract shouldRun(): boolean;
 
     /**
      * Providers override this if they wish to perform something aside from
@@ -22,15 +36,15 @@ export default abstract class ProviderBase implements Provider {
      * @param data
      */
     encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string {
-        return JSON.stringify(data)
+        return JSON.stringify(data);
     }
 
     sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void {
-        beacon(this.makeFetchBeaconURL(testConfig), encodedBeaconData)
+        beacon(this.makeFetchBeaconURL(testConfig), encodedBeaconData);
     }
 
     setSessionConfig(value: SessionConfig): void {
-        this.sessionConfig = value
+        this.sessionConfig = value;
     }
 
     /**
@@ -38,7 +52,7 @@ export default abstract class ProviderBase implements Provider {
      * @param testConfig
      */
     makeFetchBeaconURL(testConfig: TestConfiguration): string {
-        throw new Error("Method not implemented.")
+        throw new Error("Method not implemented.");
     }
 
     /**
@@ -46,7 +60,7 @@ export default abstract class ProviderBase implements Provider {
      * @param config
      */
     testSetUp(testConfig: TestConfiguration): Promise<TestSetupResult> {
-        return Promise.resolve({})
+        return Promise.resolve({});
     }
 
     /**
@@ -54,6 +68,6 @@ export default abstract class ProviderBase implements Provider {
      * @param config
      */
     testTearDown(testData: ResultBundle): Promise<ResultBundle> {
-        return Promise.resolve(testData)
+        return Promise.resolve(testData);
     }
 }
