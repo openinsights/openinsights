@@ -41,6 +41,8 @@ export interface SessionResult {
     testResults: ResultBundle[]
 }
 
+export type HttpHeader = [string,string]
+
 // NetworkInformation
 // ---------------------------------------------------------------------------
 /// W3C Spec Draft http://wicg.github.io/netinfo/
@@ -108,6 +110,7 @@ export interface Provider {
     makeBeaconData(testConfig: TestConfiguration, testData: ResultBundle): Beacon.Data
     makeFetchBeaconURL(testConfig: TestConfiguration): string
     getResourceUrl(testConfig: TestConfiguration): URL
+    getResourceRequestHeaders(testConfig: TestConfiguration): HttpHeader[]
     encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string
     sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void
 }

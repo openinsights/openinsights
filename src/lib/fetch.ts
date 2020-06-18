@@ -1,5 +1,5 @@
 import { Test } from "./test"
-import { ResourceTimingEntry, ResultBundle, ResourceTimingEntryValidationPredicate, Provider, TestConfiguration } from "../@types"
+import { ResourceTimingEntry, ResultBundle, ResourceTimingEntryValidationPredicate, Provider, TestConfiguration, HttpHeader } from "../@types"
 import { asyncGetEntry, normalizeEntry } from "./resourceTiming"
 
 export default class Fetch extends Test {
@@ -31,6 +31,15 @@ export default class Fetch extends Test {
     }
 
     fetchObject(): Promise<Response> {
-        return fetch(this.getResourceUrl().href)
+        const init: RequestInit = {}
+        const requestHeaders: [string,string][] = this.provider.getResourceRequestHeaders(this.config)
+        if (requestHeaders.length) {
+            init.headers = requestHeaders.reduce((accumulator: { [key:string]: string }, currentValue: HttpHeader) => {
+                accumulator[currentValue[0]] = currentValue[1]
+                return accumulator
+            }, {})
+        }
+        const request = new Request(this.getResourceUrl().href, init)
+        return fetch(request)
     }
 }

@@ -1,4 +1,4 @@
-import { Provider, Executable, SessionConfig, ResourceTimingEntry, ResultBundle, TestConfiguration, TestSetupResult } from "../@types"
+import { Provider, Executable, SessionConfig, ResourceTimingEntry, ResultBundle, TestConfiguration, TestSetupResult, HttpHeader } from "../@types"
 import * as Beacon from './beacon'
 import beacon from '../util/beacon'
 
@@ -11,6 +11,7 @@ export default abstract class ProviderBase implements Provider {
     abstract createTestResult(timingEntry: ResourceTimingEntry, response: Response, testConfig: TestConfiguration, setupResult: TestSetupResult): Promise<ResultBundle>
     abstract makeBeaconData(testConfig: TestConfiguration, testData: ResultBundle): Beacon.Data
     abstract getResourceUrl(testConfig: TestConfiguration): URL
+    abstract getResourceRequestHeaders(testConfig: TestConfiguration): HttpHeader[]
     abstract shouldRun(): boolean
 
     /**
