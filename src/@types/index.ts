@@ -13,7 +13,7 @@ export interface TestConfiguration {
 }
 
 export interface TestSetupResult {
-    data: {
+    data?: {
         [key: string]: any
     }
 }
@@ -100,7 +100,8 @@ export interface Provider {
      * Called before a test begins, giving the provider an opportunity to perform any pre-test setup that it would like to do, such as record a timestamp.
      * @param config The configuration object of the test about to start
      */
-    testSetup(config: TestConfiguration): Promise<TestSetupResult>
+    testSetUp(config: TestConfiguration): Promise<TestSetupResult>
+    testTearDown(testData: ResultBundle): Promise<ResultBundle>
 
     setSessionConfig(value: SessionConfig): void
     shouldRun(): boolean

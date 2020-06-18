@@ -42,10 +42,18 @@ export default abstract class ProviderBase implements Provider {
     }
 
     /**
-     * A no-op implementation of {@link Provider.testSetup}
+     * A no-op implementation of {@link Provider.testSetUp}
      * @param config
      */
-    testSetup(config: TestConfiguration): Promise<TestSetupResult> {
-        return Promise.resolve({ data: {} })
+    testSetUp(testConfig: TestConfiguration): Promise<TestSetupResult> {
+        return Promise.resolve({})
+    }
+
+    /**
+     * A no-op implementation of {@link Provider.testTearDown}
+     * @param config
+     */
+    testTearDown(testData: ResultBundle): Promise<ResultBundle> {
+        return Promise.resolve(testData)
     }
 }

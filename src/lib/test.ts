@@ -1,4 +1,4 @@
-import { Executable, Provider, ResultBundle, TestConfiguration } from "../@types"
+import { Executable, Provider, ResultBundle, TestConfiguration, TestSetupResult } from "../@types"
 import * as Beacon from './beacon'
 
 enum TestState {
@@ -22,7 +22,8 @@ export abstract class Test implements Executable {
      */
     execute(): Promise<ResultBundle> {
         this._state = TestState.Running
-        return this.test()
+        return this.provider.testSetUp(this.config)
+            .then(setupResult => this.test(setupResult))
             .then(bundle => {
                 // Add beacon data to the result bundle
                 bundle.beaconData = this.provider.makeBeaconData(this.config, bundle)
@@ -30,6 +31,7 @@ export abstract class Test implements Executable {
                 this._state = TestState.Finished
                 return bundle
             })
+            .then(bundle => this.provider.testTearDown(bundle))
             .catch((e): Promise<ResultBundle> => {
                 this._state = TestState.Error
                 // TODO: notify subscribers of error
@@ -46,7 +48,7 @@ export abstract class Test implements Executable {
     /**
      * A subclass implements this method in order to define its specialized mechanics
      */
-    abstract test(): Promise<ResultBundle>
+    abstract test(setupResult: TestSetupResult): Promise<ResultBundle>
 
     abstract makeBeaconURL(): string
 }
