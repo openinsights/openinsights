@@ -38,6 +38,12 @@ Within the project root directory:
 npm install
 ```
 
+### Run Linter
+
+```bash
+npm run lint
+```
+
 ### Run Tests
 
 ```bash
