@@ -129,10 +129,6 @@ export type PromiseSequenceFunc = (
     sessionConfigs: SessionConfig[],
 ) => Promise<SessionResult>
 
-export type ClientInfoResponseFunc = (
-    response: Promise<SimpleObject>,
-) => Promise<ClientInfo>
-
 export type ResourceTimingEntryValidationPredicate = (
     entry: ResourceTimingEntry,
 ) => boolean
