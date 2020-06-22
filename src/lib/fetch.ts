@@ -10,7 +10,16 @@ import {
 import { asyncGetEntry, normalizeEntry } from "./resourceTiming"
 import { Test } from "./test"
 
+/**
+ * TODO
+ */
 export default class Fetch extends Test {
+    /**
+     * TODO
+     * @param provider
+     * @param config
+     * @param isValidEntryFunc
+     */
     constructor(
         provider: Provider,
         config: TestConfiguration,
@@ -21,6 +30,10 @@ export default class Fetch extends Test {
         super(provider, config)
     }
 
+    /**
+     * TODO
+     * @param setupResult
+     */
     test(setupResult: TestSetupResult): Promise<ResultBundle> {
         return Promise.all<Response, ResourceTimingEntry>([
             this.fetchObject(),
@@ -41,14 +54,23 @@ export default class Fetch extends Test {
         )
     }
 
+    /**
+     * TODO
+     */
     makeBeaconURL(): string {
         return this.provider.makeFetchBeaconURL(this.config)
     }
 
+    /**
+     * TODO
+     */
     getResourceUrl(): URL {
         return this.provider.getResourceUrl(this.config)
     }
 
+    /**
+     * TODO
+     */
     fetchObject(): Promise<Response> {
         const init: RequestInit = {}
         const requestHeaders: [

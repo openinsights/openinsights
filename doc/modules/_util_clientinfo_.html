@@ -100,9 +100,14 @@
 					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_util_clientinfo_.cache.html" class="tsd-signature-type">Cache</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/util/clientInfo.ts#L8">util/clientInfo.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/util/clientInfo.ts#L14">util/clientInfo.ts:14</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>TODO</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -111,28 +116,29 @@
 					<a name="getclientinfo" class="tsd-anchor"></a>
 					<h3>get<wbr>Client<wbr>Info</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Client<wbr>Info<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, resultFunc<span class="tsd-signature-symbol">?: </span><a href="__types_index_.html#clientinforesponsefunc" class="tsd-signature-type">ClientInfoResponseFunc</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.clientinfo.html" class="tsd-signature-type">ClientInfo</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Client<wbr>Info<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.clientinfo.html" class="tsd-signature-type">ClientInfo</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/util/clientInfo.ts#L20">util/clientInfo.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/util/clientInfo.ts#L30">util/clientInfo.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Function that performs a unique API query to get client data
-									Memoizes responses to ensure that we only hit the API once</p>
+										Memoizes responses to ensure that we only hit the API once
+									TODO: Need to handle errors and retry</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>url: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> resultFunc: <a href="__types_index_.html#clientinforesponsefunc" class="tsd-signature-type">ClientInfoResponseFunc</a><span class="tsd-signature-symbol"> = (response) &#x3D;&gt; response</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>TODO</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.clientinfo.html" class="tsd-signature-type">ClientInfo</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -149,7 +155,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/util/clientInfo.ts#L11">util/clientInfo.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/util/clientInfo.ts#L20">util/clientInfo.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -161,6 +167,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>TODO</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

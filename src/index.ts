@@ -1,3 +1,7 @@
+/**
+ * Top-level index.ts for the Open Insights library.
+ * @packageDocumentation
+ */
 import whenReady from "./util/loadWhenDocumentReady"
 import { ClientSettings, SessionResult } from "./@types"
 

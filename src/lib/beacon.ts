@@ -12,8 +12,17 @@ export enum State {
  * specifications.
  */
 export interface Data {
+    /**
+     * TODO
+     */
     state: State
+    /**
+     * TODO
+     */
     testType: string
+    /**
+     * TODO
+     */
     data?: {
         /* eslint-disable @typescript-eslint/no-explicit-any */
         [key: string]: any

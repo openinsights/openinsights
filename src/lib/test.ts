@@ -6,6 +6,9 @@ import {
     TestSetupResult,
 } from "../@types"
 
+/**
+ * TODO
+ */
 enum TestState {
     NotStarted,
     Error,
@@ -13,13 +16,28 @@ enum TestState {
     Finished,
 }
 
+/**
+ * TODO
+ */
 export abstract class Test implements Executable {
+    /**
+     * TODO
+     */
     private _state: TestState = TestState.NotStarted
+
+    /**
+     * TODO
+     * @param provider TODO
+     * @param config TODO
+     */
     constructor(
         protected provider: Provider,
         protected config: TestConfiguration,
     ) {}
 
+    /**
+     * TODO
+     */
     get state(): TestState {
         return this._state
     }
@@ -67,8 +85,12 @@ export abstract class Test implements Executable {
     /**
      * A subclass implements this method in order to define its specialized
      * mechanics.
+     * @param setupResult TODO
      */
     abstract test(setupResult: TestSetupResult): Promise<ResultBundle>
 
+    /**
+     * TODO
+     */
     abstract makeBeaconURL(): string
 }

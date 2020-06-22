@@ -1,8 +1,9 @@
-// getNetworkInformation gets the Network Intoformation API interface via the
-
 import { Navigator, NetworkInformation } from "../@types"
 
-// navigator.connection global and clones the object as it is read only.
+/**
+ * Gets the Network Intoformation API interface via the navigator.connection
+ * global and clones the object as it is read only.
+ */
 export default function getNetworkInformation(): NetworkInformation {
     const navWithInfo = navigator as Navigator
     const connection = navWithInfo && navWithInfo.connection
@@ -15,6 +16,7 @@ export default function getNetworkInformation(): NetworkInformation {
                 res[prop] = connection[prop]
             }
         }
+        /* eslint-enable guard-for-in */
         return res
     }
     return {}

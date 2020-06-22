@@ -4,8 +4,11 @@ import sequence from "./promiseSequence"
 /**
  * Combines the task objects from each provider uses the standard promise
  * generation sequence algorithm to execute them.
+ * @param sessionConfigs TODO
  */
-export default (sessionConfigs: SessionConfig[]): Promise<SessionResult> => {
+export default function defaultSequenceFunc(
+    sessionConfigs: SessionConfig[],
+): Promise<SessionResult> {
     const tasks: Executable[] = []
     for (const c of sessionConfigs) {
         tasks.push(...c.getExpandedTasks())

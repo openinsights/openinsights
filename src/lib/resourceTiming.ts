@@ -7,8 +7,16 @@ import {
     ResourceTimingEntryValidationPredicate,
 } from "../@types"
 
+/**
+ * TODO
+ */
 const EXCLUDED_PROPS = ["name", "initiatorType", "entryType"]
 
+/**
+ * TODO
+ * @param list TODO
+ * @param isValidEntryFunc TODO
+ */
 function getValidEntry(
     list: PerformanceEntryList,
     isValidEntryFunc: ResourceTimingEntryValidationPredicate,
@@ -31,12 +39,10 @@ function getValidEntry(
  * by its name (url). It starts a PerformanceObserver to observe the timeling
  * for the entry and resolves with the entry once successful. If the timeout is
  * reached before and entry is returned it rejects the Promise.
- *
- * @param {string}  name        URL of the of the entry
- * @param {number=} timeout     Optional parameter.
- *
- * @returns {Promise<ResourceTimingEntry>}
- *
+ * @param name URL of the of the entry
+ * @param timeout Optional timeout
+ * @param isValidEntryFunc Boolean function used to determine validity of
+ * Resource Timing entry
  */
 function asyncGetEntry(
     name: string,
@@ -78,6 +84,10 @@ function asyncGetEntry(
     })
 }
 
+/**
+ * TODO
+ * @param entry TODO
+ */
 function cloneEntry(entry: ResourceTimingEntry): ResourceTimingEntry {
     const result: ResourceTimingEntry = {}
     for (const key in entry) {
@@ -89,6 +99,11 @@ function cloneEntry(entry: ResourceTimingEntry): ResourceTimingEntry {
     return result
 }
 
+/**
+ * TODO
+ * @param entry TODO
+ * @param props TODO
+ */
 function removeEntryProps(
     entry: ResourceTimingEntry,
     props: string[],
@@ -102,6 +117,10 @@ function removeEntryProps(
     }, result)
 }
 
+/**
+ * TODO
+ * @param entry TODO
+ */
 function normalizeEntryKeys(entry: ResourceTimingEntry): ResourceTimingEntry {
     const result: ResourceTimingEntry = {}
     return Object.keys(entry).reduce((res, key): ResourceTimingEntry => {
@@ -111,12 +130,19 @@ function normalizeEntryKeys(entry: ResourceTimingEntry): ResourceTimingEntry {
     }, result)
 }
 
+/**
+ * TODO
+ * @param props TODO
+ */
 function normalizeEntryProps(
     props: string[],
 ): (entry: ResourceTimingEntry) => ResourceTimingEntry {
     return (entry): ResourceTimingEntry => removeEntryProps(entry, props)
 }
 
+/**
+ * TODO
+ */
 const normalizeEntry = compose(
     normalizeEntryKeys,
     normalizeEntryProps(EXCLUDED_PROPS),

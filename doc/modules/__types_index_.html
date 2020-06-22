@@ -93,7 +93,6 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="__types_index_.html#clientinforesponsefunc" class="tsd-kind-icon">Client<wbr>Info<wbr>Response<wbr>Func</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported"><a href="__types_index_.html#effectiveconnectiontype" class="tsd-kind-icon">Effective<wbr>Connection<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="__types_index_.html#httpheader" class="tsd-kind-icon">Http<wbr>Header</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported"><a href="__types_index_.html#megabit" class="tsd-kind-icon">Megabit</a></li>
@@ -109,46 +108,20 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="clientinforesponsefunc" class="tsd-anchor"></a>
-					<h3>Client<wbr>Info<wbr>Response<wbr>Func</h3>
-					<div class="tsd-signature tsd-kind-icon">Client<wbr>Info<wbr>Response<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.simpleobject.html" class="tsd-signature-type">SimpleObject</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.clientinfo.html" class="tsd-signature-type">ClientInfo</a><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/@types/index.ts#L132">@types/index.ts:132</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.simpleobject.html" class="tsd-signature-type">SimpleObject</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.clientinfo.html" class="tsd-signature-type">ClientInfo</a><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>response: <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.simpleobject.html" class="tsd-signature-type">SimpleObject</a><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.clientinfo.html" class="tsd-signature-type">ClientInfo</a><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 					<a name="effectiveconnectiontype" class="tsd-anchor"></a>
 					<h3>Effective<wbr>Connection<wbr>Type</h3>
 					<div class="tsd-signature tsd-kind-icon">Effective<wbr>Connection<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"2g"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"3g"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"4g"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"slow-2g"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/@types/index.ts#L74">@types/index.ts:74</a></li>
+							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/@types/index.ts#L124">@types/index.ts:124</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>See <a href="http://wicg.github.io/netinfo/#effectiveconnectiontype-enum">http://wicg.github.io/netinfo/#effectiveconnectiontype-enum</a></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="httpheader" class="tsd-anchor"></a>
@@ -156,9 +129,14 @@
 					<div class="tsd-signature tsd-kind-icon">Http<wbr>Header<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/@types/index.ts#L43">@types/index.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/@types/index.ts#L89">@types/index.ts:89</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Alias for a tuple representing an HTTP header name and value.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 					<a name="megabit" class="tsd-anchor"></a>
@@ -166,9 +144,14 @@
 					<div class="tsd-signature tsd-kind-icon">Megabit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/@types/index.ts#L77">@types/index.ts:77</a></li>
+							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/@types/index.ts#L129">@types/index.ts:129</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>See <a href="http://wicg.github.io/netinfo/#dom-megabit">http://wicg.github.io/netinfo/#dom-megabit</a></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 					<a name="millisecond" class="tsd-anchor"></a>
@@ -176,9 +159,14 @@
 					<div class="tsd-signature tsd-kind-icon">Millisecond<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/@types/index.ts#L79">@types/index.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/@types/index.ts#L134">@types/index.ts:134</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>See <a href="http://wicg.github.io/netinfo/#dom-millisecond">http://wicg.github.io/netinfo/#dom-millisecond</a></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 					<a name="networkconnectiontype" class="tsd-anchor"></a>
@@ -186,9 +174,14 @@
 					<div class="tsd-signature tsd-kind-icon">Network<wbr>Connection<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"bluetooth"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"cellular"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ethernet"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"mixed"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"none"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"other"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"unknown"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"wifi"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"wimax"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/@types/index.ts#L62">@types/index.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/@types/index.ts#L110">@types/index.ts:110</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>See <a href="http://wicg.github.io/netinfo/#connection-types">http://wicg.github.io/netinfo/#connection-types</a></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="promisesequencefunc" class="tsd-anchor"></a>
@@ -196,9 +189,17 @@
 					<div class="tsd-signature tsd-kind-icon">Promise<wbr>Sequence<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>sessionConfigs<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.sessionconfig.html" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/@types/index.ts#L128">@types/index.ts:128</a></li>
+							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/@types/index.ts#L255">@types/index.ts:255</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Alias for a function that takes an array of <a href="../interfaces/__types_index_.sessionconfig.html">SessionConfig</a> objects
+								and returns a promise resolving to a <a href="../interfaces/__types_index_.sessionresult.html">SessionResult</a> object. The tag
+								own may override the default sequencing function in order to control the
+							order in which tests run.</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -227,9 +228,16 @@
 					<div class="tsd-signature tsd-kind-icon">Resource<wbr>Timing<wbr>Entry<span class="tsd-signature-symbol">:</span> <a href="../interfaces/__types_index_.simpleobject.html" class="tsd-signature-type">SimpleObject</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/@types/index.ts#L22">@types/index.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/@types/index.ts#L40">@types/index.ts:40</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A type representing a Resource Timing API entry having <em>entryType</em>
+							&quot;resource&quot;.</p>
+						</div>
+						<p>Alias for <a href="../interfaces/__types_index_.simpleobject.html">SimpleObject</a></p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="resourcetimingentryvalidationpredicate" class="tsd-anchor"></a>
@@ -237,9 +245,17 @@
 					<div class="tsd-signature tsd-kind-icon">Resource<wbr>Timing<wbr>Entry<wbr>Validation<wbr>Predicate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>entry<span class="tsd-signature-symbol">: </span><a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/131528e/src/@types/index.ts#L136">@types/index.ts:136</a></li>
+							<li>Defined in <a href="https://github.com/cbsinteractive/open-insights/blob/5cff05b/src/@types/index.ts#L48">@types/index.ts:48</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An alias for a boolean-returning function that evaluates whether a Resource
+								Timing entry is valid. Used by
+								{@link &quot;index&quot;.lib.resourceTiming.getValidEntry} to assess validity of an
+							entry. Providers may override the default predicate.</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -369,9 +385,6 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../interfaces/__types_index_.workernavigator.html" class="tsd-kind-icon">Worker<wbr>Navigator</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="__types_index_.html#clientinforesponsefunc" class="tsd-kind-icon">Client<wbr>Info<wbr>Response<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 						<a href="__types_index_.html#effectiveconnectiontype" class="tsd-kind-icon">Effective<wbr>Connection<wbr>Type</a>
