@@ -3,5 +3,6 @@
         "./src"
     ],
     "mode": "modules",
-    "out": "doc"
+    "out": "doc",
+    "disableSources": true
 }

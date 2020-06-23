@@ -11,7 +11,13 @@ export interface SimpleObject {
  * TODO
  */
 export interface SessionConfig {
+    /**
+     * TODO
+     */
     getExpandedTasks(): Executable[]
+    /**
+     * TODO
+     */
     setExpandedTasks(value: Executable[]): void
 }
 
@@ -19,6 +25,9 @@ export interface SessionConfig {
  * TODO
  */
 export interface TestConfiguration {
+    /**
+     * TODO
+     */
     type: string
 }
 
@@ -26,6 +35,9 @@ export interface TestConfiguration {
  * TODO
  */
 export interface TestSetupResult {
+    /**
+     * TODO
+     */
     data?: {
         [key: string]: string | number | Date
     }
@@ -60,9 +72,21 @@ export interface Result {
  * TODO
  */
 export interface ResultBundle {
+    /**
+     * TODO
+     */
     beaconData?: Beacon.Data
+    /**
+     * TODO
+     */
     testType: string
+    /**
+     * TODO
+     */
     data: Result[]
+    /**
+     * TODO
+     */
     setupResult: TestSetupResult
 }
 
@@ -80,6 +104,9 @@ export interface ClientInfo {
  * TODO
  */
 export interface SessionResult {
+    /**
+     * TODO
+     */
     testResults: ResultBundle[]
 }
 
@@ -88,18 +115,25 @@ export interface SessionResult {
  */
 export type HttpHeader = [string, string]
 
-// NetworkInformation
-// ---------------------------------------------------------------------------
-/// W3C Spec Draft http://wicg.github.io/netinfo/
-// Edition: Draft Community Group Report 20 February 2019
-
-// http://wicg.github.io/netinfo/#navigatornetworkinformation-interface
 /* eslint-disable @typescript-eslint/no-empty-interface */
+/**
+ * See W3C Spec Draft http://wicg.github.io/netinfo/
+ * Edition: Draft Community Group Report 20 February 2019
+ * See http://wicg.github.io/netinfo/#navigatornetworkinformation-interface
+ */
 export declare interface Navigator extends NavigatorNetworkInformation {}
+
+/**
+ * See W3C Spec Draft http://wicg.github.io/netinfo/
+ * Edition: Draft Community Group Report 20 February 2019
+ * See http://wicg.github.io/netinfo/#navigatornetworkinformation-interface
+ */
 declare interface WorkerNavigator extends NavigatorNetworkInformation {}
 /* eslint-enable @typescript-eslint/no-empty-interface */
 
-// http://wicg.github.io/netinfo/#navigatornetworkinformation-interface
+/**
+ * See http://wicg.github.io/netinfo/#navigatornetworkinformation-interface
+ */
 declare interface NavigatorNetworkInformation {
     readonly connection?: NetworkInformation
 }
@@ -178,12 +212,14 @@ export interface Provider {
     testSetUp(config: TestConfiguration): Promise<TestSetupResult>
 
     /**
-     * TODO
+     *
+     * @param testData
      */
     testTearDown(testData: ResultBundle): Promise<ResultBundle>
 
     /**
-     * TODO
+     *
+     * @param value
      */
     setSessionConfig(value: SessionConfig): void
 
@@ -204,6 +240,10 @@ export interface Provider {
 
     /**
      * TODO
+     * @param timingEntry TODO
+     * @param response TODO
+     * @param testConfig TODO
+     * @param setupResult TODO
      */
     createTestResult(
         timingEntry: ResourceTimingEntry,
@@ -214,6 +254,8 @@ export interface Provider {
 
     /**
      * TODO
+     * @param testConfig TODO
+     * @param testData TODO
      */
     makeBeaconData(
         testConfig: TestConfiguration,
@@ -222,26 +264,33 @@ export interface Provider {
 
     /**
      * TODO
+     * @param testConfig TODO
      */
     makeFetchBeaconURL(testConfig: TestConfiguration): string
 
     /**
      * TODO
+     * @param testConfig TODO
      */
     getResourceUrl(testConfig: TestConfiguration): URL
 
     /**
      * TODO
+     * @param testConfig TODO
      */
     getResourceRequestHeaders(testConfig: TestConfiguration): HttpHeader[]
 
     /**
      * TODO
+     * @param testConfig TODO
+     * @param data TODO
      */
     encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string
 
     /**
      * TODO
+     * @param testConfig TODO
+     * @param encodedBeaconData TODO
      */
     sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void
 }
