@@ -5,7 +5,7 @@
 /**
  * Utility function to test whether an object has own nested property. This is
  * used instead of Object.prototype.hasOwnProperty() due to browser support.
- * @param obj
+ * @param obj TODO
  * @param propertyPath Object path in dot notation form
  */
 export function hasProperty(obj: any, propertyPath: string): boolean {
@@ -33,8 +33,8 @@ export function hasProperty(obj: any, propertyPath: string): boolean {
 
 /**
  * Utility to test whether an object has all nested properties within a list
- * @param obj
- * @param properties
+ * @param obj TODO
+ * @param properties TODO
  */
 export function hasProperties(obj: any, properties: string[]): boolean {
     let hasProps

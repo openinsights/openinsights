@@ -5,6 +5,10 @@
 import whenReady from "./util/loadWhenDocumentReady"
 import { ClientSettings, SessionResult } from "./@types"
 
+/**
+ * TODO
+ * @param settings TODO
+ */
 export default function init(settings: ClientSettings): Promise<SessionResult> {
     return whenReady().then(() => {
         if (settings.preConfigStartDelay) {
@@ -14,6 +18,10 @@ export default function init(settings: ClientSettings): Promise<SessionResult> {
     })
 }
 
+/**
+ * TODO
+ * @param settings TODO
+ */
 function startLater(settings: ClientSettings): Promise<SessionResult> {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -22,6 +30,10 @@ function startLater(settings: ClientSettings): Promise<SessionResult> {
     })
 }
 
+/**
+ * TODO
+ * @param settings TODO
+ */
 function start(settings: ClientSettings): Promise<SessionResult> {
     return Promise.all(
         settings.providers

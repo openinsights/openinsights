@@ -1,4 +1,6 @@
-// Utility to resolve a promise when the browsers ready state reaches "complete"
+/**
+ * Utility to resolve a promise when the browsers ready state reaches "complete"
+ */
 export default function loadWhenReady(): Promise<void> {
     // If document is ready, resolve immediately
     if (document.readyState === "complete") {
