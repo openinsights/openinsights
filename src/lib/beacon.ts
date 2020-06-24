@@ -1,9 +1,20 @@
+import { TestConfiguration } from "../@types"
+
 /**
  * Beacon.State represents the possible values of the Beacon.Data.state flag.
  */
 export enum State {
+    /**
+     * The test completed successfully.
+     */
     Success,
+    /**
+     * The test failed.
+     */
     Failure,
+    /**
+     * Test status is undetermined.
+     */
     Unknown,
 }
 
@@ -13,15 +24,15 @@ export enum State {
  */
 export interface Data {
     /**
-     * TODO
+     * The result state of the associated {@link Test}
      */
     state: State
     /**
-     * TODO
+     * The configuration of the associated {@link Test}
      */
-    testType: string
+    testConfig: TestConfiguration
     /**
-     * TODO
+     * An object containing provider-defined test data to be beaconed.
      */
     data?: {
         /* eslint-disable @typescript-eslint/no-explicit-any */
