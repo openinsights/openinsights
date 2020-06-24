@@ -5,8 +5,8 @@
 /**
  * Utility function to test whether an object has own nested property. This is
  * used instead of Object.prototype.hasOwnProperty() due to browser support.
- * @param obj TODO
- * @param propertyPath Object path in dot notation form
+ * @param obj Object for which to determine the presence of the given property
+ * @param propertyPath Property path in dot notation form
  */
 export function hasProperty(obj: any, propertyPath: string): boolean {
     // TODO: this is the only place we use split(). can we avoid this?
@@ -32,9 +32,10 @@ export function hasProperty(obj: any, propertyPath: string): boolean {
 }
 
 /**
- * Utility to test whether an object has all nested properties within a list
- * @param obj TODO
- * @param properties TODO
+ * Utility function to test whether an object has all nested properties within
+ * a list.
+ * @param obj Object for which to determine the presence of the given property
+ * @param properties List of properties in dot notation form
  */
 export function hasProperties(obj: any, properties: string[]): boolean {
     let hasProps
