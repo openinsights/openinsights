@@ -297,10 +297,23 @@ export interface Provider {
 }
 
 /**
- * Alias for a function that takes an array of {@link SessionConfig} objects
- * and returns a promise resolving to a {@link SessionResult} object. The tag
- * own may override the default sequencing function in order to control the
- * order in which tests run.
+ *
+ */
+
+/**
+ * A function that takes an array of {@link SessionConfig} objects and returns
+ * a Promise<{@link SessionResult}>.
+ *
+ * @remarks
+ * In general, the list of {@link SessionConfig} objects passed into this
+ * function would be the result of previous calls to
+ * {@link Provider.fetchSessionConfig} for each provider used by the client.
+ *
+ * The tag owner may override the default sequencing function in order to
+ * control the order in which tests run.
+ *
+ * @param sessionConfigs List of session configurations for which to
+ * generate a list of Promise<{@link SessionResult}> objects.
  */
 export type PromiseSequenceFunc = (
     sessionConfigs: SessionConfig[],

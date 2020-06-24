@@ -83,9 +83,9 @@
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="defaultsequencefunc" class="tsd-anchor"></a>
-					<h3>default<wbr>Sequence<wbr>Func</h3>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> default<wbr>Sequence<wbr>Func</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">default<wbr>Sequence<wbr>Func<span class="tsd-signature-symbol">(</span>sessionConfigs<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.sessionconfig.html" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">default<wbr>Sequence<wbr>Func<span class="tsd-signature-symbol">(</span>sessionConfigs<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.sessionconfig.html" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>testResults<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -93,8 +93,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Combines the task objects from each provider uses the standard promise
-									generation sequence algorithm to execute them.</p>
+									<p>Default sequencing function. See <a href="__types_index_.html#promisesequencefunc">PromiseSequenceFunc</a> for more
+									details.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -102,11 +102,14 @@
 								<li>
 									<h5>sessionConfigs: <a href="../interfaces/__types_index_.sessionconfig.html" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<div class="lead">
+											<p>Array of <a href="../interfaces/__types_index_.sessionconfig.html">SessionConfig</a> objects from which to
+											generate a Promise&lt;<a href="../interfaces/__types_index_.sessionresult.html">SessionResult</a>&gt;</p>
+										</div>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>testResults<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>

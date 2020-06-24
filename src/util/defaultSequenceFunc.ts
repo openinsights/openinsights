@@ -1,14 +1,14 @@
-import { Executable, SessionConfig, SessionResult } from "../@types"
+import { Executable, PromiseSequenceFunc } from "../@types"
 import sequence from "./promiseSequence"
 
 /**
- * Combines the task objects from each provider uses the standard promise
- * generation sequence algorithm to execute them.
- * @param sessionConfigs TODO
+ * Default sequencing function. See {@link PromiseSequenceFunc} for more
+ * details.
+ *
+ * @param sessionConfigs Array of {@link SessionConfig} objects from which to
+ * generate a Promise<{@link SessionResult}>
  */
-export default function defaultSequenceFunc(
-    sessionConfigs: SessionConfig[],
-): Promise<SessionResult> {
+const defaultSequenceFunc: PromiseSequenceFunc = (sessionConfigs) => {
     const tasks: Executable[] = []
     for (const c of sessionConfigs) {
         tasks.push(...c.getExpandedTasks())
@@ -18,3 +18,5 @@ export default function defaultSequenceFunc(
         return { testResults }
     })
 }
+
+export default defaultSequenceFunc
