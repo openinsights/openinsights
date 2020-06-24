@@ -327,15 +327,22 @@ export type PromiseSequenceFunc = (
  */
 export interface ClientSettings {
     /**
-     * TODO
+     * The approximate delay (in milliseconds) after {@link init} is called
+     * before the RUM session should begin.
      */
     preConfigStartDelay?: number
     /**
-     * TODO
+     * An array of objects implementing {@link Provider}. When {@link init} is
+     * called, these providers will participate in the RUM session.
      */
     providers: Provider[]
     /**
-     * TODO
+     * At runtime, this function takes the list of {@link SessionConfig}
+     * objects supplied by the providers participating in the RUM session
+     * and determines the order in which their tests run.
+     *
+     * @remarks
+     * Defaults to {@link defaultSequenceFunc}
      */
     sequence: PromiseSequenceFunc
 }

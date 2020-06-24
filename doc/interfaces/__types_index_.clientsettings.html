@@ -112,7 +112,8 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>TODO</p>
+							<p>The approximate delay (in milliseconds) after <a href="../modules/_index_.html#init">init</a> is called
+							before the RUM session should begin.</p>
 						</div>
 					</div>
 				</section>
@@ -124,7 +125,8 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>TODO</p>
+							<p>An array of objects implementing <a href="__types_index_.provider.html">Provider</a>. When <a href="../modules/_index_.html#init">init</a> is
+							called, these providers will participate in the RUM session.</p>
 						</div>
 					</div>
 				</section>
@@ -136,8 +138,15 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>TODO</p>
+							<p>At runtime, this function takes the list of <a href="__types_index_.sessionconfig.html">SessionConfig</a>
+								objects supplied by the providers participating in the RUM session
+							and determines the order in which their tests run.</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>remarks</dt>
+							<dd><p>Defaults to <a href="../modules/_util_defaultsequencefunc_.html#defaultsequencefunc">defaultSequenceFunc</a></p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>

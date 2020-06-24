@@ -2,39 +2,50 @@ import { ClientSettings, Provider, PromiseSequenceFunc } from "../@types"
 import defaultSequenceFunc from "./defaultSequenceFunc"
 
 /**
- * TODO
+ * A utility class used to generate a {@link ClientSettings} object suitable
+ * to pass to {@link init}.
  */
 export default class ClientSettingsBuilder {
     /**
-     * TODO
+     * Private member used to capture settings as they are added by the tag
+     * owner.
      */
-    public value: ClientSettings = {
+    private _value: ClientSettings = {
         preConfigStartDelay: 0,
         providers: [],
         sequence: defaultSequenceFunc,
     }
 
     /**
-     * TODO
-     * @param a TODO
+     * Returns a {@link ClientSettings} object as specified by the site owner
+     * at the point when it is called.
      */
-    setPreConfigStartDelay(a: number): void {
-        this.value.preConfigStartDelay = a
+    toSettings(): ClientSettings {
+        return this._value
     }
 
     /**
-     * TODO
-     * @param a TODO
+     * Set the {@link ClientSettings.preConfigStartDelay}.
+     * @param value See {@link ClientSettings.preConfigStartDelay}.
      */
-    addProvider(a: Provider): void {
-        this.value.providers.push(a)
+    setPreConfigStartDelay(value: number): void {
+        this._value.preConfigStartDelay = value
     }
 
     /**
-     * TODO
-     * @param a TODO
+     * Add a provider to the {@link ClientSettings.providers} array.
+     * @param provider The {@link Provider} to add. For mor information,
+     * see {@link ClientSettings.providers}.
      */
-    setSequence(a: PromiseSequenceFunc): void {
-        this.value.sequence = a
+    addProvider(provider: Provider): void {
+        this._value.providers.push(provider)
+    }
+
+    /**
+     * Set the {@link ClientSettings.sequence} setting.
+     * @param value See {@link ClientSettings.sequence}.
+     */
+    setSequence(value: PromiseSequenceFunc): void {
+        this._value.sequence = value
     }
 }

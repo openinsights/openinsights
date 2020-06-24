@@ -72,7 +72,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>TODO</p>
+						<p>A utility class used to generate a <a href="../interfaces/__types_index_.clientsettings.html">ClientSettings</a> object suitable
+						to pass to <a href="../modules/_index_.html#init">init</a>.</p>
 					</div>
 				</div>
 			</section>
@@ -94,12 +95,13 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#addprovider" class="tsd-kind-icon">add<wbr>Provider</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#setpreconfigstartdelay" class="tsd-kind-icon">set<wbr>Pre<wbr>Config<wbr>Start<wbr>Delay</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#setsequence" class="tsd-kind-icon">set<wbr>Sequence</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#tosettings" class="tsd-kind-icon">to<wbr>Settings</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class tsd-is-private"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#_value" class="tsd-kind-icon">_value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,7 +113,7 @@
 					<a name="addprovider" class="tsd-anchor"></a>
 					<h3>add<wbr>Provider</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Provider<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Provider<span class="tsd-signature-symbol">(</span>provider<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -119,15 +121,16 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>Add a provider to the <a href="../interfaces/__types_index_.clientsettings.html#providers">ClientSettings.providers</a> array.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a></h5>
+									<h5>provider: <a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The <a href="../interfaces/__types_index_.provider.html">Provider</a> to add. For mor information,
+										see <a href="../interfaces/__types_index_.clientsettings.html#providers">ClientSettings.providers</a>.</p>
 									</div>
 								</li>
 							</ul>
@@ -139,7 +142,7 @@
 					<a name="setpreconfigstartdelay" class="tsd-anchor"></a>
 					<h3>set<wbr>Pre<wbr>Config<wbr>Start<wbr>Delay</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Pre<wbr>Config<wbr>Start<wbr>Delay<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Pre<wbr>Config<wbr>Start<wbr>Delay<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -147,15 +150,15 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>Set the <a href="../interfaces/__types_index_.clientsettings.html#preconfigstartdelay">ClientSettings.preConfigStartDelay</a>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-type">number</span></h5>
+									<h5>value: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>See <a href="../interfaces/__types_index_.clientsettings.html#preconfigstartdelay">ClientSettings.preConfigStartDelay</a>.</p>
 									</div>
 								</li>
 							</ul>
@@ -167,7 +170,7 @@
 					<a name="setsequence" class="tsd-anchor"></a>
 					<h3>set<wbr>Sequence</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Sequence<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#promisesequencefunc" class="tsd-signature-type">PromiseSequenceFunc</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Sequence<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#promisesequencefunc" class="tsd-signature-type">PromiseSequenceFunc</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -175,15 +178,15 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>Set the <a href="../interfaces/__types_index_.clientsettings.html#sequence">ClientSettings.sequence</a> setting.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <a href="../modules/__types_index_.html#promisesequencefunc" class="tsd-signature-type">PromiseSequenceFunc</a></h5>
+									<h5>value: <a href="../modules/__types_index_.html#promisesequencefunc" class="tsd-signature-type">PromiseSequenceFunc</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>See <a href="../interfaces/__types_index_.clientsettings.html#sequence">ClientSettings.sequence</a>.</p>
 									</div>
 								</li>
 							</ul>
@@ -191,36 +194,57 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="tosettings" class="tsd-anchor"></a>
+					<h3>to<wbr>Settings</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Settings<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a <a href="../interfaces/__types_index_.clientsettings.html">ClientSettings</a> object as specified by the site owner
+									at the point when it is called.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Object literals</h2>
-				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
-					<a name="value" class="tsd-anchor"></a>
-					<h3>value</h3>
-					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class tsd-is-private">
+					<a name="_value" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _value</h3>
+					<div class="tsd-signature tsd-kind-icon">_value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>TODO</p>
+							<p>Private member used to capture settings as they are added by the tag
+							owner.</p>
 						</div>
 					</div>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="value.preconfigstartdelay" class="tsd-anchor"></a>
+						<a name="_value.preconfigstartdelay" class="tsd-anchor"></a>
 						<h3>pre<wbr>Config<wbr>Start<wbr>Delay</h3>
 						<div class="tsd-signature tsd-kind-icon">pre<wbr>Config<wbr>Start<wbr>Delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="value.providers" class="tsd-anchor"></a>
+						<a name="_value.providers" class="tsd-anchor"></a>
 						<h3>providers</h3>
 						<div class="tsd-signature tsd-kind-icon">providers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 						<aside class="tsd-sources">
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="value.sequence" class="tsd-anchor"></a>
+						<a name="_value.sequence" class="tsd-anchor"></a>
 						<h3>sequence</h3>
 						<div class="tsd-signature tsd-kind-icon">sequence<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>sessionConfigs<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.sessionconfig.html" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = defaultSequenceFunc</span></div>
 						<aside class="tsd-sources">
@@ -325,8 +349,11 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#setsequence" class="tsd-kind-icon">set<wbr>Sequence</a>
 							</li>
-							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
-								<a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#value" class="tsd-kind-icon">value</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#tosettings" class="tsd-kind-icon">to<wbr>Settings</a>
+							</li>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class tsd-is-private">
+								<a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#_value" class="tsd-kind-icon">_value</a>
 							</li>
 						</ul>
 					</li>
