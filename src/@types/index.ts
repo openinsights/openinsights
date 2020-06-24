@@ -1,10 +1,11 @@
 import * as Beacon from "../lib/beacon"
 
 /**
- * TODO
+ * An interface representing simple objects mapping strings to basic primative
+ * types.
  */
 export interface SimpleObject {
-    [key: string]: string | number
+    [key: string]: boolean | number | string | null | undefined
 }
 
 /**
