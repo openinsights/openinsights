@@ -1,6 +1,6 @@
 /**
- * TODO
- * @param str TODO
+ * Utility function for converting a string in camel case to snake case.
+ * @param str Camel case input string
  */
 export default function camelCaseToSnakeCase(str: string): string {
     return str
