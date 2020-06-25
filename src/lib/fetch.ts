@@ -11,14 +11,16 @@ import { asyncGetEntry, normalizeEntry } from "./resourceTiming"
 import { Test } from "./test"
 
 /**
- * TODO
+ * Class representing a basic "fetch" test. Along with its parent class
+ * {@link Test}, the class provides a number of hooks enabling providers to
+ * control certain implementation details supporting their use case.
  */
 export default class Fetch extends Test {
     /**
-     * TODO
-     * @param provider
-     * @param config
-     * @param isValidEntryFunc
+     * @param provider The provider that owns the test
+     * @param config The test configuration
+     * @param isValidEntryFunc An optional function used to determine the
+     * validity of a Resource Timing entry
      */
     constructor(
         provider: Provider,
@@ -31,8 +33,11 @@ export default class Fetch extends Test {
     }
 
     /**
-     * TODO
-     * @param setupResult
+     * Fetch test implementation
+     * @param setupResult Result of the previous {@link Provider.testSetUp} call
+     * @returns A Promise resolving to a {@link ResultBundle} object, the
+     * result of calling {@link Provider.createTestResult} when the test data
+     * has been obtained.
      */
     test(setupResult: TestSetupResult): Promise<ResultBundle> {
         return Promise.all<Response, ResourceTimingEntry>([
@@ -44,10 +49,10 @@ export default class Fetch extends Test {
             ),
         ]).then(
             ([response, entry]): Promise<ResultBundle> => {
-                return this.provider.createTestResult(
+                return this._provider.createTestResult(
                     normalizeEntry(entry),
                     response,
-                    this.config,
+                    this._config,
                     setupResult,
                 )
             },
@@ -55,28 +60,26 @@ export default class Fetch extends Test {
     }
 
     /**
-     * TODO
-     */
-    makeBeaconURL(): string {
-        return this.provider.makeFetchBeaconURL(this.config)
-    }
-
-    /**
-     * TODO
+     * Calls {@link Provider.getResourceUrl} to generate the URL to be fetched.
      */
     getResourceUrl(): URL {
-        return this.provider.getResourceUrl(this.config)
+        return this._provider.getResourceUrl(this._config)
     }
 
     /**
-     * TODO
+     * Fetch the test object. This produces the network activity to be
+     * measured.
+     *
+     * @remarks
+     * The provider has an opportunity to specify zero or more HTTP request
+     * headers to be sent.
      */
     fetchObject(): Promise<Response> {
         const init: RequestInit = {}
         const requestHeaders: [
             string,
             string,
-        ][] = this.provider.getResourceRequestHeaders(this.config)
+        ][] = this._provider.getResourceRequestHeaders(this._config)
         if (requestHeaders.length) {
             init.headers = requestHeaders.reduce(
                 (

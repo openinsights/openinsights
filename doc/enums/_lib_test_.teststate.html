@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>TODO</p>
+						<p>The possible states that a <a href="../classes/_lib_test_.test.html">Test</a> can be in.</p>
 					</div>
 				</div>
 			</section>
@@ -100,6 +100,12 @@
 					<div class="tsd-signature tsd-kind-icon">Error<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The test started, but reached an error condition. Once in this state,
+							a test should not be able to move to another state.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
 					<a name="finished" class="tsd-anchor"></a>
@@ -107,6 +113,12 @@
 					<div class="tsd-signature tsd-kind-icon">Finished<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The test finished without reaching an error condition. Once reached, a
+							test should not be able to move to another state.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
 					<a name="notstarted" class="tsd-anchor"></a>
@@ -114,6 +126,11 @@
 					<div class="tsd-signature tsd-kind-icon">Not<wbr>Started<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The test is not yet started.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
 					<a name="running" class="tsd-anchor"></a>
@@ -121,6 +138,11 @@
 					<div class="tsd-signature tsd-kind-icon">Running<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The test started, but has not finished or reached an error condition.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>

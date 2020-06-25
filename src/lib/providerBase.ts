@@ -95,7 +95,7 @@ export default abstract class ProviderBase implements Provider {
      * @param encodedBeaconData TODO
      */
     sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void {
-        beacon(this.makeFetchBeaconURL(testConfig), encodedBeaconData)
+        beacon(this.makeBeaconURL(testConfig), encodedBeaconData)
     }
 
     /**
@@ -111,7 +111,7 @@ export default abstract class ProviderBase implements Provider {
      * {@link ProviderBase.sendBeacon} instead.
      * @param testConfig TODO
      */
-    makeFetchBeaconURL(testConfig: TestConfiguration): string {
+    makeBeaconURL(testConfig: TestConfiguration): string {
         throw new Error("Method not implemented.")
     }
 

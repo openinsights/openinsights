@@ -267,7 +267,7 @@ export interface Provider {
      * TODO
      * @param testConfig TODO
      */
-    makeFetchBeaconURL(testConfig: TestConfiguration): string
+    makeBeaconURL(testConfig: TestConfiguration): string
 
     /**
      * TODO

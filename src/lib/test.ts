@@ -7,36 +7,58 @@ import {
 } from "../@types"
 
 /**
- * TODO
+ * The possible states that a {@link Test} can be in.
  */
 enum TestState {
+    /**
+     * The test is not yet started.
+     */
     NotStarted,
+    /**
+     * The test started, but reached an error condition. Once in this state,
+     * a test should not be able to move to another state.
+     */
     Error,
+    /**
+     * The test started, but has not finished or reached an error condition.
+     */
     Running,
+    /**
+     * The test finished without reaching an error condition. Once reached, a
+     * test should not be able to move to another state.
+     */
     Finished,
 }
 
 /**
- * TODO
+ * An abstract class representing a RUM test. Subclasses must implement
+ * abstract methods in order to define a particular type of RUM test.
  */
 export abstract class Test implements Executable {
     /**
-     * TODO
+     * The current test state.
      */
     private _state: TestState = TestState.NotStarted
 
     /**
-     * TODO
-     * @param provider TODO
-     * @param config TODO
+     * @param _provider The provider that owns the test
+     * @param _config The provider-defined configuration for the test
      */
     constructor(
-        protected provider: Provider,
-        protected config: TestConfiguration,
+        /**
+         * The provider that owns the test. Through this member variable,
+         * the client is able to reach a number of provider "hooks",
+         * enabling providers to define and customize behavior.
+         */
+        protected _provider: Provider,
+        /**
+         * The provider-defined configuration for the test.
+         */
+        protected _config: TestConfiguration,
     ) {}
 
     /**
-     * TODO
+     * Indicates the current state of the test.
      */
     get state(): TestState {
         return this._state
@@ -47,32 +69,32 @@ export abstract class Test implements Executable {
      */
     execute(): Promise<ResultBundle> {
         this._state = TestState.Running
-        return this.provider
-            .testSetUp(this.config)
+        return this._provider
+            .testSetUp(this._config)
             .then((setupResult) => this.test(setupResult))
             .then((bundle) => {
                 // Add beacon data to the result bundle
-                bundle.beaconData = this.provider.makeBeaconData(
-                    this.config,
+                bundle.beaconData = this._provider.makeBeaconData(
+                    this._config,
                     bundle,
                 )
-                this.provider.sendBeacon(
-                    this.config,
-                    this.provider.encodeBeaconData(
-                        this.config,
+                this._provider.sendBeacon(
+                    this._config,
+                    this._provider.encodeBeaconData(
+                        this._config,
                         bundle.beaconData,
                     ),
                 )
                 this._state = TestState.Finished
                 return bundle
             })
-            .then((bundle) => this.provider.testTearDown(bundle))
+            .then((bundle) => this._provider.testTearDown(bundle))
             .catch(
                 (): Promise<ResultBundle> => {
                     this._state = TestState.Error
                     // TODO: notify subscribers of error
                     return Promise.resolve({
-                        testType: this.config.type,
+                        testType: this._config.type,
                         data: [],
                         setupResult: {
                             data: {},
@@ -85,12 +107,10 @@ export abstract class Test implements Executable {
     /**
      * A subclass implements this method in order to define its specialized
      * mechanics.
-     * @param setupResult TODO
+     * @param setupResult Result of the previous {@link Provider.testSetUp} call
+     * @returns A Promise resolving to a {@link ResultBundle} object, the
+     * result of calling {@link Provider.createTestResult} when the test data
+     * has been obtained.
      */
     abstract test(setupResult: TestSetupResult): Promise<ResultBundle>
-
-    /**
-     * TODO
-     */
-    abstract makeBeaconURL(): string
 }

@@ -72,7 +72,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>TODO</p>
+						<p>An abstract class representing a RUM test. Subclasses must implement
+						abstract methods in order to define a particular type of RUM test.</p>
 					</div>
 				</div>
 			</section>
@@ -108,9 +109,9 @@
 						<section class="tsd-index-section tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_lib_test_.test.html#_config" class="tsd-kind-icon">_config</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_lib_test_.test.html#_provider" class="tsd-kind-icon">_provider</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_lib_test_.test.html#_state" class="tsd-kind-icon">_state</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_lib_test_.test.html#config" class="tsd-kind-icon">config</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_lib_test_.test.html#provider" class="tsd-kind-icon">provider</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -123,7 +124,6 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_lib_test_.test.html#execute" class="tsd-kind-icon">execute</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_lib_test_.test.html#makebeaconurl" class="tsd-kind-icon">make<wbr>BeaconURL</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_lib_test_.test.html#test" class="tsd-kind-icon">test</a></li>
 							</ul>
 						</section>
@@ -136,32 +136,29 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Test<span class="tsd-signature-symbol">(</span>provider<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a>, config<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_test_.test.html" class="tsd-signature-type">Test</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Test<span class="tsd-signature-symbol">(</span>_provider<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a>, _config<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_test_.test.html" class="tsd-signature-type">Test</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>TODO</p>
-								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>provider: <a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a></h5>
+									<h5>_provider: <a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>TODO</p>
+											<p>The provider that owns the test</p>
 										</div>
 									</div>
 								</li>
 								<li>
-									<h5>config: <a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>_config: <a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>TODO</p>
+											<p>The provider-defined configuration for the test</p>
 										</div>
 									</div>
 								</li>
@@ -173,6 +170,30 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_config" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _config</h3>
+					<div class="tsd-signature tsd-kind-icon">_config<span class="tsd-signature-symbol">:</span> <a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The provider-defined configuration for the test</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_provider" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _provider</h3>
+					<div class="tsd-signature tsd-kind-icon">_provider<span class="tsd-signature-symbol">:</span> <a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The provider that owns the test</p>
+						</div>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_state" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _state</h3>
@@ -181,31 +202,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>TODO</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="config" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> config</h3>
-					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>TODO</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="provider" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> provider</h3>
-					<div class="tsd-signature tsd-kind-icon">provider<span class="tsd-signature-symbol">:</span> <a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>TODO</p>
+							<p>The current test state.</p>
 						</div>
 					</div>
 				</section>
@@ -224,7 +221,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>Indicates the current state of the test.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/_lib_test_.teststate.html" class="tsd-signature-type">TestState</a></h4>
@@ -255,25 +252,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="makebeaconurl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> make<wbr>BeaconURL</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">make<wbr>BeaconURL<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>TODO</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="test" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> test</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -294,11 +272,14 @@
 								<li>
 									<h5>setupResult: <a href="../interfaces/__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>Result of the previous <a href="../interfaces/__types_index_.provider.html#testsetup">Provider.testSetUp</a> call</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A Promise resolving to a <a href="../interfaces/__types_index_.resultbundle.html">ResultBundle</a> object, the
+								result of calling <a href="../interfaces/__types_index_.provider.html#createtestresult">Provider.createTestResult</a> when the test data
+							has been obtained.</p>
 						</li>
 					</ul>
 				</section>
@@ -376,23 +357,20 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="_lib_test_.test.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_lib_test_.test.html#_config" class="tsd-kind-icon">_config</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_lib_test_.test.html#_provider" class="tsd-kind-icon">_provider</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_lib_test_.test.html#_state" class="tsd-kind-icon">_state</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="_lib_test_.test.html#config" class="tsd-kind-icon">config</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="_lib_test_.test.html#provider" class="tsd-kind-icon">provider</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="_lib_test_.test.html#state" class="tsd-kind-icon">state</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_lib_test_.test.html#execute" class="tsd-kind-icon">execute</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_lib_test_.test.html#makebeaconurl" class="tsd-kind-icon">make<wbr>BeaconURL</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_lib_test_.test.html#test" class="tsd-kind-icon">test</a>
