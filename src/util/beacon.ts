@@ -1,14 +1,20 @@
 import { hasProperty } from "./object"
 
 /**
- * TODO
+ * A module-level variable caching the result of `sendBeacon` feature
+ * detection.
  */
 const hasBeaconSupport = hasProperty(navigator, "sendBeacon")
 
 /**
- * TODO
- * @param url TODO
- * @param data TODO
+ * Sends beacon data.
+ *
+ * @remarks
+ * Uses the Beacon API if available. Otherwise, sends a POST message using the
+ * Fetch API.
+ *
+ * @param url URL to send beacon data to
+ * @param data Beacon data to send
  */
 export default function beacon(url: string, data: string): void {
     if (hasBeaconSupport) {
