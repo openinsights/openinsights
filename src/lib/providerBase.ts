@@ -2,9 +2,9 @@
 import {
     Provider,
     Executable,
-    SessionConfig,
     ResourceTimingEntry,
     ResultBundle,
+    SessionConfig,
     TestConfiguration,
     TestSetupResult,
     HttpHeader,

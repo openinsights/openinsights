@@ -9,12 +9,12 @@ import sequence from "./promiseSequence"
  * generate a Promise<{@link SessionResult}>
  */
 const defaultSequenceFunc: PromiseSequenceFunc = (sessionConfigs) => {
-    const tasks: Executable[] = []
+    const executables: Executable[] = []
     for (const c of sessionConfigs) {
-        tasks.push(...c.getExpandedTasks())
+        executables.push(...c.executables)
     }
     const makeTaskExecFunc = (task: Executable) => () => task.execute()
-    return sequence(tasks.map(makeTaskExecFunc)).then((testResults) => {
+    return sequence(executables.map(makeTaskExecFunc)).then((testResults) => {
         return { testResults }
     })
 }

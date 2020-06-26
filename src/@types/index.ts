@@ -9,18 +9,16 @@ export interface SimpleObject {
 }
 
 /**
- * TODO
+ * An interface for objects containing a set of executable tasks.
  */
-export interface SessionConfig {
+export interface ExecutableContainer {
     /**
-     * TODO
+     * A list of {@link Executable} objects.
      */
-    getExpandedTasks(): Executable[]
-    /**
-     * TODO
-     */
-    setExpandedTasks(value: Executable[]): void
+    executables: Executable[]
 }
+
+export type SessionConfig = ExecutableContainer
 
 /**
  * TODO
@@ -323,10 +321,6 @@ export interface Provider {
      */
     sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void
 }
-
-/**
- *
- */
 
 /**
  * A function that takes an array of {@link SessionConfig} objects and returns

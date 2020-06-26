@@ -82,7 +82,7 @@ function start(settings: ClientSettings): Promise<SessionResult> {
     ).then((sessionConfigs) => {
         sessionConfigs.forEach((v, i) => {
             settings.providers[i].setSessionConfig(v)
-            v.setExpandedTasks(settings.providers[i].expandTasks())
+            v.executables = settings.providers[i].expandTasks()
         })
         return settings.sequence(sessionConfigs)
     })
