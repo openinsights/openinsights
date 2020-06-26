@@ -8,14 +8,20 @@ import {
 } from "../@types"
 
 /**
- * TODO
+ * A list of Resource Timing entry properties not to include in the normalized
+ * transformation used internally.
  */
 const EXCLUDED_PROPS = ["name", "initiatorType", "entryType"]
 
 /**
- * TODO
- * @param list TODO
- * @param isValidEntryFunc TODO
+ * Given a list of Resource Timing entries, return the first one that matches
+ * a set of rules.
+ * @remarks
+ * Providers may override the default rules.
+ * See {@link Fetch.constructor}.
+ * @param list The list of entries to test.
+ * @param isValidEntryFunc A predicate function used to determine the validity
+ * of Resource Timing entries.
  */
 function getValidEntry(
     list: PerformanceEntryList,
@@ -36,13 +42,15 @@ function getValidEntry(
 
 /**
  * Asyncronusly gets a resource timing entry from the performance timeline
- * by its name (url). It starts a PerformanceObserver to observe the timeling
- * for the entry and resolves with the entry once successful. If the timeout is
- * reached before and entry is returned it rejects the Promise.
+ * by its name (url).
+ * @remarks
+ * It starts a PerformanceObserver to observe the timeling for the entry and
+ * resolves with the entry once successful. If the timeout is reached before
+ * and entry is returned it rejects the Promise.
  * @param name URL of the of the entry
  * @param timeout Optional timeout
  * @param isValidEntryFunc Boolean function used to determine validity of
- * Resource Timing entry
+ * Resource Timing entry.
  */
 function asyncGetEntry(
     name: string,
@@ -85,8 +93,10 @@ function asyncGetEntry(
 }
 
 /**
- * TODO
- * @param entry TODO
+ * @remarks
+ * Used by {@link normalizeEntry} to create a new object using a
+ * Resource Timing entry's properties.
+ * @param entry The Resource Timing entry to copy.
  */
 function cloneEntry(entry: ResourceTimingEntry): ResourceTimingEntry {
     const result: ResourceTimingEntry = {}
@@ -100,9 +110,10 @@ function cloneEntry(entry: ResourceTimingEntry): ResourceTimingEntry {
 }
 
 /**
- * TODO
- * @param entry TODO
- * @param props TODO
+ * Return a new object based on an existing object with certain properties
+ * removed.
+ * @param entry The entry to copy.
+ * @param props A list of property names to omit from the new object.
  */
 function removeEntryProps(
     entry: ResourceTimingEntry,
@@ -118,8 +129,9 @@ function removeEntryProps(
 }
 
 /**
- * TODO
- * @param entry TODO
+ * Create a new object with propert names converted from camel case to snake
+ * case.
+ * @param entry The source object.
  */
 function normalizeEntryKeys(entry: ResourceTimingEntry): ResourceTimingEntry {
     const result: ResourceTimingEntry = {}
@@ -131,30 +143,16 @@ function normalizeEntryKeys(entry: ResourceTimingEntry): ResourceTimingEntry {
 }
 
 /**
- * TODO
- * @param props TODO
- */
-function normalizeEntryProps(
-    props: string[],
-): (entry: ResourceTimingEntry) => ResourceTimingEntry {
-    return (entry): ResourceTimingEntry => removeEntryProps(entry, props)
-}
-
-/**
- * TODO
+ * A pipeline of procedures used to create a normalized Resource Timing entry
+ * object.
+ * @remarks
+ * TODO: Currently only removing certain properties by name. It might be more
+ * future-proof to specify properties to include.
  */
 const normalizeEntry = compose(
     normalizeEntryKeys,
-    normalizeEntryProps(EXCLUDED_PROPS),
+    (entry): ResourceTimingEntry => removeEntryProps(entry, EXCLUDED_PROPS),
     cloneEntry,
 )
 
-export {
-    asyncGetEntry,
-    getValidEntry,
-    cloneEntry,
-    removeEntryProps,
-    normalizeEntryKeys,
-    normalizeEntryProps,
-    normalizeEntry,
-}
+export { asyncGetEntry, normalizeEntry }

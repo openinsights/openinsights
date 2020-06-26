@@ -17,15 +17,22 @@ import { Test } from "./test"
  */
 export default class Fetch extends Test {
     /**
-     * @param provider The provider that owns the test
-     * @param config The test configuration
-     * @param isValidEntryFunc An optional function used to determine the
-     * validity of a Resource Timing entry
+     * @remarks
+     * A provider may override the default logic used to determine a valid
+     * Resource Timing entry using the optional isValidEntryFunc argument.
+     * @param provider The provider that owns the test.
+     * @param config The test configuration.
+     * @param isValidEntryFunc A function used to determine the validity of a
+     * Resource Timing entry.
      */
     constructor(
         provider: Provider,
         config: TestConfiguration,
-        private isValidEntryFunc: ResourceTimingEntryValidationPredicate = (
+        /**
+         * The predicate function used to determine the validity of a Resource
+         * Timing entry.
+         */
+        private _isValidEntryFunc: ResourceTimingEntryValidationPredicate = (
             e,
         ) => e.requestStart !== 0 && e.connectStart !== e.connectEnd,
     ) {
@@ -45,7 +52,7 @@ export default class Fetch extends Test {
             asyncGetEntry(
                 this.getResourceUrl().href,
                 5000,
-                this.isValidEntryFunc,
+                this._isValidEntryFunc,
             ),
         ]).then(
             ([response, entry]): Promise<TestResultBundle> => {
