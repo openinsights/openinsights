@@ -100,11 +100,12 @@ export interface TestResultBundle {
 export type ClientInfo = SimpleObject
 
 /**
- * TODO
+ * Encapsulates the result of one provider's RUM session.
  */
 export interface SessionResult {
     /**
-     * TODO
+     * An array containing the test result bundles for each individual test
+     * performed.
      */
     testResults: TestResultBundle[]
 }
@@ -167,7 +168,10 @@ type Megabit = number
 type Millisecond = number
 
 /**
- * TODO
+ * The primative type attributes from the navigator.connection object,
+ * if present.
+ * @remarks
+ * See https://developer.mozilla.org/en-US/docs/Web/API/Navigator/connection
  */
 export interface NetworkInformation {
     [key: string]:
@@ -179,17 +183,18 @@ export interface NetworkInformation {
 }
 
 /**
- * TODO
+ * An interface representing an object with an execute method, generally a
+ * {@link Test}.
  */
 export interface Executable {
     /**
-     * TODO
+     * Execute a test and return a promise resolving to a test result bundle.
      */
     execute(): Promise<TestResultBundle>
 }
 
 /**
- * TODO
+ * An interface representing a provider.
  */
 export interface Provider {
     /**
