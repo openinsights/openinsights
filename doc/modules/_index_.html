@@ -133,6 +133,11 @@ init(settingsBuilder.value)
 									<p>Called by tag owner code to initialize a RUM session, either immediately or
 									after some delay.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Waits for the page to load before processing.</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -161,7 +166,8 @@ init(settingsBuilder.value)
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Called internally if no preConfigStartDelay setting has been specified.</p>
+									<p>Called immediately by <a href="_index_.html#init">init</a> if no
+									<a href="../interfaces/__types_index_.clientsettings.html#preconfigstartdelay">ClientSettings.preConfigStartDelay</a> setting has been specified.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -189,8 +195,8 @@ init(settingsBuilder.value)
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Called internally if a non-zero preConfigStartDelay setting has been
-									specified.</p>
+									<p>Called internally if a non-zero <a href="../interfaces/__types_index_.clientsettings.html#preconfigstartdelay">ClientSettings.preConfigStartDelay</a>
+									setting has been specified. Calls <a href="_index_.html#start">start</a> after the delay.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>

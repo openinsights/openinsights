@@ -13,37 +13,47 @@ import * as Beacon from "./beacon"
 import beacon from "../util/beacon"
 
 /**
- * TODO
+ * A common base class for providers.
  */
 export default abstract class ProviderBase implements Provider {
     /**
-     * TODO
+     * @param _name A provider-defined name.
      */
-    sessionConfig?: SessionConfig
+    constructor(
+        /**
+         * @remarks
+         * This can be used for logging purposes.
+         */
+        private _name: string,
+    ) {}
 
     /**
-     * TODO
+     * @remarks
+     * This is saved at the beginning of a RUM session within {@link start}.
      */
-    abstract name: string
+    private _sessionConfig?: SessionConfig
 
     /**
-     * TODO
+     * See {@link Provider.name}.
+     */
+    get name(): string {
+        return this._name
+    }
+
+    /**
+     * See {@link Provider.fetchSessionConfig}.
      */
     abstract fetchSessionConfig(): Promise<SessionConfig>
 
     /**
-     * TODO
+     * See {@link Provider.expandTasks}.
      */
     abstract expandTasks(): Executable[]
 
     /**
-     * TODO
-     * @param timingEntry TODO
-     * @param response TODO
-     * @param testConfig TODO
-     * @param setupResult TODO
+     * See {@link Provider.createFetchTestResult}.
      */
-    abstract createTestResult(
+    abstract createFetchTestResult(
         timingEntry: ResourceTimingEntry,
         response: Response,
         testConfig: TestConfiguration,
@@ -51,9 +61,7 @@ export default abstract class ProviderBase implements Provider {
     ): Promise<ResultBundle>
 
     /**
-     * TODO
-     * @param testConfig TODO
-     * @param testData TODO
+     * See {@link Provider.makeBeaconData}
      */
     abstract makeBeaconData(
         testConfig: TestConfiguration,
@@ -61,71 +69,81 @@ export default abstract class ProviderBase implements Provider {
     ): Beacon.Data
 
     /**
-     * TODO
-     * @param testConfig TODO
+     * See {@link Provider.getResourceUrl}.
      */
     abstract getResourceUrl(testConfig: TestConfiguration): URL
 
     /**
-     * TODO
-     * @param testConfig TODO
+     * See {@link Provider.getResourceRequestHeaders}.
      */
     abstract getResourceRequestHeaders(
         testConfig: TestConfiguration,
     ): HttpHeader[]
 
     /**
-     * TODO
+     * See {@link Provider.shouldRun}.
      */
-    abstract shouldRun(): boolean
+    abstract shouldRun(): Promise<boolean>
 
     /**
-     * Providers override this if they wish to perform something aside from
-     * simple JSON-encoding.
-     * @param testConfig TODO
-     * @param data TODO
+     * See {@link Provider.encodeBeaconData}.
+     * @remarks
+     * Handles simple JSON-encoding.
      */
     encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string {
         return JSON.stringify(data)
     }
 
     /**
-     * TODO
-     * @param testConfig TODO
-     * @param encodedBeaconData TODO
+     * See {@link Provider.sendBeacon}.
+     * @remarks
+     * Provides a simple mechanism using the Beacon API, with the Fetch API as
+     * a fallback. Providers may override this if they require more specialized
+     * reporting, e.g. utilize websockets, invoke a 3rd party library, etc.
      */
     sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void {
         beacon(this.makeBeaconURL(testConfig), encodedBeaconData)
     }
 
     /**
-     * TODO
-     * @param value TODO
+     * See {@link Provider.setSessionConfig}.
      */
     setSessionConfig(value: SessionConfig): void {
-        this.sessionConfig = value
+        this._sessionConfig = value
     }
 
     /**
+     * See {@link Provider.sessionConfig}.
+     */
+    get sessionConfig(): SessionConfig | undefined {
+        return this._sessionConfig
+    }
+
+    /**
+     * See {@link Provider.makeBeaconURL}.
+     * @remarks
      * A subclass might not override this if it overrides
      * {@link ProviderBase.sendBeacon} instead.
-     * @param testConfig TODO
      */
     makeBeaconURL(testConfig: TestConfiguration): string {
         throw new Error("Method not implemented.")
     }
 
     /**
-     * A no-op implementation of {@link Provider.testSetUp}
-     * @param config TODO
+     * See {@link Provider.testSetUp}.
+     * @remarks
+     * A no-op implementation for providers that don't need to perform any
+     * setup activity.
      */
     testSetUp(testConfig: TestConfiguration): Promise<TestSetupResult> {
         return Promise.resolve({})
     }
 
     /**
-     * A no-op implementation of {@link Provider.testTearDown}
-     * @param config TODO
+     * See {@link Provider.testTearDown}.
+     * @remarks
+     * A no-op implementation for providers that don't need to perform any
+     * tear down activity.
      */
     testTearDown(testData: ResultBundle): Promise<ResultBundle> {
         return Promise.resolve(testData)

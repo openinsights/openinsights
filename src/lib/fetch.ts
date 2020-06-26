@@ -36,8 +36,8 @@ export default class Fetch extends Test {
      * Fetch test implementation
      * @param setupResult Result of the previous {@link Provider.testSetUp} call
      * @returns A Promise resolving to a {@link ResultBundle} object, the
-     * result of calling {@link Provider.createTestResult} when the test data
-     * has been obtained.
+     * result of calling {@link Provider.createFetchTestResult} when the test
+     * data has been obtained.
      */
     test(setupResult: TestSetupResult): Promise<ResultBundle> {
         return Promise.all<Response, ResourceTimingEntry>([
@@ -49,7 +49,7 @@ export default class Fetch extends Test {
             ),
         ]).then(
             ([response, entry]): Promise<ResultBundle> => {
-                return this._provider.createTestResult(
+                return this._provider.createFetchTestResult(
                     normalizeEntry(entry),
                     response,
                     this._config,

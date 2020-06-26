@@ -104,14 +104,14 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#createtestresult" class="tsd-kind-icon">create<wbr>Test<wbr>Result</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#createfetchtestresult" class="tsd-kind-icon">create<wbr>Fetch<wbr>Test<wbr>Result</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#encodebeacondata" class="tsd-kind-icon">encode<wbr>Beacon<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#expandtasks" class="tsd-kind-icon">expand<wbr>Tasks</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#fetchsessionconfig" class="tsd-kind-icon">fetch<wbr>Session<wbr>Config</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#getresourcerequestheaders" class="tsd-kind-icon">get<wbr>Resource<wbr>Request<wbr>Headers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#getresourceurl" class="tsd-kind-icon">get<wbr>Resource<wbr>Url</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#makebeacondata" class="tsd-kind-icon">make<wbr>Beacon<wbr>Data</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#makefetchbeaconurl" class="tsd-kind-icon">make<wbr>Fetch<wbr>BeaconURL</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#makebeaconurl" class="tsd-kind-icon">make<wbr>BeaconURL</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#sendbeacon" class="tsd-kind-icon">send<wbr>Beacon</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#setsessionconfig" class="tsd-kind-icon">set<wbr>Session<wbr>Config</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#shouldrun" class="tsd-kind-icon">should<wbr>Run</a></li>
@@ -132,7 +132,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>TODO</p>
+							<p>An attribute that can be used for logging purposes.</p>
 						</div>
 					</div>
 				</section>
@@ -144,7 +144,8 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>TODO</p>
+							<p>The <a href="__types_index_.sessionconfig.html">SessionConfig</a> object obtained from calling
+							<a href="__types_index_.provider.html#fetchsessionconfig">Provider.fetchSessionConfig</a>.</p>
 						</div>
 					</div>
 				</section>
@@ -152,44 +153,51 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="createtestresult" class="tsd-anchor"></a>
-					<h3>create<wbr>Test<wbr>Result</h3>
+					<a name="createfetchtestresult" class="tsd-anchor"></a>
+					<h3>create<wbr>Fetch<wbr>Test<wbr>Result</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Test<wbr>Result<span class="tsd-signature-symbol">(</span>timingEntry<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, setupResult<span class="tsd-signature-symbol">: </span><a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Fetch<wbr>Test<wbr>Result<span class="tsd-signature-symbol">(</span>timingEntry<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, setupResult<span class="tsd-signature-symbol">: </span><a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>TODO</p>
-								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>A provider implements this in order to define its logic for creating
+											a <a href="__types_index_.resultbundle.html">ResultBundle</a> describing the outcome of running a <a href="../classes/_lib_fetch_.fetch.html">Fetch</a>
+										test.</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>timingEntry: <a href="../modules/__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The Resource Timing entry used to generate the test
+										result.</p>
 									</div>
 								</li>
 								<li>
 									<h5>response: <span class="tsd-signature-type">Response</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The <strong>Response</strong> object resulting from the fetch
+										activity.</p>
 									</div>
 								</li>
 								<li>
 									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The test configuration.</p>
 									</div>
 								</li>
 								<li>
 									<h5>setupResult: <a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The provider-defined result of any test setup
+										activity done prior to the fetch.</p>
 									</div>
 								</li>
 							</ul>
@@ -209,7 +217,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>A hook enabling a provider to perform encoding of beacon data before
+									sending it.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -217,13 +226,13 @@
 								<li>
 									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The test configuration.</p>
 									</div>
 								</li>
 								<li>
 									<h5>data: <a href="_lib_beacon_.data.html" class="tsd-signature-type">Data</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The data to be encoded.</p>
 									</div>
 								</li>
 							</ul>
@@ -243,7 +252,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>A provider implements this in order to define its logic for converting
+										the configuration from a <a href="__types_index_.sessionconfig.html">SessionConfig</a> object into one or more
+										<a href="__types_index_.executable.html">Executable</a> objects (usually <a href="../classes/_lib_fetch_.fetch.html">Fetch</a> or other classes
+									inheriting from <a href="../classes/_lib_test_.test.html">Test</a>).</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="__types_index_.executable.html" class="tsd-signature-type">Executable</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -261,9 +273,12 @@
 							<aside class="tsd-sources">
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>TODO</p>
-								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>A provider implements this in order to define its logic for producing
+										a <a href="__types_index_.sessionconfig.html">SessionConfig</a> object at runtime.</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.sessionconfig.html" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -281,7 +296,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>A hook enabling a provider to draw a set of zero or more
+									<a href="../modules/__types_index_.html#httpheader">HttpHeader</a> tuples from a provider-defined test configuration.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -289,7 +305,7 @@
 								<li>
 									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The test configuration.</p>
 									</div>
 								</li>
 							</ul>
@@ -309,15 +325,22 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>A hook enabling a provider to generate a test URL at runtime.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>A provider may cache the result of the first call to this method and
+										reuse the value on subsequent calls.</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The test configuration, which usually specifies a base
+										URL from which the provider produces the runtime URL.</p>
 									</div>
 								</li>
 							</ul>
@@ -336,22 +359,24 @@
 							<aside class="tsd-sources">
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>TODO</p>
-								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>A provider implements this in order to create a beacon payload.</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The test configuration.</p>
 									</div>
 								</li>
 								<li>
 									<h5>testData: <a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The data resulting from running the test.</p>
 									</div>
 								</li>
 							</ul>
@@ -360,10 +385,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="makefetchbeaconurl" class="tsd-anchor"></a>
-					<h3>make<wbr>Fetch<wbr>BeaconURL</h3>
+					<a name="makebeaconurl" class="tsd-anchor"></a>
+					<h3>make<wbr>BeaconURL</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">make<wbr>Fetch<wbr>BeaconURL<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">make<wbr>BeaconURL<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -371,7 +396,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>A hook enabling a provider to determine the beacon URL for a test
+									result.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -379,7 +405,7 @@
 								<li>
 									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The test configuration.</p>
 									</div>
 								</li>
 							</ul>
@@ -399,7 +425,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>A hook enabling a provider to report test results, i.e. &quot;beaconing&quot;.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -407,13 +433,14 @@
 								<li>
 									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The test configuration.</p>
 									</div>
 								</li>
 								<li>
 									<h5>encodedBeaconData: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>TODO</p>
+										<p>The beacon payload returned from
+										<a href="__types_index_.provider.html#encodebeacondata">Provider.encodeBeaconData</a>.</p>
 									</div>
 								</li>
 							</ul>
@@ -432,12 +459,18 @@
 							<aside class="tsd-sources">
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called within <a href="../modules/_index_.html#start">start</a> to sets the provider&#39;s session configuration
+									object after calling <a href="../classes/_lib_providerbase_.providerbase.html#fetchsessionconfig">ProviderBase.fetchSessionConfig</a>.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <a href="__types_index_.sessionconfig.html" class="tsd-signature-type">SessionConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>The provider-defined configuration object resulting from a
+										call to <a href="__types_index_.provider.html#fetchsessionconfig">Provider.fetchSessionConfig</a></p>
 									</div>
 								</li>
 							</ul>
@@ -449,7 +482,7 @@
 					<a name="shouldrun" class="tsd-anchor"></a>
 					<h3>should<wbr>Run</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">should<wbr>Run<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">should<wbr>Run<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -457,10 +490,14 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TODO</p>
+									<p>A hook called very early by the core module, enabling providers an
+										opportunity to determine if they should participate in the session,
+										e.g. based on user agent feature detection, random downsampling, etc.
+										It returns a promise, in case a provider would like to make a network
+									request in order to make this determination.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -468,7 +505,7 @@
 					<a name="testsetup" class="tsd-anchor"></a>
 					<h3>test<wbr>Set<wbr>Up</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">test<wbr>Set<wbr>Up<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">test<wbr>Set<wbr>Up<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -476,17 +513,17 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Called before a test begins, giving the provider an opportunity to
-										perform any pre-test setup that it would like to do, such as record a
+									<p>A hook called before each test begins, giving the provider an
+										opportunity to perform any pre-test setup needed, such as recording a
 									timestamp.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The configuration object of the test about to start</p>
+										<p>The test configuration.</p>
 									</div>
 								</li>
 							</ul>
@@ -505,12 +542,17 @@
 							<aside class="tsd-sources">
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook called after each test has completed, giving the provider an
+									opportunity to perform any post-test activity needed.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>testData: <a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>The test results.</p>
 									</div>
 								</li>
 							</ul>
@@ -611,7 +653,7 @@
 								<a href="__types_index_.provider.html#sessionconfig" class="tsd-kind-icon">session<wbr>Config</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="__types_index_.provider.html#createtestresult" class="tsd-kind-icon">create<wbr>Test<wbr>Result</a>
+								<a href="__types_index_.provider.html#createfetchtestresult" class="tsd-kind-icon">create<wbr>Fetch<wbr>Test<wbr>Result</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="__types_index_.provider.html#encodebeacondata" class="tsd-kind-icon">encode<wbr>Beacon<wbr>Data</a>
@@ -632,7 +674,7 @@
 								<a href="__types_index_.provider.html#makebeacondata" class="tsd-kind-icon">make<wbr>Beacon<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="__types_index_.provider.html#makefetchbeaconurl" class="tsd-kind-icon">make<wbr>Fetch<wbr>BeaconURL</a>
+								<a href="__types_index_.provider.html#makebeaconurl" class="tsd-kind-icon">make<wbr>BeaconURL</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="__types_index_.provider.html#sendbeacon" class="tsd-kind-icon">send<wbr>Beacon</a>

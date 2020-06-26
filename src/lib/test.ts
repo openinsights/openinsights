@@ -109,8 +109,8 @@ export abstract class Test implements Executable {
      * mechanics.
      * @param setupResult Result of the previous {@link Provider.testSetUp} call
      * @returns A Promise resolving to a {@link ResultBundle} object, the
-     * result of calling {@link Provider.createTestResult} when the test data
-     * has been obtained.
+     * result of calling {@link Provider.createFetchTestResult} when the test
+     * data has been obtained.
      */
     abstract test(setupResult: TestSetupResult): Promise<ResultBundle>
 }

@@ -195,58 +195,77 @@ export interface Executable {
  */
 export interface Provider {
     /**
-     * TODO
+     * An attribute that can be used for logging purposes.
      */
     name: string
 
     /**
-     * TODO
+     * The {@link SessionConfig} object obtained from calling
+     * {@link Provider.fetchSessionConfig}.
      */
     sessionConfig?: SessionConfig
 
     /**
-     * Called before a test begins, giving the provider an opportunity to
-     * perform any pre-test setup that it would like to do, such as record a
+     * A hook called before each test begins, giving the provider an
+     * opportunity to perform any pre-test setup needed, such as recording a
      * timestamp.
-     * @param config The configuration object of the test about to start
+     * @param testConfig The test configuration.
      */
-    testSetUp(config: TestConfiguration): Promise<TestSetupResult>
+    testSetUp(testConfig: TestConfiguration): Promise<TestSetupResult>
 
     /**
-     *
-     * @param testData
+     * A hook called after each test has completed, giving the provider an
+     * opportunity to perform any post-test activity needed.
+     * @param testData The test results.
      */
     testTearDown(testData: ResultBundle): Promise<ResultBundle>
 
     /**
-     *
-     * @param value
+     * Called within {@link start} to sets the provider's session configuration
+     * object after calling {@link ProviderBase.fetchSessionConfig}.
+     * @param value The provider-defined configuration object resulting from a
+     * call to {@link Provider.fetchSessionConfig}
      */
     setSessionConfig(value: SessionConfig): void
 
     /**
-     * TODO
+     * A hook called very early by the core module, enabling providers an
+     * opportunity to determine if they should participate in the session,
+     * e.g. based on user agent feature detection, random downsampling, etc.
+     * It returns a promise, in case a provider would like to make a network
+     * request in order to make this determination.
      */
-    shouldRun(): boolean
+    shouldRun(): Promise<boolean>
 
     /**
-     * TODO
+     * @remarks
+     * A provider implements this in order to define its logic for producing
+     * a {@link SessionConfig} object at runtime.
      */
     fetchSessionConfig(): Promise<SessionConfig>
 
     /**
-     * TODO
+     * A provider implements this in order to define its logic for converting
+     * the configuration from a {@link SessionConfig} object into one or more
+     * {@link Executable} objects (usually {@link Fetch} or other classes
+     * inheriting from {@link Test}).
      */
     expandTasks(): Executable[]
 
     /**
-     * TODO
-     * @param timingEntry TODO
-     * @param response TODO
-     * @param testConfig TODO
-     * @param setupResult TODO
+     * @remarks
+     * A provider implements this in order to define its logic for creating
+     * a {@link ResultBundle} describing the outcome of running a {@link Fetch}
+     * test.
+     * @param timingEntry The Resource Timing entry used to generate the test
+     * result.
+     * @param response The **Response** object resulting from the fetch
+     * activity.
+     * @param testConfig The test configuration.
+     * @param setupResult The provider-defined result of any test setup
+     * activity done prior to the fetch.
      */
-    createTestResult(
+    createFetchTestResult(
         timingEntry: ResourceTimingEntry,
         response: Response,
         testConfig: TestConfiguration,
@@ -254,9 +273,10 @@ export interface Provider {
     ): Promise<ResultBundle>
 
     /**
-     * TODO
-     * @param testConfig TODO
-     * @param testData TODO
+     * @remarks
+     * A provider implements this in order to create a beacon payload.
+     * @param testConfig The test configuration.
+     * @param testData The data resulting from running the test.
      */
     makeBeaconData(
         testConfig: TestConfiguration,
@@ -264,34 +284,42 @@ export interface Provider {
     ): Beacon.Data
 
     /**
-     * TODO
-     * @param testConfig TODO
+     * A hook enabling a provider to determine the beacon URL for a test
+     * result.
+     * @param testConfig The test configuration.
      */
     makeBeaconURL(testConfig: TestConfiguration): string
 
     /**
-     * TODO
-     * @param testConfig TODO
+     * A hook enabling a provider to generate a test URL at runtime.
+     * @remarks
+     * A provider may cache the result of the first call to this method and
+     * reuse the value on subsequent calls.
+     * @param testConfig The test configuration, which usually specifies a base
+     * URL from which the provider produces the runtime URL.
      */
     getResourceUrl(testConfig: TestConfiguration): URL
 
     /**
-     * TODO
-     * @param testConfig TODO
+     * A hook enabling a provider to draw a set of zero or more
+     * {@link HttpHeader} tuples from a provider-defined test configuration.
+     * @param testConfig The test configuration.
      */
     getResourceRequestHeaders(testConfig: TestConfiguration): HttpHeader[]
 
     /**
-     * TODO
-     * @param testConfig TODO
-     * @param data TODO
+     * A hook enabling a provider to perform encoding of beacon data before
+     * sending it.
+     * @param testConfig The test configuration.
+     * @param data The data to be encoded.
      */
     encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string
 
     /**
-     * TODO
-     * @param testConfig TODO
-     * @param encodedBeaconData TODO
+     * A hook enabling a provider to report test results, i.e. "beaconing".
+     * @param testConfig The test configuration.
+     * @param encodedBeaconData The beacon payload returned from
+     * {@link Provider.encodeBeaconData}.
      */
     sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void
 }
