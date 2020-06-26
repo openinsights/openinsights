@@ -18,28 +18,30 @@ export interface ExecutableContainer {
     executables: Executable[]
 }
 
+/**
+ * A type for objects returned by {@link Provider.fetchSessionConfig}
+ * representing configuration for a RUM session.
+ */
 export type SessionConfig = ExecutableContainer
 
 /**
- * TODO
+ * An interface representing the configuration of a RUM test.
  */
 export interface TestConfiguration {
     /**
-     * TODO
+     * Indicates the test type.
      */
     type: string
 }
 
 /**
- * TODO
+ * An interface representing the result of a test's setup activity.
  */
 export interface TestSetupResult {
     /**
-     * TODO
+     * A container for the test setup data
      */
-    data?: {
-        [key: string]: string | number | Date
-    }
+    data?: SimpleObject
 }
 
 /**
