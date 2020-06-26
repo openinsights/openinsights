@@ -1,7 +1,7 @@
 import {
     Executable,
     Provider,
-    ResultBundle,
+    TestResultBundle,
     TestConfiguration,
     TestSetupResult,
 } from "../@types"
@@ -67,7 +67,7 @@ export abstract class Test implements Executable {
     /**
      * This is the logic function for conducting an individual test.
      */
-    execute(): Promise<ResultBundle> {
+    execute(): Promise<TestResultBundle> {
         this._state = TestState.Running
         return this._provider
             .testSetUp(this._config)
@@ -90,7 +90,7 @@ export abstract class Test implements Executable {
             })
             .then((bundle) => this._provider.testTearDown(bundle))
             .catch(
-                (): Promise<ResultBundle> => {
+                (): Promise<TestResultBundle> => {
                     this._state = TestState.Error
                     // TODO: notify subscribers of error
                     return Promise.resolve({
@@ -112,5 +112,5 @@ export abstract class Test implements Executable {
      * result of calling {@link Provider.createFetchTestResult} when the test
      * data has been obtained.
      */
-    abstract test(setupResult: TestSetupResult): Promise<ResultBundle>
+    abstract test(setupResult: TestSetupResult): Promise<TestResultBundle>
 }

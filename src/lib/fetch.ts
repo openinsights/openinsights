@@ -3,7 +3,7 @@ import {
     Provider,
     ResourceTimingEntry,
     ResourceTimingEntryValidationPredicate,
-    ResultBundle,
+    TestResultBundle,
     TestConfiguration,
     TestSetupResult,
 } from "../@types"
@@ -39,7 +39,7 @@ export default class Fetch extends Test {
      * result of calling {@link Provider.createFetchTestResult} when the test
      * data has been obtained.
      */
-    test(setupResult: TestSetupResult): Promise<ResultBundle> {
+    test(setupResult: TestSetupResult): Promise<TestResultBundle> {
         return Promise.all<Response, ResourceTimingEntry>([
             this.fetchObject(),
             asyncGetEntry(
@@ -48,7 +48,7 @@ export default class Fetch extends Test {
                 this.isValidEntryFunc,
             ),
         ]).then(
-            ([response, entry]): Promise<ResultBundle> => {
+            ([response, entry]): Promise<TestResultBundle> => {
                 return this._provider.createFetchTestResult(
                     normalizeEntry(entry),
                     response,

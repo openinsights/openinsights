@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Result | open-insights</title>
+	<title>TestResultBundle | open-insights</title>
 	<meta name="description" content="Documentation for open-insights">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/__types_index_.html">&quot;@types/index&quot;</a>
 				</li>
 				<li>
-					<a href="__types_index_.result.html">Result</a>
+					<a href="__types_index_.testresultbundle.html">TestResultBundle</a>
 				</li>
 			</ul>
-			<h1>Interface Result</h1>
+			<h1>Interface TestResultBundle</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>TODO</p>
+						<p>Represents the completed result of a test.</p>
 					</div>
 				</div>
 			</section>
@@ -80,18 +80,76 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Result</span>
+						<span class="target">TestResultBundle</span>
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel tsd-kind-interface tsd-parent-kind-module">
-				<h3 class="tsd-before-signature">Indexable</h3>
-				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Date</span></div>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>TODO</p>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="__types_index_.testresultbundle.html#beacondata" class="tsd-kind-icon">beacon<wbr>Data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="__types_index_.testresultbundle.html#data" class="tsd-kind-icon">data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="__types_index_.testresultbundle.html#setupresult" class="tsd-kind-icon">setup<wbr>Result</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="__types_index_.testresultbundle.html#testtype" class="tsd-kind-icon">test<wbr>Type</a></li>
+							</ul>
+						</section>
 					</div>
-				</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="beacondata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> beacon<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">beacon<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Beacon.Data</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Data to be sent to the provider&#39;s ingest services.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="data" class="tsd-anchor"></a>
+					<h3>data</h3>
+					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <a href="../modules/__types_index_.html#testresult" class="tsd-signature-type">TestResult</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An array of objects representing individual component results.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="setupresult" class="tsd-anchor"></a>
+					<h3>setup<wbr>Result</h3>
+					<div class="tsd-signature tsd-kind-icon">setup<wbr>Result<span class="tsd-signature-symbol">:</span> <a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The result of any test setup activity.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="testtype" class="tsd-anchor"></a>
+					<h3>test<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">test<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A string representing the test type.</p>
+						</div>
+					</div>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -156,9 +214,6 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.clientinfo.html" class="tsd-kind-icon">Client<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.clientsettings.html" class="tsd-kind-icon">Client<wbr>Settings</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
@@ -179,16 +234,6 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.provider.html" class="tsd-kind-icon">Provider</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.result.html" class="tsd-kind-icon">Result</a>
-					</li>
-				</ul>
-				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.resultbundle.html" class="tsd-kind-icon">Result<wbr>Bundle</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.sessionresult.html" class="tsd-kind-icon">Session<wbr>Result</a>
 					</li>
@@ -198,11 +243,35 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.testconfiguration.html" class="tsd-kind-icon">Test<wbr>Configuration</a>
 					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="__types_index_.testresultbundle.html" class="tsd-kind-icon">Test<wbr>Result<wbr>Bundle</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="__types_index_.testresultbundle.html#beacondata" class="tsd-kind-icon">beacon<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="__types_index_.testresultbundle.html#data" class="tsd-kind-icon">data</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="__types_index_.testresultbundle.html#setupresult" class="tsd-kind-icon">setup<wbr>Result</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="__types_index_.testresultbundle.html#testtype" class="tsd-kind-icon">test<wbr>Type</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.testsetupresult.html" class="tsd-kind-icon">Test<wbr>Setup<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="__types_index_.workernavigator.html" class="tsd-kind-icon">Worker<wbr>Navigator</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/__types_index_.html#clientinfo" class="tsd-kind-icon">Client<wbr>Info</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../modules/__types_index_.html#effectiveconnectiontype" class="tsd-kind-icon">Effective<wbr>Connection<wbr>Type</a>
@@ -231,6 +300,9 @@
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/__types_index_.html#sessionconfig" class="tsd-kind-icon">Session<wbr>Config</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/__types_index_.html#testresult" class="tsd-kind-icon">Test<wbr>Result</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -247,10 +319,11 @@
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

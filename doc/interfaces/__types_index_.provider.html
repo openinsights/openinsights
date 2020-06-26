@@ -156,7 +156,7 @@
 					<a name="createfetchtestresult" class="tsd-anchor"></a>
 					<h3>create<wbr>Fetch<wbr>Test<wbr>Result</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Fetch<wbr>Test<wbr>Result<span class="tsd-signature-symbol">(</span>timingEntry<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, setupResult<span class="tsd-signature-symbol">: </span><a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Fetch<wbr>Test<wbr>Result<span class="tsd-signature-symbol">(</span>timingEntry<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, setupResult<span class="tsd-signature-symbol">: </span><a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -166,7 +166,7 @@
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>A provider implements this in order to define its logic for creating
-											a <a href="__types_index_.resultbundle.html">ResultBundle</a> describing the outcome of running a <a href="../classes/_lib_fetch_.fetch.html">Fetch</a>
+											a {@link ResultBundle} describing the outcome of running a <a href="../classes/_lib_fetch_.fetch.html">Fetch</a>
 										test.</p>
 									</dd>
 								</dl>
@@ -201,7 +201,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -352,7 +352,7 @@
 					<a name="makebeacondata" class="tsd-anchor"></a>
 					<h3>make<wbr>Beacon<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">make<wbr>Beacon<wbr>Data<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, testData<span class="tsd-signature-symbol">: </span><a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_beacon_.data.html" class="tsd-signature-type">Data</a></li>
+						<li class="tsd-signature tsd-kind-icon">make<wbr>Beacon<wbr>Data<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, testData<span class="tsd-signature-symbol">: </span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_beacon_.data.html" class="tsd-signature-type">Data</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -374,7 +374,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>testData: <a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a></h5>
+									<h5>testData: <a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The data resulting from running the test.</p>
 									</div>
@@ -535,7 +535,7 @@
 					<a name="testteardown" class="tsd-anchor"></a>
 					<h3>test<wbr>Tear<wbr>Down</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">test<wbr>Tear<wbr>Down<span class="tsd-signature-symbol">(</span>testData<span class="tsd-signature-symbol">: </span><a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">test<wbr>Tear<wbr>Down<span class="tsd-signature-symbol">(</span>testData<span class="tsd-signature-symbol">: </span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -550,13 +550,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>testData: <a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a></h5>
+									<h5>testData: <a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The test results.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.resultbundle.html" class="tsd-signature-type">ResultBundle</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -623,9 +623,6 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.clientinfo.html" class="tsd-kind-icon">Client<wbr>Info</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.clientsettings.html" class="tsd-kind-icon">Client<wbr>Settings</a>
 					</li>
@@ -699,12 +696,6 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.result.html" class="tsd-kind-icon">Result</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.resultbundle.html" class="tsd-kind-icon">Result<wbr>Bundle</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.sessionresult.html" class="tsd-kind-icon">Session<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
@@ -714,10 +705,16 @@
 						<a href="__types_index_.testconfiguration.html" class="tsd-kind-icon">Test<wbr>Configuration</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="__types_index_.testresultbundle.html" class="tsd-kind-icon">Test<wbr>Result<wbr>Bundle</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.testsetupresult.html" class="tsd-kind-icon">Test<wbr>Setup<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="__types_index_.workernavigator.html" class="tsd-kind-icon">Worker<wbr>Navigator</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/__types_index_.html#clientinfo" class="tsd-kind-icon">Client<wbr>Info</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../modules/__types_index_.html#effectiveconnectiontype" class="tsd-kind-icon">Effective<wbr>Connection<wbr>Type</a>
@@ -745,6 +742,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/__types_index_.html#sessionconfig" class="tsd-kind-icon">Session<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/__types_index_.html#testresult" class="tsd-kind-icon">Test<wbr>Result</a>
 					</li>
 				</ul>
 			</nav>

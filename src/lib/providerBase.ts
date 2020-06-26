@@ -3,7 +3,7 @@ import {
     Provider,
     Executable,
     ResourceTimingEntry,
-    ResultBundle,
+    TestResultBundle,
     SessionConfig,
     TestConfiguration,
     TestSetupResult,
@@ -58,14 +58,14 @@ export default abstract class ProviderBase implements Provider {
         response: Response,
         testConfig: TestConfiguration,
         setupResult: TestSetupResult,
-    ): Promise<ResultBundle>
+    ): Promise<TestResultBundle>
 
     /**
      * See {@link Provider.makeBeaconData}
      */
     abstract makeBeaconData(
         testConfig: TestConfiguration,
-        testData: ResultBundle,
+        testData: TestResultBundle,
     ): Beacon.Data
 
     /**
@@ -145,7 +145,7 @@ export default abstract class ProviderBase implements Provider {
      * A no-op implementation for providers that don't need to perform any
      * tear down activity.
      */
-    testTearDown(testData: ResultBundle): Promise<ResultBundle> {
+    testTearDown(testData: TestResultBundle): Promise<TestResultBundle> {
         return Promise.resolve(testData)
     }
 }

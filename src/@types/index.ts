@@ -63,43 +63,41 @@ export type ResourceTimingEntryValidationPredicate = (
 ) => boolean
 
 /**
- * TODO
+ * Represents the result of one aspect of a test. There may be ore than one
+ * result object for a particular test type, in case multiple transactions are
+ * involved.
  */
-export interface Result {
-    [key: string]: string | number | Date
-}
+export type TestResult = SimpleObject
 
 /**
- * TODO
+ * Represents the completed result of a test.
  */
-export interface ResultBundle {
+export interface TestResultBundle {
     /**
-     * TODO
+     * Data to be sent to the provider's ingest services.
      */
     beaconData?: Beacon.Data
     /**
-     * TODO
+     * A string representing the test type.
      */
     testType: string
     /**
-     * TODO
+     * An array of objects representing individual component results.
      */
-    data: Result[]
+    data: TestResult[]
     /**
-     * TODO
+     * The result of any test setup activity.
      */
     setupResult: TestSetupResult
 }
 
 /**
- * Interface representing the return value of a "client info request". This
- * type of request is typically made in order to capture the client's resolver
- * geo.
- * See {@link clientInfo.getClientInfo}.
+ * Interface representing the return value of a "client info request".
+ * @remarks
+ * This type of request is typically made in order to capture the client
+ * resolver geo. See {@link getClientInfo}.
  */
-export interface ClientInfo {
-    [key: string]: string | number | Date
-}
+export type ClientInfo = SimpleObject
 
 /**
  * TODO
@@ -108,7 +106,7 @@ export interface SessionResult {
     /**
      * TODO
      */
-    testResults: ResultBundle[]
+    testResults: TestResultBundle[]
 }
 
 /**
@@ -187,7 +185,7 @@ export interface Executable {
     /**
      * TODO
      */
-    execute(): Promise<ResultBundle>
+    execute(): Promise<TestResultBundle>
 }
 
 /**
@@ -218,7 +216,7 @@ export interface Provider {
      * opportunity to perform any post-test activity needed.
      * @param testData The test results.
      */
-    testTearDown(testData: ResultBundle): Promise<ResultBundle>
+    testTearDown(testData: TestResultBundle): Promise<TestResultBundle>
 
     /**
      * Called within {@link start} to sets the provider's session configuration
@@ -270,7 +268,7 @@ export interface Provider {
         response: Response,
         testConfig: TestConfiguration,
         setupResult: TestSetupResult,
-    ): Promise<ResultBundle>
+    ): Promise<TestResultBundle>
 
     /**
      * @remarks
@@ -280,7 +278,7 @@ export interface Provider {
      */
     makeBeaconData(
         testConfig: TestConfiguration,
-        testData: ResultBundle,
+        testData: TestResultBundle,
     ): Beacon.Data
 
     /**
