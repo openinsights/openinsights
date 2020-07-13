@@ -63,7 +63,7 @@ export type ResourceTimingEntryValidationPredicate = (
 ) => boolean
 
 /**
- * Represents the result of one aspect of a test. There may be ore than one
+ * Represents the result of one aspect of a test. There may be more than one
  * result object for a particular test type, in case multiple transactions are
  * involved.
  */
