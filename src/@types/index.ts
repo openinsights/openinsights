@@ -304,8 +304,9 @@ export interface Provider {
     getResourceUrl(testConfig: TestConfiguration): URL
 
     /**
-     * A hook enabling a provider to draw a set of zero or more
-     * {@link HttpHeader} tuples from a provider-defined test configuration.
+     * A hook enabling a provider to define a list of zero or more request
+     * {@link HttpHeader} tuples to be sent with the test, given a 
+     * provider-defined test configuration.
      * @param testConfig The test configuration.
      */
     getResourceRequestHeaders(testConfig: TestConfiguration): HttpHeader[]
