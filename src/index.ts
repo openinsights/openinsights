@@ -48,7 +48,7 @@ import { ClientSettings, SessionResult } from "./@types"
 export default function init(settings: ClientSettings): Promise<SessionResult> {
     return whenReady().then(() => {
         if (settings.preConfigStartDelay) {
-            return startLater(settings)
+            return startLater(settings.preConfigStartDelay, settings)
         }
         return start(settings)
     })
@@ -58,13 +58,17 @@ export default function init(settings: ClientSettings): Promise<SessionResult> {
  * Called internally if a non-zero {@link ClientSettings.preConfigStartDelay}
  * setting has been specified. Calls {@link start} after the delay.
  *
+ * @param delay The approximate time to wait (in milliseconds).
  * @param settings The settings object passed to {@link init}.
  */
-function startLater(settings: ClientSettings): Promise<SessionResult> {
+function startLater(
+    delay: number,
+    settings: ClientSettings,
+): Promise<SessionResult> {
     return new Promise((resolve) => {
         setTimeout(() => {
             start(settings).then((result) => resolve(result))
-        }, settings.preConfigStartDelay)
+        }, delay)
     })
 }
 
