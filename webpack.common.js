@@ -17,6 +17,8 @@ module.exports = {
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
+        // TODO: May need to change this depending on the permanent name chosen
+        // for the project
         library: "openInsights",
         libraryTarget: "window",
     }
