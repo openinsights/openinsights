@@ -305,7 +305,7 @@ export interface Provider {
 
     /**
      * A hook enabling a provider to define a list of zero or more request
-     * {@link HttpHeader} tuples to be sent with the test, given a 
+     * {@link HttpHeader} tuples to be sent with the test, given a
      * provider-defined test configuration.
      * @param testConfig The test configuration.
      */
