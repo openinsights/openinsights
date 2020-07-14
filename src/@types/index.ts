@@ -313,7 +313,7 @@ export interface Provider {
 
     /**
      * A hook enabling a provider to perform encoding of beacon data before
-     * sending it.
+     * sending it, such as `JSON.stringify()` or other serialization methods.
      * @param testConfig The test configuration.
      * @param data The data to be encoded.
      */

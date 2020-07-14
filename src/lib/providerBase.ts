@@ -88,7 +88,7 @@ export default abstract class ProviderBase implements Provider {
     /**
      * See {@link Provider.encodeBeaconData}.
      * @remarks
-     * Handles simple JSON-encoding.
+     * A default implementation that does simple JSON-encoding.
      */
     encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string {
         return JSON.stringify(data)
