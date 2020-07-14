@@ -94,7 +94,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#addprovider" class="tsd-kind-icon">add<wbr>Provider</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#setpreconfigstartdelay" class="tsd-kind-icon">set<wbr>Pre<wbr>Config<wbr>Start<wbr>Delay</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#setsequence" class="tsd-kind-icon">set<wbr>Sequence</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#setsessionprocessfunc" class="tsd-kind-icon">set<wbr>Session<wbr>Process<wbr>Func</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#tosettings" class="tsd-kind-icon">to<wbr>Settings</a></li>
 							</ul>
 						</section>
@@ -167,10 +167,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="setsequence" class="tsd-anchor"></a>
-					<h3>set<wbr>Sequence</h3>
+					<a name="setsessionprocessfunc" class="tsd-anchor"></a>
+					<h3>set<wbr>Session<wbr>Process<wbr>Func</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Sequence<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#promisesequencefunc" class="tsd-signature-type">PromiseSequenceFunc</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Session<wbr>Process<wbr>Func<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#sessionprocessfunc" class="tsd-signature-type">SessionProcessFunc</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -178,15 +178,15 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Set the <a href="../interfaces/__types_index_.clientsettings.html#sequence">ClientSettings.sequence</a> setting.</p>
+									<p>Set the <a href="../interfaces/__types_index_.clientsettings.html#sessionprocess">ClientSettings.sessionProcess</a> setting.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <a href="../modules/__types_index_.html#promisesequencefunc" class="tsd-signature-type">PromiseSequenceFunc</a></h5>
+									<h5>value: <a href="../modules/__types_index_.html#sessionprocessfunc" class="tsd-signature-type">SessionProcessFunc</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>See <a href="../interfaces/__types_index_.clientsettings.html#sequence">ClientSettings.sequence</a>.</p>
+										<p>See <a href="../interfaces/__types_index_.clientsettings.html#sessionprocess">ClientSettings.sessionProcess</a>.</p>
 									</div>
 								</li>
 							</ul>
@@ -244,9 +244,9 @@
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="_value.sequence" class="tsd-anchor"></a>
-						<h3>sequence</h3>
-						<div class="tsd-signature tsd-kind-icon">sequence<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>sessionConfigs<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#sessionconfig" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = defaultSequenceFunc</span></div>
+						<a name="_value.sessionprocess" class="tsd-anchor"></a>
+						<h3>session<wbr>Process</h3>
+						<div class="tsd-signature tsd-kind-icon">session<wbr>Process<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>sessionConfigs<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#sessionconfig" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = defaultSessionProcessFunc</span></div>
 						<aside class="tsd-sources">
 						</aside>
 						<div class="tsd-type-declaration">
@@ -320,7 +320,7 @@
 						<a href="../modules/_util_compose_.html">&quot;util/compose&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_util_defaultsequencefunc_.html">&quot;util/default<wbr>Sequence<wbr>Func&quot;</a>
+						<a href="../modules/_util_defaultsessionprocessfunc_.html">&quot;util/default<wbr>Session<wbr>Process<wbr>Func&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_util_loadwhendocumentready_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready&quot;</a>
@@ -347,7 +347,7 @@
 								<a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#setpreconfigstartdelay" class="tsd-kind-icon">set<wbr>Pre<wbr>Config<wbr>Start<wbr>Delay</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#setsequence" class="tsd-kind-icon">set<wbr>Sequence</a>
+								<a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#setsessionprocessfunc" class="tsd-kind-icon">set<wbr>Session<wbr>Process<wbr>Func</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_util_clientsettingsbuilder_.clientsettingsbuilder.html#tosettings" class="tsd-kind-icon">to<wbr>Settings</a>

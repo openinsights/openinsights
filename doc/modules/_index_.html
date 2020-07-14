@@ -92,7 +92,7 @@ const fooSettings: ProviderSettings = {
 settingsBuilder.addProvider(new Provider(fooSettings))
 
 // Execute a RUM session
-init(settingsBuilder.value)
+init(settingsBuilder.toSettings())
     .then(result =&gt; {
         // `result` contains the results from the RUM session after
         // completion
@@ -187,7 +187,7 @@ init(settingsBuilder.value)
 					<a name="startlater" class="tsd-anchor"></a>
 					<h3>start<wbr>Later</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Later<span class="tsd-signature-symbol">(</span>settings<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Later<span class="tsd-signature-symbol">(</span>delay<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, settings<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -201,6 +201,12 @@ init(settingsBuilder.value)
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>delay: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The approximate time to wait (in milliseconds).</p>
+									</div>
+								</li>
 								<li>
 									<h5>settings: <a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a></h5>
 									<div class="tsd-comment tsd-typography">
@@ -260,7 +266,7 @@ init(settingsBuilder.value)
 						<a href="_util_compose_.html">&quot;util/compose&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_util_defaultsequencefunc_.html">&quot;util/default<wbr>Sequence<wbr>Func&quot;</a>
+						<a href="_util_defaultsessionprocessfunc_.html">&quot;util/default<wbr>Session<wbr>Process<wbr>Func&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_util_loadwhendocumentready_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready&quot;</a>
