@@ -188,7 +188,7 @@ export interface NetworkInformation {
  */
 export interface Executable {
     /**
-     * Execute a test and return a promise resolving to a test result bundle.
+     * Execute a test and return a Promise resolving to a test result bundle.
      */
     execute(): Promise<TestResultBundle>
 }
