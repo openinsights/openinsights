@@ -343,7 +343,7 @@ export interface Provider {
  * @param sessionConfigs List of session configurations for which to
  * generate a list of Promise<{@link SessionResult}> objects.
  */
-export type PromiseSequenceFunc = (
+export type SessionProcessFunc = (
     sessionConfigs: SessionConfig[],
 ) => Promise<SessionResult>
 
@@ -366,11 +366,11 @@ export interface ClientSettings {
     providers: Provider[]
     /**
      * At runtime, this function takes the list of {@link SessionConfig}
-     * objects supplied by the providers participating in the RUM session
-     * and determines the order in which their tests run.
+     * objects supplied by providers participating in the RUM session
+     * and executes any tests they contain.
      *
      * @remarks
      * Defaults to {@link defaultSequenceFunc}
      */
-    sequence: PromiseSequenceFunc
+    sessionProcess: SessionProcessFunc
 }

@@ -84,6 +84,6 @@ function start(settings: ClientSettings): Promise<SessionResult> {
             settings.providers[i].setSessionConfig(v)
             v.executables = settings.providers[i].expandTasks()
         })
-        return settings.sequence(sessionConfigs)
+        return settings.sessionProcess(sessionConfigs)
     })
 }

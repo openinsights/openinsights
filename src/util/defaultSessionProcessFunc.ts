@@ -1,14 +1,16 @@
-import { Executable, PromiseSequenceFunc } from "../@types"
+import { Executable, SessionProcessFunc } from "../@types"
 import sequence from "./promiseSequence"
 
 /**
- * Default sequencing function. See {@link PromiseSequenceFunc} for more
- * details.
+ * Default session processing function.
+ *
+ * @remarks
+ * See {@link SessionProcessFunc}.
  *
  * @param sessionConfigs Array of {@link SessionConfig} objects from which to
  * generate a Promise<{@link SessionResult}>
  */
-const defaultSequenceFunc: PromiseSequenceFunc = (sessionConfigs) => {
+const defaultSessionProcessFunc: SessionProcessFunc = (sessionConfigs) => {
     const executables: Executable[] = []
     for (const c of sessionConfigs) {
         executables.push(...c.executables)
@@ -19,4 +21,4 @@ const defaultSequenceFunc: PromiseSequenceFunc = (sessionConfigs) => {
     })
 }
 
-export default defaultSequenceFunc
+export default defaultSessionProcessFunc

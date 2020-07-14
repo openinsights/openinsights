@@ -1,5 +1,5 @@
-import { ClientSettings, Provider, PromiseSequenceFunc } from "../@types"
-import defaultSequenceFunc from "./defaultSequenceFunc"
+import { ClientSettings, Provider, SessionProcessFunc } from "../@types"
+import defaultSessionProcessFunc from "./defaultSessionProcessFunc"
 
 /**
  * A utility class used to generate a {@link ClientSettings} object suitable
@@ -13,7 +13,7 @@ export default class ClientSettingsBuilder {
     private _value: ClientSettings = {
         preConfigStartDelay: 0,
         providers: [],
-        sequence: defaultSequenceFunc,
+        sessionProcess: defaultSessionProcessFunc,
     }
 
     /**
@@ -42,10 +42,10 @@ export default class ClientSettingsBuilder {
     }
 
     /**
-     * Set the {@link ClientSettings.sequence} setting.
-     * @param value See {@link ClientSettings.sequence}.
+     * Set the {@link ClientSettings.sessionProcess} setting.
+     * @param value See {@link ClientSettings.sessionProcess}.
      */
-    setSequence(value: PromiseSequenceFunc): void {
-        this._value.sequence = value
+    setSessionProcessFunc(value: SessionProcessFunc): void {
+        this._value.sessionProcess = value
     }
 }
