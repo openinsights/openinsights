@@ -22,7 +22,7 @@
  * settingsBuilder.addProvider(new Provider(fooSettings))
  *
  * // Execute a RUM session
- * init(settingsBuilder.value)
+ * init(settingsBuilder.toSettings())
  *     .then(result => {
  *         // `result` contains the results from the RUM session after
  *         // completion
