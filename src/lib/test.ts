@@ -94,7 +94,11 @@ export abstract class Test implements Executable {
             .catch(
                 (): Promise<TestResultBundle> => {
                     this._state = TestState.Error
-                    // TODO: notify subscribers of error
+                    // TODO: Notify subscribers of error
+                    // TODO: If we're going to resolve here (and maybe we
+                    // should reject instead), then perhaps we should
+                    // add some information about the error to the
+                    // TestResultBundle.
                     return Promise.resolve({
                         providerName: this._provider.name,
                         testType: this._config.type,
