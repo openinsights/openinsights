@@ -73,6 +73,8 @@ export abstract class Test implements Executable {
             .testSetUp(this._config)
             .then((setupResult) => this.test(setupResult))
             .then((bundle) => {
+                // Set the provider name
+                bundle.providerName = this._provider.name
                 // Add beacon data to the result bundle
                 bundle.beaconData = this._provider.makeBeaconData(
                     this._config,
@@ -94,6 +96,7 @@ export abstract class Test implements Executable {
                     this._state = TestState.Error
                     // TODO: notify subscribers of error
                     return Promise.resolve({
+                        providerName: this._provider.name,
                         testType: this._config.type,
                         data: [],
                         setupResult: {
