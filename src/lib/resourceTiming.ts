@@ -67,7 +67,6 @@ function asyncGetEntry(
             ): void => {
                 const namedEntries = list.getEntriesByName(name)
                 entry = getValidEntry(namedEntries, isValidEntryFunc)
-
                 if (entry) {
                     observer.disconnect()
                     resolve(entry)

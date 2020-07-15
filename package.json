@@ -9,18 +9,22 @@
     "build:dev:watch": "webpack --config webpack.dev.js --watch",
     "build:doc": "rimraf doc && typedoc",
     "lint": "eslint --fix src",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
+    "@types/sinon": "^9.0.4",
     "@typescript-eslint/eslint-plugin": "^3.3.0",
     "@typescript-eslint/parser": "^3.3.0",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.0.1",
+    "jest-fetch-mock": "^3.0.3",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
+    "sinon": "^9.0.2",
     "ts-jest": "^26.1.0",
     "ts-loader": "^7.0.5",
     "typedoc": "^0.17.7",

@@ -9,7 +9,7 @@ import {
 /**
  * The possible states that a {@link Test} can be in.
  */
-enum TestState {
+export enum TestState {
     /**
      * The test is not yet started.
      */

@@ -10,6 +10,10 @@ import {
 import { asyncGetEntry, normalizeEntry } from "./resourceTiming"
 import { Test } from "./test"
 
+export type FetchConfiguration = TestConfiguration & {
+    performanceTimingObserverTimeout?: number
+}
+
 /**
  * Class representing a basic "fetch" test. Along with its parent class
  * {@link Test}, the class provides a number of hooks enabling providers to
@@ -27,7 +31,7 @@ export default class Fetch extends Test {
      */
     constructor(
         provider: Provider,
-        config: TestConfiguration,
+        config: FetchConfiguration,
         /**
          * The predicate function used to determine the validity of a Resource
          * Timing entry.
@@ -37,6 +41,12 @@ export default class Fetch extends Test {
         ) => e.requestStart !== 0 && e.connectStart !== e.connectEnd,
     ) {
         super(provider, config)
+        // Set the default timeout used to find an entry in the
+        // Resource Timing buffer.
+        const fetchConfig = this._config as FetchConfiguration
+        if (fetchConfig.performanceTimingObserverTimeout === undefined) {
+            fetchConfig.performanceTimingObserverTimeout = 5000
+        }
     }
 
     /**
@@ -51,7 +61,8 @@ export default class Fetch extends Test {
             this.fetchObject(),
             asyncGetEntry(
                 this.getResourceUrl().href,
-                5000,
+                (this._config as FetchConfiguration)
+                    .performanceTimingObserverTimeout,
                 this._isValidEntryFunc,
             ),
         ]).then(
@@ -83,17 +94,23 @@ export default class Fetch extends Test {
      */
     fetchObject(): Promise<Response> {
         const init: RequestInit = {}
-        const requestHeaders: [
-            string,
-            string,
-        ][] = this._provider.getResourceRequestHeaders(this._config)
+        const requestHeaders = this._provider.getResourceRequestHeaders(
+            this._config,
+        )
         if (requestHeaders.length) {
             init.headers = requestHeaders.reduce(
                 (
                     accumulator: { [key: string]: string },
                     currentValue: HttpHeader,
                 ) => {
-                    accumulator[currentValue[0]] = currentValue[1]
+                    if (accumulator[currentValue[0]]) {
+                        accumulator[currentValue[0]] = [
+                            accumulator[currentValue[0]],
+                            currentValue[1],
+                        ].join(",")
+                    } else {
+                        accumulator[currentValue[0]] = currentValue[1]
+                    }
                     return accumulator
                 },
                 {},
