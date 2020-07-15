@@ -99,7 +99,7 @@ export default abstract class ProviderBase implements Provider {
      * @remarks
      * Provides a simple mechanism using the Beacon API, with the Fetch API as
      * a fallback. Providers may override this if they require more specialized
-     * reporting, e.g. utilize websockets, invoke a 3rd party library, etc.
+     * reporting, e.g. utilize WebSockets, invoke a 3rd party library, etc.
      */
     sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void {
         beacon(this.makeBeaconURL(testConfig), encodedBeaconData)
