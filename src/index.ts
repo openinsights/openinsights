@@ -31,8 +31,8 @@
  *
  * @packageDocumentation
  */
+import { ClientSettings, ExecutableContainer, SessionResult } from "./@types"
 import whenReady from "./util/loadWhenDocumentReady"
-import { ClientSettings, SessionResult } from "./@types"
 
 /**
  * Called by tag owner code to initialize a RUM session, either immediately or
@@ -79,14 +79,20 @@ function startLater(
  * @param settings The settings object passed to {@link init}.
  */
 function start(settings: ClientSettings): Promise<SessionResult> {
-    return Promise.all(
+    return Promise.allSettled(
         settings.providers
             .filter((provider) => provider.shouldRun())
             .map((provider) => provider.fetchSessionConfig()),
-    ).then((sessionConfigs) => {
+    ).then((settled) => {
+        const sessionConfigs = settled
+            .filter((r) => r.status === "fulfilled")
+            .map(
+                (r) => (r as PromiseFulfilledResult<ExecutableContainer>).value,
+            )
         sessionConfigs.forEach((v, i) => {
-            settings.providers[i].setSessionConfig(v)
-            v.executables = settings.providers[i].expandTasks()
+            const p = settings.providers[i]
+            p.setSessionConfig(v)
+            v.executables = p.expandTasks()
         })
         return settings.sessionProcess(sessionConfigs)
     })
