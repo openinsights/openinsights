@@ -94,7 +94,6 @@ export abstract class Test implements Executable {
                     this._state = TestState.Error
                     // TODO: notify subscribers of error
                     return Promise.resolve({
-                        providerName: this._provider.name,
                         testType: this._config.type,
                         data: [],
                         setupResult: {

@@ -74,10 +74,6 @@ export type TestResult = SimpleObject
  */
 export interface TestResultBundle {
     /**
-     * The name of the provider responsible for the test.
-     */
-    providerName: string
-    /**
      * Data to be sent to the provider's ingest services.
      */
     beaconData?: Beacon.Data
