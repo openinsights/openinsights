@@ -1,17 +1,9 @@
 /*eslint guard-for-in:0*/
 import PerformanceObserver from "@fastly/performance-observer-polyfill"
-import compose from "../util/compose"
-import camelCaseToSnakeCase from "../util/camelCaseToSnakeCase"
 import {
     ResourceTimingEntry,
     ResourceTimingEntryValidationPredicate,
 } from "../@types"
-
-/**
- * A list of Resource Timing entry properties not to include in the normalized
- * transformation used internally.
- */
-const EXCLUDED_PROPS = ["name", "initiatorType", "entryType"]
 
 /**
  * Given a list of Resource Timing entries, return the first one that matches
@@ -92,67 +84,4 @@ function asyncGetEntry(
     })
 }
 
-/**
- * @remarks
- * Used by {@link normalizeEntry} to create a new object using a
- * Resource Timing entry's properties.
- * @param entry The Resource Timing entry to copy.
- */
-function cloneEntry(entry: ResourceTimingEntry): ResourceTimingEntry {
-    const result: ResourceTimingEntry = {}
-    for (const key in entry) {
-        const type = typeof entry[key]
-        if (type === "number" || type === "string") {
-            result[key] = entry[key]
-        }
-    }
-    return result
-}
-
-/**
- * Return a new object based on an existing object with certain properties
- * removed.
- * @param entry The entry to copy.
- * @param props A list of property names to omit from the new object.
- */
-function removeEntryProps(
-    entry: ResourceTimingEntry,
-    props: string[],
-): ResourceTimingEntry {
-    const result: ResourceTimingEntry = {}
-    return Object.keys(entry).reduce((res, key): ResourceTimingEntry => {
-        if (props.indexOf(key) < 0) {
-            res[key] = entry[key]
-        }
-        return res
-    }, result)
-}
-
-/**
- * Create a new object with propert names converted from camel case to snake
- * case.
- * @param entry The source object.
- */
-function normalizeEntryKeys(entry: ResourceTimingEntry): ResourceTimingEntry {
-    const result: ResourceTimingEntry = {}
-    return Object.keys(entry).reduce((res, key): ResourceTimingEntry => {
-        const newKey = camelCaseToSnakeCase(key)
-        res[newKey] = entry[key]
-        return res
-    }, result)
-}
-
-/**
- * A pipeline of procedures used to create a normalized Resource Timing entry
- * object.
- * @remarks
- * TODO: Currently only removing certain properties by name. It might be more
- * future-proof to specify properties to include.
- */
-const normalizeEntry = compose(
-    normalizeEntryKeys,
-    (entry): ResourceTimingEntry => removeEntryProps(entry, EXCLUDED_PROPS),
-    cloneEntry,
-)
-
-export { asyncGetEntry, normalizeEntry }
+export { asyncGetEntry }

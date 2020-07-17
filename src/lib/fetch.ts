@@ -3,11 +3,11 @@ import {
     Provider,
     ResourceTimingEntry,
     ResourceTimingEntryValidationPredicate,
-    TestResultBundle,
     TestConfiguration,
+    TestResultBundle,
     TestSetupResult,
 } from "../@types"
-import { asyncGetEntry, normalizeEntry } from "./resourceTiming"
+import { asyncGetEntry } from "./resourceTiming"
 import { Test } from "./test"
 
 export type FetchConfiguration = TestConfiguration & {
@@ -73,7 +73,7 @@ export default class Fetch extends Test {
         ]).then(
             ([response, entry]): Promise<TestResultBundle> => {
                 return this._provider.createFetchTestResult(
-                    normalizeEntry(entry),
+                    entry,
                     response,
                     this._config,
                     setupResult,
