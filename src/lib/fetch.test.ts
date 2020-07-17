@@ -81,7 +81,9 @@ describe("Fetch.execute", () => {
                 "When asyncGetEntry fails to find resource," +
                     " throw the expected error",
             )
-            result.asyncGetEntryResult = { error: new Error("Oh noes!") }
+            result.asyncGetEntryResult = {
+                error: new Error("Oh noes!"),
+            }
             delete result.sendBeaconArgs
             result.executeResult = {
                 testType: "some type",
@@ -177,7 +179,9 @@ describe("Fetch.execute", () => {
             fetchConfig: {
                 type: "some type",
             },
-            encodeBeaconDataResult: JSON.stringify({ foo: "bar" }),
+            encodeBeaconDataResult: JSON.stringify({
+                foo: "bar",
+            }),
             executeResult: {
                 testType: "some type",
                 setupResult: {},

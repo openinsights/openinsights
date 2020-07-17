@@ -63,7 +63,11 @@ describe("ProviderBase", () => {
                 expect(fetchMock.mock.calls).toEqual([
                     [
                         "some URL",
-                        { method: "POST", body: "some data", keepalive: true },
+                        {
+                            method: "POST",
+                            body: "some data",
+                            keepalive: true,
+                        },
                     ],
                 ])
             },
@@ -75,7 +79,9 @@ describe("ProviderBase", () => {
         makeProviderTest({
             providerName: "Foo",
             testFun: (provider) => {
-                type FooConfig = SessionConfig & { foo: string }
+                type FooConfig = SessionConfig & {
+                    foo: string
+                }
                 const container: FooConfig = {
                     executables: [],
                     foo: "bar",

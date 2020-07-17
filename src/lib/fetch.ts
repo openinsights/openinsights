@@ -15,30 +15,37 @@ export type FetchConfiguration = TestConfiguration & {
 }
 
 /**
+ * The default function used to validate Resource Timing entries.
+ * @param e The entry to validate.
+ */
+const defaultIsValidEntryFunc: ResourceTimingEntryValidationPredicate = (e) =>
+    e.requestStart !== 0 && e.connectStart !== e.connectEnd
+
+/**
  * Class representing a basic "fetch" test. Along with its parent class
  * {@link Test}, the class provides a number of hooks enabling providers to
  * control certain implementation details supporting their use case.
  */
 export default class Fetch extends Test {
     /**
+     * The predicate function used to determine the validity of a Resource
+     * Timing entry.
+     */
+    private _isValidEntryFunc: ResourceTimingEntryValidationPredicate = defaultIsValidEntryFunc
+
+    /**
      * @remarks
      * A provider may override the default logic used to determine a valid
      * Resource Timing entry using the optional isValidEntryFunc argument.
      * @param provider The provider that owns the test.
      * @param config The test configuration.
-     * @param isValidEntryFunc A function used to determine the validity of a
-     * Resource Timing entry.
+     * @param validEntryFunc An optional provider-defined function used to
+     * validate Resource Timing entries.
      */
     constructor(
         provider: Provider,
         config: FetchConfiguration,
-        /**
-         * The predicate function used to determine the validity of a Resource
-         * Timing entry.
-         */
-        private _isValidEntryFunc: ResourceTimingEntryValidationPredicate = (
-            e,
-        ) => e.requestStart !== 0 && e.connectStart !== e.connectEnd,
+        validEntryFunc?: ResourceTimingEntryValidationPredicate,
     ) {
         super(provider, config)
         // Set the default timeout used to find an entry in the
@@ -46,6 +53,9 @@ export default class Fetch extends Test {
         const fetchConfig = this._config as FetchConfiguration
         if (fetchConfig.performanceTimingObserverTimeout === undefined) {
             fetchConfig.performanceTimingObserverTimeout = 5000
+        }
+        if (validEntryFunc) {
+            this._isValidEntryFunc = validEntryFunc
         }
     }
 

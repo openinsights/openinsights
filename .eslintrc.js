@@ -9,7 +9,5 @@ module.exports = {
         "prettier/@typescript-eslint",
         "plugin:prettier/recommended",
     ],
-    rules: {
-        "max-len": ["error", { code: 80, comments: 80 }],
-    },
+    rules: {},
 }

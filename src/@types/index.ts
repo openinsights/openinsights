@@ -55,7 +55,7 @@ export type ResourceTimingEntry = SimpleObject
 /**
  * An alias for a boolean-returning function that evaluates whether a Resource
  * Timing entry is valid. Used by
- * {@link "index".lib.resourceTiming.getValidEntry} to assess validity of an
+ * {@link getValidEntry} to assess validity of an
  * entry. Providers may override the default predicate.
  */
 export type ResourceTimingEntryValidationPredicate = (
