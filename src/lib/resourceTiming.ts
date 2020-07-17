@@ -41,20 +41,21 @@ function getValidEntry(
 }
 
 /**
- * Asyncronusly gets a resource timing entry from the performance timeline
+ * Asyncronusly gets a Resource Timing entry from the performance timeline
  * by its name (url).
  * @remarks
- * It starts a PerformanceObserver to observe the timeling for the entry and
- * resolves with the entry once successful. If the timeout is reached before
- * and entry is returned it rejects the Promise.
+ * It starts a PerformanceObserver to observe the timeline for the entry and
+ * resolves with the entry when found. If the timeout is reached before an
+ * entry is returned, the Promise is rejected.
  * @param name URL of the of the entry
- * @param timeout Optional timeout
+ * @param timeout Time to wait (in milliseconds) for the observer to find the
+ * Resource Timing entry.
  * @param isValidEntryFunc Boolean function used to determine validity of
  * Resource Timing entry.
  */
 function asyncGetEntry(
     name: string,
-    timeout = 5000,
+    timeout: number,
     isValidEntryFunc: ResourceTimingEntryValidationPredicate,
 ): Promise<ResourceTimingEntry> {
     return new Promise((resolve, reject): void => {

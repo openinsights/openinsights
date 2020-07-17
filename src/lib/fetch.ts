@@ -48,12 +48,6 @@ export default class Fetch extends Test {
         validEntryFunc?: ResourceTimingEntryValidationPredicate,
     ) {
         super(provider, config)
-        // Set the default timeout used to find an entry in the
-        // Resource Timing buffer.
-        const fetchConfig = this._config as FetchConfiguration
-        if (fetchConfig.performanceTimingObserverTimeout === undefined) {
-            fetchConfig.performanceTimingObserverTimeout = 5000
-        }
         if (validEntryFunc) {
             this._isValidEntryFunc = validEntryFunc
         }
@@ -67,12 +61,13 @@ export default class Fetch extends Test {
      * data has been obtained.
      */
     test(setupResult: TestSetupResult): Promise<TestResultBundle> {
+        const defaultTimeout = 5000
         return Promise.all<Response, ResourceTimingEntry>([
             this.fetchObject(),
             asyncGetEntry(
                 this.getResourceUrl().href,
                 (this._config as FetchConfiguration)
-                    .performanceTimingObserverTimeout,
+                    .performanceTimingObserverTimeout || defaultTimeout,
                 this._isValidEntryFunc,
             ),
         ]).then(

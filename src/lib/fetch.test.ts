@@ -225,7 +225,6 @@ describe("Fetch.execute", () => {
                 [
                     {
                         type: "some type",
-                        performanceTimingObserverTimeout: 5000,
                     },
                     JSON.stringify({ foo: "bar" }),
                 ],
