@@ -71,78 +71,12 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Variables</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported"><a href="_lib_resourcetiming_.html#excluded_props" class="tsd-kind-icon">EXCLUDED_<wbr>PROPS</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_lib_resourcetiming_.html#normalizeentry" class="tsd-kind-icon">normalize<wbr>Entry</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_lib_resourcetiming_.html#asyncgetentry" class="tsd-kind-icon">async<wbr>Get<wbr>Entry</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_lib_resourcetiming_.html#cloneentry" class="tsd-kind-icon">clone<wbr>Entry</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_lib_resourcetiming_.html#getvalidentry" class="tsd-kind-icon">get<wbr>Valid<wbr>Entry</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_lib_resourcetiming_.html#normalizeentrykeys" class="tsd-kind-icon">normalize<wbr>Entry<wbr>Keys</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_lib_resourcetiming_.html#removeentryprops" class="tsd-kind-icon">remove<wbr>Entry<wbr>Props</a></li>
 							</ul>
 						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-					<a name="excluded_props" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> EXCLUDED_<wbr>PROPS</h3>
-					<div class="tsd-signature tsd-kind-icon">EXCLUDED_<wbr>PROPS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [&quot;name&quot;, &quot;initiatorType&quot;, &quot;entryType&quot;]</span></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A list of Resource Timing entry properties not to include in the normalized
-							transformation used internally.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="normalizeentry" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> normalize<wbr>Entry</h3>
-					<div class="tsd-signature tsd-kind-icon">normalize<wbr>Entry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol"> = compose(normalizeEntryKeys,(entry): ResourceTimingEntry &#x3D;&gt; removeEntryProps(entry, EXCLUDED_PROPS),cloneEntry,)</span></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A pipeline of procedures used to create a normalized Resource Timing entry
-							object.</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>remarks</dt>
-							<dd><p>TODO: Currently only removing certain properties by name. It might be more
-								future-proof to specify properties to include.</p>
-							</dd>
-						</dl>
-					</div>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">R</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>a: <span class="tsd-signature-type">R</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">R</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
 					</div>
 				</section>
 			</section>
@@ -152,7 +86,7 @@
 					<a name="asyncgetentry" class="tsd-anchor"></a>
 					<h3>async<wbr>Get<wbr>Entry</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">async<wbr>Get<wbr>Entry<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, isValidEntryFunc<span class="tsd-signature-symbol">: </span><a href="__types_index_.html#resourcetimingentryvalidationpredicate" class="tsd-signature-type">ResourceTimingEntryValidationPredicate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">async<wbr>Get<wbr>Entry<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, isValidEntryFunc<span class="tsd-signature-symbol">: </span><a href="__types_index_.html#resourcetimingentryvalidationpredicate" class="tsd-signature-type">ResourceTimingEntryValidationPredicate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -160,14 +94,14 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Asyncronusly gets a resource timing entry from the performance timeline
+									<p>Asyncronusly gets a Resource Timing entry from the performance timeline
 									by its name (url).</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
-									<dd><p>It starts a PerformanceObserver to observe the timeling for the entry and
-											resolves with the entry once successful. If the timeout is reached before
-										and entry is returned it rejects the Promise.</p>
+									<dd><p>It starts a PerformanceObserver to observe the timeline for the entry and
+											resolves with the entry when found. If the timeout is reached before an
+										entry is returned, the Promise is rejected.</p>
 									</dd>
 								</dl>
 							</div>
@@ -180,9 +114,10 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> timeout: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 5000</span></h5>
+									<h5>timeout: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional timeout</p>
+										<p>Time to wait (in milliseconds) for the observer to find the
+										Resource Timing entry.</p>
 									</div>
 								</li>
 								<li>
@@ -194,37 +129,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="cloneentry" class="tsd-anchor"></a>
-					<h3>clone<wbr>Entry</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">clone<wbr>Entry<span class="tsd-signature-symbol">(</span>entry<span class="tsd-signature-symbol">: </span><a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>Used by <a href="_lib_resourcetiming_.html#normalizeentry">normalizeEntry</a> to create a new object using a
-										Resource Timing entry&#39;s properties.</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>entry: <a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The Resource Timing entry to copy.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -267,70 +171,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="normalizeentrykeys" class="tsd-anchor"></a>
-					<h3>normalize<wbr>Entry<wbr>Keys</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">normalize<wbr>Entry<wbr>Keys<span class="tsd-signature-symbol">(</span>entry<span class="tsd-signature-symbol">: </span><a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Create a new object with propert names converted from camel case to snake
-									case.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>entry: <a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The source object.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="removeentryprops" class="tsd-anchor"></a>
-					<h3>remove<wbr>Entry<wbr>Props</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">remove<wbr>Entry<wbr>Props<span class="tsd-signature-symbol">(</span>entry<span class="tsd-signature-symbol">: </span><a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a>, props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Return a new object based on an existing object with certain properties
-									removed.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>entry: <a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The entry to copy.</p>
-									</div>
-								</li>
-								<li>
-									<h5>props: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>A list of property names to omit from the new object.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -388,16 +228,10 @@
 						<a href="_util_beacon_.html">&quot;util/beacon&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_util_camelcasetosnakecase_.html">&quot;util/camel<wbr>Case<wbr>ToSnake<wbr>Case&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="_util_clientinfo_.html">&quot;util/client<wbr>Info&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_util_clientsettingsbuilder_.html">&quot;util/client<wbr>Settings<wbr>Builder&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_util_compose_.html">&quot;util/compose&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_util_defaultsessionprocessfunc_.html">&quot;util/default<wbr>Session<wbr>Process<wbr>Func&quot;</a>
@@ -418,26 +252,11 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_lib_resourcetiming_.html#excluded_props" class="tsd-kind-icon">EXCLUDED_<wbr>PROPS</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="_lib_resourcetiming_.html#normalizeentry" class="tsd-kind-icon">normalize<wbr>Entry</a>
-					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_lib_resourcetiming_.html#asyncgetentry" class="tsd-kind-icon">async<wbr>Get<wbr>Entry</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_lib_resourcetiming_.html#cloneentry" class="tsd-kind-icon">clone<wbr>Entry</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_lib_resourcetiming_.html#getvalidentry" class="tsd-kind-icon">get<wbr>Valid<wbr>Entry</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_lib_resourcetiming_.html#normalizeentrykeys" class="tsd-kind-icon">normalize<wbr>Entry<wbr>Keys</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_lib_resourcetiming_.html#removeentryprops" class="tsd-kind-icon">remove<wbr>Entry<wbr>Props</a>
 					</li>
 				</ul>
 			</nav>

@@ -10,8 +10,15 @@ const hasBeaconSupport = hasProperty(navigator, "sendBeacon")
  * Sends beacon data.
  *
  * @remarks
+ *
  * Uses the Beacon API if available. Otherwise, sends a POST message using the
  * Fetch API.
+ *
+ * ### References
+ *
+ * On MDN:
+ * * [Beacon API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API)
+ * * [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
  *
  * @param url URL to send beacon data to
  * @param data Beacon data to send
