@@ -2,8 +2,7 @@ import "unfetch/polyfill"
 import { ClientInfo } from "../@types"
 
 /**
- * Type capable of mapping URLs (as strings) to Promise<{@link ClientInfo}>
- * objects.
+ * Maps URLs (as strings) to Promise<{@link ClientInfo}> objects.
  */
 interface Cache {
     [key: string]: Promise<ClientInfo>
