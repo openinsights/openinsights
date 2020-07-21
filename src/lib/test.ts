@@ -88,12 +88,14 @@ export abstract class Test implements Executable {
                             bundle.beaconData,
                         ),
                     )
-                    .then((result) => {
-                        this._provider.onSendBeaconResolved(result)
-                    })
-                    .catch((error) => {
-                        this._provider.onSendBeaconRejected(error)
-                    })
+                    .then(
+                        (result) => {
+                            this._provider.onSendBeaconResolved(result)
+                        },
+                        (error) => {
+                            this._provider.onSendBeaconRejected(error)
+                        },
+                    )
                 this._state = TestState.Finished
                 return bundle
             })

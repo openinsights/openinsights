@@ -129,7 +129,7 @@ describe("Fetch.execute", () => {
                     testCase.encodeBeaconDataResult,
                 )
             }
-            provider.sendBeacon.returns(Promise.resolve())
+            provider.sendBeacon.resolves()
             if (!testCase.testTearDownResult) {
                 provider.testTearDown.returnsArg(0)
             }
