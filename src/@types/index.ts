@@ -97,7 +97,7 @@ export interface TestResultBundle {
 }
 
 /**
- * Interface representing the return value of a "client info request".
+ * Represents the return value of a "client info request".
  * @remarks
  * This type of request is typically made in order to capture the client
  * resolver geo. See {@link getClientInfo}.
@@ -198,6 +198,10 @@ export interface Executable {
     execute(): Promise<TestResultBundle>
 }
 
+/**
+ * A possible resolution result of the Promise returned by
+ * {@link Provider.sendBeacon}.
+ */
 export type SendBeaconResult = Response | void
 
 /**
