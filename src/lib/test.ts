@@ -80,13 +80,20 @@ export abstract class Test implements Executable {
                     this._config,
                     bundle,
                 )
-                this._provider.sendBeacon(
-                    this._config,
-                    this._provider.encodeBeaconData(
+                this._provider
+                    .sendBeacon(
                         this._config,
-                        bundle.beaconData,
-                    ),
-                )
+                        this._provider.encodeBeaconData(
+                            this._config,
+                            bundle.beaconData,
+                        ),
+                    )
+                    .then((result) => {
+                        this._provider.onSendBeaconResolved(result)
+                    })
+                    .catch((error) => {
+                        this._provider.onSendBeaconRejected(error)
+                    })
                 this._state = TestState.Finished
                 return bundle
             })

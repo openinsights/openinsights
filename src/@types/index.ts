@@ -1,4 +1,5 @@
 import * as Beacon from "../lib/beacon"
+import { KnownErrors } from "../lib/errors"
 
 /**
  * An interface representing simple objects mapping strings to basic primative
@@ -197,6 +198,8 @@ export interface Executable {
     execute(): Promise<TestResultBundle>
 }
 
+export type SendBeaconResult = Response | void
+
 /**
  * An interface representing a provider.
  */
@@ -316,6 +319,14 @@ export interface Provider {
     getResourceRequestHeaders(testConfig: TestConfiguration): HttpHeader[]
 
     /**
+     * A hook enabling a provider to handle an error emitted by the core
+     * module.
+     * @param errorType
+     * @param innerError
+     */
+    handleError(errorType: KnownErrors, innerError: Error): void
+
+    /**
      * A hook enabling a provider to perform encoding of beacon data before
      * sending it, such as `JSON.stringify()` or other serialization methods.
      * @param testConfig The test configuration.
@@ -324,12 +335,28 @@ export interface Provider {
     encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string
 
     /**
+     * Called when the Promise returned by {@link sendBeacon} is rejected.
+     * @param error An error describing the problem.
+     */
+    onSendBeaconRejected(error: Error): void
+
+    /**
+     * Called when the Promise returned by {@link sendBeacon} is resolved.
+     * @param result The Response object in case the Fetch API was used, or
+     * `void` if the Beacon API was used.
+     */
+    onSendBeaconResolved(result: SendBeaconResult): void
+
+    /**
      * A hook enabling a provider to report test results, i.e. "beaconing".
      * @param testConfig The test configuration.
      * @param encodedBeaconData The beacon payload returned from
      * {@link Provider.encodeBeaconData}.
      */
-    sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void
+    sendBeacon(
+        testConfig: TestConfiguration,
+        encodedBeaconData: string,
+    ): Promise<SendBeaconResult>
 }
 
 /**

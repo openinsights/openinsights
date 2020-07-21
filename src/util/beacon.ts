@@ -1,10 +1,10 @@
-import { hasProperty } from "./object"
+import { SendBeaconResult } from "../@types"
 
 /**
  * A module-level variable caching the result of `sendBeacon` feature
  * detection.
  */
-const hasBeaconSupport = hasProperty(navigator, "sendBeacon")
+const hasBeaconSupport = "sendBeacon" in navigator
 
 /**
  * Sends beacon data.
@@ -23,14 +23,21 @@ const hasBeaconSupport = hasProperty(navigator, "sendBeacon")
  * @param url URL to send beacon data to
  * @param data Beacon data to send
  */
-export default function beacon(url: string, data: string): void {
+export default function beacon(
+    url: string,
+    data: string,
+): Promise<SendBeaconResult> {
     if (hasBeaconSupport) {
-        navigator.sendBeacon(url, data)
-    } else {
-        fetch(url, {
-            method: "POST",
-            body: data,
-            keepalive: true,
-        })
+        if (navigator.sendBeacon(url, data)) {
+            return Promise.resolve()
+        }
+        // TODO: should we attempt to use fetch in this case, or does that risk
+        // duplicate reporting?
+        return Promise.reject(new Error("navigator.sendBeacon failed"))
     }
+    return fetch(url, {
+        method: "POST",
+        body: data,
+        keepalive: true,
+    })
 }

@@ -114,8 +114,11 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_testutil_unittestprovider_.unittestprovider.html#fetchsessionconfig" class="tsd-kind-icon">fetch<wbr>Session<wbr>Config</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_testutil_unittestprovider_.unittestprovider.html#getresourcerequestheaders" class="tsd-kind-icon">get<wbr>Resource<wbr>Request<wbr>Headers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_testutil_unittestprovider_.unittestprovider.html#getresourceurl" class="tsd-kind-icon">get<wbr>Resource<wbr>Url</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_testutil_unittestprovider_.unittestprovider.html#handleerror" class="tsd-kind-icon">handle<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_testutil_unittestprovider_.unittestprovider.html#makebeacondata" class="tsd-kind-icon">make<wbr>Beacon<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_testutil_unittestprovider_.unittestprovider.html#makebeaconurl" class="tsd-kind-icon">make<wbr>BeaconURL</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_testutil_unittestprovider_.unittestprovider.html#onsendbeaconrejected" class="tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Rejected</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_testutil_unittestprovider_.unittestprovider.html#onsendbeaconresolved" class="tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Resolved</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_testutil_unittestprovider_.unittestprovider.html#sendbeacon" class="tsd-kind-icon">send<wbr>Beacon</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_testutil_unittestprovider_.unittestprovider.html#setsessionconfig" class="tsd-kind-icon">set<wbr>Session<wbr>Config</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_testutil_unittestprovider_.unittestprovider.html#shouldrun" class="tsd-kind-icon">should<wbr>Run</a></li>
@@ -343,6 +346,36 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="handleerror" class="tsd-anchor"></a>
+					<h3>handle<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>Error<span class="tsd-signature-symbol">(</span>errorType<span class="tsd-signature-symbol">: </span><a href="../enums/_lib_errors_.knownerrors.html" class="tsd-signature-type">KnownErrors</a>, innerError<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/__types_index_.provider.html">Provider</a>.<a href="../interfaces/__types_index_.provider.html#handleerror">handleError</a></p>
+								<p>Inherited from <a href="_lib_providerbase_.providerbase.html">ProviderBase</a>.<a href="_lib_providerbase_.providerbase.html#handleerror">handleError</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>See <a href="../interfaces/__types_index_.provider.html#handleerror">Provider.handleError</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>errorType: <a href="../enums/_lib_errors_.knownerrors.html" class="tsd-signature-type">KnownErrors</a></h5>
+								</li>
+								<li>
+									<h5>innerError: <span class="tsd-signature-type">Error</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="makebeacondata" class="tsd-anchor"></a>
 					<h3>make<wbr>Beacon<wbr>Data</h3>
@@ -402,10 +435,75 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="onsendbeaconrejected" class="tsd-anchor"></a>
+					<h3>on<wbr>Send<wbr>Beacon<wbr>Rejected</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Rejected<span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/__types_index_.provider.html">Provider</a>.<a href="../interfaces/__types_index_.provider.html#onsendbeaconrejected">onSendBeaconRejected</a></p>
+								<p>Inherited from <a href="_lib_providerbase_.providerbase.html">ProviderBase</a>.<a href="_lib_providerbase_.providerbase.html#onsendbeaconrejected">onSendBeaconRejected</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>See <a href="../interfaces/__types_index_.provider.html#onsendbeaconrejected">Provider.onSendBeaconRejected</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Providers can override this to provide special handling.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>error: <span class="tsd-signature-type">Error</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="onsendbeaconresolved" class="tsd-anchor"></a>
+					<h3>on<wbr>Send<wbr>Beacon<wbr>Resolved</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Resolved<span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-signature-type">SendBeaconResult</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/__types_index_.provider.html">Provider</a>.<a href="../interfaces/__types_index_.provider.html#onsendbeaconresolved">onSendBeaconResolved</a></p>
+								<p>Inherited from <a href="_lib_providerbase_.providerbase.html">ProviderBase</a>.<a href="_lib_providerbase_.providerbase.html#onsendbeaconresolved">onSendBeaconResolved</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>See <a href="../interfaces/__types_index_.provider.html#onsendbeaconresolved">Provider.onSendBeaconResolved</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Providers can override this to provide special handling, e.g. log an
+										event to a third-party monitoring service.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>result: <a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-signature-type">SendBeaconResult</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="sendbeacon" class="tsd-anchor"></a>
 					<h3>send<wbr>Beacon</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">send<wbr>Beacon<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, encodedBeaconData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">send<wbr>Beacon<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, encodedBeaconData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-signature-type">SendBeaconResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -434,7 +532,7 @@
 									<h5>encodedBeaconData: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-signature-type">SendBeaconResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -568,6 +666,9 @@
 						<a href="../modules/_lib_beacon_.html">&quot;lib/beacon&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_lib_errors_.html">&quot;lib/errors&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_fetch_.html">&quot;lib/fetch&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -657,11 +758,20 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_testutil_unittestprovider_.unittestprovider.html#getresourceurl" class="tsd-kind-icon">get<wbr>Resource<wbr>Url</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_testutil_unittestprovider_.unittestprovider.html#handleerror" class="tsd-kind-icon">handle<wbr>Error</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_testutil_unittestprovider_.unittestprovider.html#makebeacondata" class="tsd-kind-icon">make<wbr>Beacon<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_testutil_unittestprovider_.unittestprovider.html#makebeaconurl" class="tsd-kind-icon">make<wbr>BeaconURL</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_testutil_unittestprovider_.unittestprovider.html#onsendbeaconrejected" class="tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Rejected</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_testutil_unittestprovider_.unittestprovider.html#onsendbeaconresolved" class="tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Resolved</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_testutil_unittestprovider_.unittestprovider.html#sendbeacon" class="tsd-kind-icon">send<wbr>Beacon</a>

@@ -111,8 +111,11 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#fetchsessionconfig" class="tsd-kind-icon">fetch<wbr>Session<wbr>Config</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#getresourcerequestheaders" class="tsd-kind-icon">get<wbr>Resource<wbr>Request<wbr>Headers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#getresourceurl" class="tsd-kind-icon">get<wbr>Resource<wbr>Url</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#handleerror" class="tsd-kind-icon">handle<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#makebeacondata" class="tsd-kind-icon">make<wbr>Beacon<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#makebeaconurl" class="tsd-kind-icon">make<wbr>BeaconURL</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#onsendbeaconrejected" class="tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Rejected</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#onsendbeaconresolved" class="tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Resolved</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#sendbeacon" class="tsd-kind-icon">send<wbr>Beacon</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#setsessionconfig" class="tsd-kind-icon">set<wbr>Session<wbr>Config</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#shouldrun" class="tsd-kind-icon">should<wbr>Run</a></li>
@@ -351,6 +354,37 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="handleerror" class="tsd-anchor"></a>
+					<h3>handle<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>Error<span class="tsd-signature-symbol">(</span>errorType<span class="tsd-signature-symbol">: </span><a href="../enums/_lib_errors_.knownerrors.html" class="tsd-signature-type">KnownErrors</a>, innerError<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook enabling a provider to handle an error emitted by the core
+									module.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>errorType: <a href="../enums/_lib_errors_.knownerrors.html" class="tsd-signature-type">KnownErrors</a></h5>
+								</li>
+								<li>
+									<h5>innerError: <span class="tsd-signature-type">Error</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="makebeacondata" class="tsd-anchor"></a>
 					<h3>make<wbr>Beacon<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -416,10 +450,67 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="onsendbeaconrejected" class="tsd-anchor"></a>
+					<h3>on<wbr>Send<wbr>Beacon<wbr>Rejected</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Rejected<span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called when the Promise returned by <a href="__types_index_.provider.html#sendbeacon">sendBeacon</a> is rejected.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>error: <span class="tsd-signature-type">Error</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An error describing the problem.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="onsendbeaconresolved" class="tsd-anchor"></a>
+					<h3>on<wbr>Send<wbr>Beacon<wbr>Resolved</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Resolved<span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-signature-type">SendBeaconResult</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Called when the Promise returned by <a href="__types_index_.provider.html#sendbeacon">sendBeacon</a> is resolved.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>result: <a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-signature-type">SendBeaconResult</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The Response object in case the Fetch API was used, or
+										<code>void</code> if the Beacon API was used.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="sendbeacon" class="tsd-anchor"></a>
 					<h3>send<wbr>Beacon</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">send<wbr>Beacon<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, encodedBeaconData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">send<wbr>Beacon<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, encodedBeaconData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-signature-type">SendBeaconResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -446,7 +537,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-signature-type">SendBeaconResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -583,6 +674,9 @@
 						<a href="../modules/_lib_beacon_.html">&quot;lib/beacon&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_lib_errors_.html">&quot;lib/errors&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_fetch_.html">&quot;lib/fetch&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -688,10 +782,19 @@
 								<a href="__types_index_.provider.html#getresourceurl" class="tsd-kind-icon">get<wbr>Resource<wbr>Url</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="__types_index_.provider.html#handleerror" class="tsd-kind-icon">handle<wbr>Error</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="__types_index_.provider.html#makebeacondata" class="tsd-kind-icon">make<wbr>Beacon<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="__types_index_.provider.html#makebeaconurl" class="tsd-kind-icon">make<wbr>BeaconURL</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="__types_index_.provider.html#onsendbeaconrejected" class="tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Rejected</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="__types_index_.provider.html#onsendbeaconresolved" class="tsd-kind-icon">on<wbr>Send<wbr>Beacon<wbr>Resolved</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="__types_index_.provider.html#sendbeacon" class="tsd-kind-icon">send<wbr>Beacon</a>
@@ -753,6 +856,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/__types_index_.html#resourcetimingentryvalidationpredicate" class="tsd-kind-icon">Resource<wbr>Timing<wbr>Entry<wbr>Validation<wbr>Predicate</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-kind-icon">Send<wbr>Beacon<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/__types_index_.html#sessionconfig" class="tsd-kind-icon">Session<wbr>Config</a>

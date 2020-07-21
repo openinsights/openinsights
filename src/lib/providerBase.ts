@@ -8,9 +8,11 @@ import {
     TestConfiguration,
     TestSetupResult,
     HttpHeader,
+    SendBeaconResult,
 } from "../@types"
 import * as Beacon from "./beacon"
 import beacon from "../util/beacon"
+import { KnownErrors } from "./errors"
 
 /**
  * A common base class for providers.
@@ -26,6 +28,36 @@ export default abstract class ProviderBase implements Provider {
          */
         private _name: string,
     ) {}
+
+    /**
+     * See {@link Provider.handleError}
+     */
+    handleError(errorType: KnownErrors, innerError: Error): void {
+        throw new Error("Providers should override Provider.handleError")
+    }
+
+    /**
+     * See {@link Provider.onSendBeaconRejected}
+     *
+     * @remarks
+     *
+     * Providers can override this to provide special handling.
+     */
+    onSendBeaconRejected(error: Error): void {
+        this.handleError(KnownErrors.SendBeacon, error)
+    }
+
+    /**
+     * See {@link Provider.onSendBeaconResolved}
+     *
+     * @remarks
+     *
+     * Providers can override this to provide special handling, e.g. log an
+     * event to a third-party monitoring service.
+     */
+    /* eslint-disable @typescript-eslint/no-empty-function */
+    onSendBeaconResolved(result: SendBeaconResult): void {}
+    /* eslint-enable @typescript-eslint/no-empty-function */
 
     /**
      * @remarks
@@ -101,8 +133,11 @@ export default abstract class ProviderBase implements Provider {
      * a fallback. Providers may override this if they require more specialized
      * reporting, e.g. utilize WebSockets, invoke a 3rd party library, etc.
      */
-    sendBeacon(testConfig: TestConfiguration, encodedBeaconData: string): void {
-        beacon(this.makeBeaconURL(testConfig), encodedBeaconData)
+    sendBeacon(
+        testConfig: TestConfiguration,
+        encodedBeaconData: string,
+    ): Promise<SendBeaconResult> {
+        return beacon(this.makeBeaconURL(testConfig), encodedBeaconData)
     }
 
     /**
