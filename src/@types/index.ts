@@ -115,11 +115,6 @@ export interface SessionResult {
     testResults: TestResultBundle[]
 }
 
-/**
- * Alias for a tuple representing an HTTP header name and value.
- */
-export type HttpHeader = [string, string]
-
 /* eslint-disable @typescript-eslint/no-empty-interface */
 /**
  * See W3C Spec Draft http://wicg.github.io/netinfo/
@@ -298,14 +293,14 @@ export interface Provider {
     ): Beacon.Data
 
     /**
-     * A hook enabling a provider to determine the beacon URL for a test
+     * A hook enabling providers to determine the beacon URL for a test.
      * result.
      * @param testConfig The test configuration.
      */
     makeBeaconURL(testConfig: TestConfiguration): string
 
     /**
-     * A hook enabling a provider to generate a test URL at runtime.
+     * A hook enabling providers to generate a test URL at runtime.
      * @remarks
      * A provider may cache the result of the first call to this method and
      * reuse the value on subsequent calls.
@@ -315,15 +310,16 @@ export interface Provider {
     getResourceUrl(testConfig: TestConfiguration): URL
 
     /**
-     * A hook enabling a provider to define a list of zero or more request
-     * {@link HttpHeader} tuples to be sent with the test, given a
-     * provider-defined test configuration.
+     * A hook enabling providers to specify a set of zero or more HTTP request
+     * headers to be sent with the test.
      * @param testConfig The test configuration.
      */
-    getResourceRequestHeaders(testConfig: TestConfiguration): HttpHeader[]
+    getResourceRequestHeaders(
+        testConfig: TestConfiguration,
+    ): Record<string, string>
 
     /**
-     * A hook enabling a provider to handle an error emitted by the core
+     * A hook enabling providers to handle an error emitted by the core
      * module.
      * @param errorType
      * @param innerError
@@ -331,7 +327,7 @@ export interface Provider {
     handleError(errorType: KnownErrors, innerError: Error): void
 
     /**
-     * A hook enabling a provider to perform encoding of beacon data before
+     * A hook enabling providers to perform encoding of beacon data before
      * sending it, such as `JSON.stringify()` or other serialization methods.
      * @param testConfig The test configuration.
      * @param data The data to be encoded.
@@ -352,7 +348,7 @@ export interface Provider {
     onSendBeaconResolved(result: SendBeaconResult): void
 
     /**
-     * A hook enabling a provider to report test results, i.e. "beaconing".
+     * A hook enabling providers to report test results, i.e. "beaconing".
      * @param testConfig The test configuration.
      * @param encodedBeaconData The beacon payload returned from
      * {@link Provider.encodeBeaconData}.

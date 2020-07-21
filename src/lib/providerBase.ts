@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
-    Provider,
     Executable,
+    Provider,
     ResourceTimingEntry,
-    TestResultBundle,
+    SendBeaconResult,
     SessionConfig,
     TestConfiguration,
+    TestResultBundle,
     TestSetupResult,
-    HttpHeader,
-    SendBeaconResult,
 } from "../@types"
-import * as Beacon from "./beacon"
 import beacon from "../util/beacon"
+import * as Beacon from "./beacon"
 import { KnownErrors } from "./errors"
 
 /**
@@ -110,7 +109,7 @@ export default abstract class ProviderBase implements Provider {
      */
     abstract getResourceRequestHeaders(
         testConfig: TestConfiguration,
-    ): HttpHeader[]
+    ): Record<string, string>
 
     /**
      * See {@link Provider.shouldRun}.

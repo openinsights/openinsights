@@ -1,11 +1,10 @@
 import {
-    HttpHeader,
     Provider,
     ResourceTimingEntry,
     ResourceTimingEntryValidationPredicate,
     TestConfiguration,
     TestResultBundle,
-    TestSetupResult,
+    TestSetupResult
 } from "../@types"
 import { asyncGetEntry } from "./resourceTiming"
 import { Test } from "./test"
@@ -102,24 +101,8 @@ export default class Fetch extends Test {
         const requestHeaders = this._provider.getResourceRequestHeaders(
             this._config,
         )
-        if (requestHeaders.length) {
-            init.headers = requestHeaders.reduce(
-                (
-                    accumulator: { [key: string]: string },
-                    currentValue: HttpHeader,
-                ) => {
-                    if (accumulator[currentValue[0]]) {
-                        accumulator[currentValue[0]] = [
-                            accumulator[currentValue[0]],
-                            currentValue[1],
-                        ].join(",")
-                    } else {
-                        accumulator[currentValue[0]] = currentValue[1]
-                    }
-                    return accumulator
-                },
-                {},
-            )
+        if (Object.keys(requestHeaders).length) {
+            init.headers = requestHeaders
         }
         const request = new Request(this.getResourceUrl().href, init)
         return fetch(request)
