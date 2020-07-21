@@ -6,7 +6,15 @@ import { KnownErrors } from "../lib/errors"
  * types.
  */
 export interface SimpleObject {
-    [key: string]: boolean | number | string | null | undefined
+    [key: string]:
+        | SimpleObject
+        | SimpleObject[]
+        | Array<string | number | boolean | null>
+        | boolean
+        | number
+        | string
+        | null
+        | undefined
 }
 
 /**

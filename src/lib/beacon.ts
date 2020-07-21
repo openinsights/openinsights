@@ -1,4 +1,4 @@
-import { TestConfiguration } from "../@types"
+import { TestConfiguration, SimpleObject } from "../@types"
 
 /**
  * Beacon.State represents the possible values of the Beacon.Data.state flag.
@@ -34,9 +34,5 @@ export interface Data {
     /**
      * An object containing provider-defined test data to be beaconed.
      */
-    data?: {
-        /* eslint-disable @typescript-eslint/no-explicit-any */
-        [key: string]: any
-        /* eslint-enable @typescript-eslint/no-explicit-any */
-    }
+    data?: SimpleObject
 }

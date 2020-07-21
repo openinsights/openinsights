@@ -4,7 +4,7 @@ import {
     ResourceTimingEntryValidationPredicate,
     TestConfiguration,
     TestResultBundle,
-    TestSetupResult
+    TestSetupResult,
 } from "../@types"
 import { asyncGetEntry } from "./resourceTiming"
 import { Test } from "./test"

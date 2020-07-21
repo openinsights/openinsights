@@ -7,7 +7,6 @@
 
 import * as sinon from "sinon"
 import {
-    HttpHeader,
     ResourceTimingEntry,
     SimpleObject,
     TestConfiguration,
@@ -45,12 +44,12 @@ function isAsyncGetEntryError(value: any): value is AsyncGetEntryError {
 type FetchExecuteTestConfig = TestCaseConfig & {
     createFetchTestResultResult: TestResultBundle
     encodeBeaconDataResult?: string
-    expectedRequestHeaders: HttpHeader[]
+    expectedRequestHeaders: Record<string, string>
     executeResult: TestResultBundle
     fetchConfig: TestConfiguration
     finalState: TestState
     asyncGetEntryResult: AsyncGetEntryResult | AsyncGetEntryError
-    getResourceRequestHeadersResult: HttpHeader[]
+    getResourceRequestHeadersResult: Record<string, string>
     makeBeaconDataResult?: Beacon.Data
     resourceUrl: string
     sendBeaconArgs?: SendBeaconArgs[]
@@ -67,13 +66,12 @@ describe("Fetch.execute", () => {
             const result = makeBaseTestConfig(
                 "Returns expected response headers",
             )
-            result.getResourceRequestHeadersResult = [
-                ["foo", "some value"],
-                ["foo", "some other value"],
-            ]
-            result.expectedRequestHeaders = [
-                ["foo", "some value,some other value"],
-            ]
+            result.getResourceRequestHeadersResult = {
+                foo: "some value,some other value",
+            }
+            result.expectedRequestHeaders = {
+                foo: "some value,some other value",
+            }
             return result
         })(),
         ((): FetchExecuteTestConfig => {
@@ -162,9 +160,11 @@ describe("Fetch.execute", () => {
                 expect(fetchMock.mock.calls.length).toEqual(1)
                 const request = fetchMock.mock.calls[0][0] as Request
                 expect(request.url).toEqual(testCase.resourceUrl)
-                testCase.expectedRequestHeaders.forEach((header) => {
-                    expect(request.headers.get(header[0])).toEqual(header[1])
-                })
+                Object.entries(testCase.expectedRequestHeaders).forEach(
+                    (entry) => {
+                        expect(request.headers.get(entry[0])).toEqual(entry[1])
+                    },
+                )
             })
         })
     })
@@ -199,7 +199,7 @@ describe("Fetch.execute", () => {
                     },
                 },
             },
-            expectedRequestHeaders: [],
+            expectedRequestHeaders: {},
             asyncGetEntryResult: {
                 entry: Object.assign<SimpleObject, PerformanceResourceTiming>(
                     {},
@@ -207,7 +207,7 @@ describe("Fetch.execute", () => {
                 ),
             },
             // No request headers by default
-            getResourceRequestHeadersResult: [],
+            getResourceRequestHeadersResult: {},
             testSetUpResult: {},
             resourceUrl: "http://foo.com/test.png",
             finalState: TestState.Finished,
@@ -303,7 +303,7 @@ describe("Fetch.test", () => {
         test(testCase.description, () => {
             // Setup stubs
             const provider = sinon.createStubInstance(UnitTestProvider)
-            provider.getResourceRequestHeaders.returns([])
+            provider.getResourceRequestHeaders.returns({})
             provider.getResourceUrl.returns(new URL(testCase.resourceUrl))
             if (!isFetchTestError(testCase.fetchTestResult)) {
                 provider.createFetchTestResult.resolves(
