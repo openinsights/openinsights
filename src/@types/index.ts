@@ -1,4 +1,3 @@
-import * as Beacon from "../lib/beacon"
 import { KnownErrors } from "../lib/errors"
 
 /**
@@ -54,6 +53,43 @@ export interface TestSetupResult {
 }
 
 /**
+ * Beacon.State represents the possible values of the Beacon.Data.state flag.
+ */
+export enum BeaconState {
+    /**
+     * The test completed successfully.
+     */
+    Success,
+    /**
+     * The test failed.
+     */
+    Failure,
+    /**
+     * Test status is undetermined.
+     */
+    Unknown,
+}
+
+/**
+ * Beacon.Data represents test data to be sent back according to provider
+ * specifications.
+ */
+export interface BeaconData {
+    /**
+     * The result state of the associated {@link Test}
+     */
+    state: BeaconState
+    /**
+     * The configuration of the associated {@link Test}
+     */
+    testConfig: TestConfiguration
+    /**
+     * An object containing provider-defined test data to be beaconed.
+     */
+    data?: SimpleObject
+}
+
+/**
  * A type representing a Resource Timing API entry having _entryType_
  * "resource".
  *
@@ -89,7 +125,7 @@ export interface TestResultBundle {
     /**
      * Data to be sent to the provider's ingest services.
      */
-    beaconData?: Beacon.Data
+    beaconData?: BeaconData
     /**
      * A string representing the test type.
      */
@@ -298,7 +334,7 @@ export interface Provider {
     makeBeaconData(
         testConfig: TestConfiguration,
         testData: TestResultBundle,
-    ): Beacon.Data
+    ): BeaconData
 
     /**
      * A hook enabling providers to determine the beacon URL for a test.
@@ -340,7 +376,7 @@ export interface Provider {
      * @param testConfig The test configuration.
      * @param data The data to be encoded.
      */
-    encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string
+    encodeBeaconData(testConfig: TestConfiguration, data: BeaconData): string
 
     /**
      * Called when the Promise returned by {@link sendBeacon} is rejected.

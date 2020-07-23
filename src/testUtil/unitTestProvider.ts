@@ -1,5 +1,9 @@
-import { Executable, ExecutableContainer, TestResultBundle } from "../@types"
-import { Data } from "../lib/beacon"
+import {
+    BeaconData,
+    Executable,
+    ExecutableContainer,
+    TestResultBundle,
+} from "../@types"
 import ProviderBase from "../lib/providerBase"
 
 export default class UnitTestProvider extends ProviderBase {
@@ -12,7 +16,7 @@ export default class UnitTestProvider extends ProviderBase {
     createFetchTestResult(): Promise<TestResultBundle> {
         throw new Error("Method not implemented.")
     }
-    makeBeaconData(): Data {
+    makeBeaconData(): BeaconData {
         throw new Error("Method not implemented.")
     }
     getResourceUrl(): URL {

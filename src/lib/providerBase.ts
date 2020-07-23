@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
+    BeaconData,
     Executable,
     Provider,
     ResourceTimingEntry,
@@ -10,7 +11,6 @@ import {
     TestSetupResult,
 } from "../@types"
 import beacon from "../util/beacon"
-import * as Beacon from "./beacon"
 import { KnownErrors } from "./errors"
 
 /**
@@ -90,7 +90,7 @@ export default abstract class ProviderBase implements Provider {
     abstract makeBeaconData(
         testConfig: TestConfiguration,
         testData: TestResultBundle,
-    ): Beacon.Data
+    ): BeaconData
 
     /**
      * See {@link Provider.getResourceUrl}.
@@ -119,7 +119,7 @@ export default abstract class ProviderBase implements Provider {
      * @remarks
      * A default implementation that does simple JSON-encoding.
      */
-    encodeBeaconData(testConfig: TestConfiguration, data: Beacon.Data): string {
+    encodeBeaconData(testConfig: TestConfiguration, data: BeaconData): string {
         return JSON.stringify(data)
     }
 
