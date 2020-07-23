@@ -3,9 +3,14 @@
  */
 
 import sinon from "sinon"
-import { SessionConfig, TestConfiguration, TestResultBundle } from "../@types"
+import {
+    BeaconData,
+    BeaconState,
+    SessionConfig,
+    TestConfiguration,
+    TestResultBundle,
+} from "../@types"
 import { UnitTestProvider } from "../testUtil"
-import * as Beacon from "./beacon"
 
 describe("ProviderBase", () => {
     beforeEach(() => {
@@ -30,8 +35,8 @@ describe("ProviderBase", () => {
                 const testConfig: TestConfiguration = {
                     type: "some type",
                 }
-                const data: Beacon.Data = {
-                    state: Beacon.State.Success,
+                const data: BeaconData = {
+                    state: BeaconState.Success,
                     testConfig: {
                         type: "some type",
                     },
@@ -39,7 +44,7 @@ describe("ProviderBase", () => {
                 // Code under test
                 expect(provider.encodeBeaconData(testConfig, data)).toEqual(
                     JSON.stringify({
-                        state: Beacon.State.Success,
+                        state: BeaconState.Success,
                         testConfig: {
                             type: "some type",
                         },

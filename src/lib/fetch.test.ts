@@ -7,6 +7,8 @@
 
 import * as sinon from "sinon"
 import {
+    BeaconData,
+    BeaconState,
     ResourceTimingEntry,
     SimpleObject,
     TestConfiguration,
@@ -18,7 +20,6 @@ import {
     TestCaseConfig,
     UnitTestProvider,
 } from "../testUtil"
-import * as Beacon from "./beacon"
 import Fetch, { FetchConfiguration } from "./fetch"
 import * as resourceTiming from "./resourceTiming"
 import { TestState } from "./test"
@@ -50,7 +51,7 @@ type FetchExecuteTestConfig = TestCaseConfig & {
     finalState: TestState
     asyncGetEntryResult: AsyncGetEntryResult | AsyncGetEntryError
     getResourceRequestHeadersResult: Record<string, string>
-    makeBeaconDataResult?: Beacon.Data
+    makeBeaconDataResult?: BeaconData
     resourceUrl: string
     sendBeaconArgs?: SendBeaconArgs[]
     testSetUpResult: TestSetupResult
@@ -188,7 +189,7 @@ describe("Fetch.execute", () => {
                 setupResult: {},
                 data: [{ foo: "foo" }, { bar: "bar" }],
                 beaconData: {
-                    state: Beacon.State.Success,
+                    state: BeaconState.Success,
                     testConfig: {
                         type: "foo",
                     },
@@ -212,7 +213,7 @@ describe("Fetch.execute", () => {
             resourceUrl: "http://foo.com/test.png",
             finalState: TestState.Finished,
             makeBeaconDataResult: {
-                state: Beacon.State.Success,
+                state: BeaconState.Success,
                 testConfig: {
                     type: "foo",
                 },
