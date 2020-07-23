@@ -21,6 +21,9 @@ export default class UnitTestProvider extends ProviderBase {
     getResourceRequestHeaders(): Record<string, string> {
         throw new Error("Method not implemented.")
     }
+    handleError(): void {
+        throw new Error("Method not implemented.")
+    }
     shouldRun(): Promise<boolean> {
         throw new Error("Method not implemented.")
     }
