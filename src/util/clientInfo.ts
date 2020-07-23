@@ -24,7 +24,7 @@ export function reset(url: string): void {
 }
 
 /**
- * Function that performs a unique API query to get client data
+ * Function that performs a unique API query to get client data.
  *
  * @remarks
  * Memoizes responses to ensure that we only hit the API once
