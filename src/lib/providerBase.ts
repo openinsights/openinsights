@@ -29,13 +29,6 @@ export default abstract class ProviderBase implements Provider {
     ) {}
 
     /**
-     * See {@link Provider.handleError}
-     */
-    handleError(errorType: KnownErrors, innerError: Error): void {
-        throw new Error("Providers should override Provider.handleError")
-    }
-
-    /**
      * See {@link Provider.onSendBeaconRejected}
      *
      * @remarks
@@ -110,6 +103,11 @@ export default abstract class ProviderBase implements Provider {
     abstract getResourceRequestHeaders(
         testConfig: TestConfiguration,
     ): Record<string, string>
+
+    /**
+     * See {@link Provider.handleError}
+     */
+    abstract handleError(errorType: KnownErrors, innerError: Error): void
 
     /**
      * See {@link Provider.shouldRun}.
