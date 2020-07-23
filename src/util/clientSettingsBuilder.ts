@@ -1,5 +1,4 @@
 import { ClientSettings, Provider, SessionProcessFunc } from "../@types"
-import defaultSessionProcessFunc from "./defaultSessionProcessFunc"
 
 /**
  * A utility class used to generate a {@link ClientSettings} object suitable
@@ -13,7 +12,6 @@ export default class ClientSettingsBuilder {
     private _value: ClientSettings = {
         preConfigStartDelay: 0,
         providers: [],
-        sessionProcess: defaultSessionProcessFunc,
     }
 
     /**

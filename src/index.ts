@@ -32,6 +32,7 @@
  * @packageDocumentation
  */
 import { ClientSettings, ExecutableContainer, SessionResult } from "./@types"
+import defaultSessionProcessFunc from "./util/defaultSessionProcessFunc"
 import whenReady from "./util/loadWhenDocumentReady"
 
 /**
@@ -94,6 +95,7 @@ function start(settings: ClientSettings): Promise<SessionResult> {
             p.setSessionConfig(v)
             v.executables = p.expandTasks()
         })
-        return settings.sessionProcess(sessionConfigs)
+        const process = settings.sessionProcess || defaultSessionProcessFunc
+        return process(sessionConfigs)
     })
 }

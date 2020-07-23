@@ -447,5 +447,5 @@ export interface ClientSettings {
      * @remarks
      * Defaults to {@link defaultSequenceFunc}
      */
-    sessionProcess: SessionProcessFunc
+    sessionProcess?: SessionProcessFunc
 }
