@@ -17,7 +17,7 @@ const cache: Cache = {}
 /**
  * Cleans the cache: necessary for testing
  * @param url URL and its associated Promise<{@link ClientInfo}> to remove from
- * the cache
+ * the cache.
  */
 export function reset(url: string): void {
     delete cache[url]
