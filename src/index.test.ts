@@ -8,20 +8,57 @@
  * @packageDocumentation
  */
 import sinon from "sinon"
-import { Provider, SessionResult, SimpleObject } from "./@types"
+import { Provider, SessionResult, TestResult } from "./@types"
 import init from "./index"
 import Fetch from "./lib/fetch"
 import { TestCaseConfig, UnitTestProvider } from "./testUtil"
 import ClientSettingsBuilder from "./util/clientSettingsBuilder"
 import * as loadWhenDocumentReady from "./util/loadWhenDocumentReady"
 
-type ProviderSetupFunc = () => Provider
+type PromiseResult = "fulfilled" | "rejected"
+
+/**
+ * Represents the list of {@link TestResult} objects associated with a single
+ * {@link Test}.
+ */
+type TaskResultData = TestResult[]
+
+/**
+ * Represents a population of expected data objects returned in the
+ * Array<TestResultBundle> for one session. In any test case, there may be more
+ * than one of these depending on the number of expected calls to
+ * {@link fetchSessionConfig}.
+ */
+type SessionTestData = TaskResultData[]
+
+interface ProviderStubConfig {
+    providerName: string
+    shouldRunResult: boolean
+    /**
+     * Represents the result of zero or more calls to
+     * {@link Provider.fetchSessionConfig}.
+     *
+     * @remarks
+     *
+     * These are not the actual results of the call, but simply an array of
+     * {@link PromiseResult} specifying whether the Promise resolves or
+     * rejects. The unit being tested doesn't really use the result, so we
+     * don't probe that here.
+     */
+    fetchConfigResults: PromiseResult[]
+    /**
+     * The expected "data" objects included in the {@link SessionResult}
+     * objects resulting from the unit test, partitioned by session
+     * and {@link Test}.
+     */
+    expectedTestData: SessionTestData[]
+}
 type ValidateSessionResultFunc = (result: SessionResult) => void
 
 describe("init", () => {
     type InitTestConfig = TestCaseConfig & {
         preConfigStartDelay?: number
-        providerSetupFuncs: ProviderSetupFunc[]
+        providers: Provider[]
         validateSessionResultFunc: ValidateSessionResultFunc
     }
     const testCases: InitTestConfig[] = [
@@ -32,10 +69,49 @@ describe("init", () => {
                 "non-zero pre-config start delay causes delay",
             ].join("; "),
             preConfigStartDelay: 1,
-            providerSetupFuncs: [
-                () => createProviderStubs([[[{ value: "foo" }]]]),
-                () => createProviderStubs([[[{ value: "bar" }]]]),
-                () => createProviderStubs([[[{ value: "baz" }]]]),
+            providers: [
+                makeUnitTestProvider({
+                    providerName: "Foo",
+                    shouldRunResult: true,
+                    fetchConfigResults: ["fulfilled"],
+                    expectedTestData: [
+                        [
+                            [
+                                {
+                                    value: "foo",
+                                },
+                            ],
+                        ],
+                    ],
+                }),
+                makeUnitTestProvider({
+                    providerName: "Bar",
+                    shouldRunResult: true,
+                    fetchConfigResults: ["fulfilled"],
+                    expectedTestData: [
+                        [
+                            [
+                                {
+                                    value: "bar",
+                                },
+                            ],
+                        ],
+                    ],
+                }),
+                makeUnitTestProvider({
+                    providerName: "Baz",
+                    shouldRunResult: true,
+                    fetchConfigResults: ["fulfilled"],
+                    expectedTestData: [
+                        [
+                            [
+                                {
+                                    value: "baz",
+                                },
+                            ],
+                        ],
+                    ],
+                }),
             ],
             validateSessionResultFunc: createSessionResultValidationFunc([
                 [{ value: "foo" }],
@@ -50,14 +126,18 @@ describe("init", () => {
                 "zero pre-config start delay causes no delay",
             ].join("; "),
             preConfigStartDelay: 0,
-            providerSetupFuncs: [
-                () =>
-                    createProviderStubs([
+            providers: [
+                makeUnitTestProvider({
+                    providerName: "Foo",
+                    shouldRunResult: true,
+                    fetchConfigResults: ["fulfilled"],
+                    expectedTestData: [
                         [
                             [{ value: "foo" }, { value: "bar" }],
                             [{ value: "baz" }],
                         ],
-                    ]),
+                    ],
+                }),
             ],
             validateSessionResultFunc: createSessionResultValidationFunc([
                 [{ value: "foo" }, { value: "bar" }],
@@ -84,7 +164,7 @@ describe("init", () => {
                 builder.setPreConfigStartDelay(testCase.preConfigStartDelay)
             }
             // Setup each provider and add them to the builder
-            testCase.providerSetupFuncs.forEach((f) => builder.addProvider(f()))
+            testCase.providers.forEach((p) => builder.addProvider(p))
             // Code under test
             return init(builder.toSettings()).then((result) =>
                 testCase.validateSessionResultFunc(result),
@@ -93,7 +173,7 @@ describe("init", () => {
     })
 
     function createSessionResultValidationFunc(
-        expectedResultData: SimpleObject[][],
+        expectedResultData: TaskResultData[],
     ): ValidateSessionResultFunc {
         return (result) => {
             expect(result.testResults.map((result) => result.data)).toEqual(
@@ -102,25 +182,42 @@ describe("init", () => {
         }
     }
 
-    function createProviderStubs(testData: SimpleObject[][][]) {
-        const provider = new UnitTestProvider("Foo")
-        sinon.stub(provider, "shouldRun").returns(Promise.resolve(true))
-        testData.forEach((providerTestData) => {
-            sinon
-                .stub(provider, "fetchSessionConfig")
-                .returns(Promise.resolve({ executables: [] }))
-            sinon.stub(provider, "expandTasks").returns(
-                providerTestData.map((testData) => {
-                    const task = sinon.createStubInstance(Fetch)
-                    task.execute.resolves({
-                        testType: "some test type",
-                        setupResult: {},
-                        data: testData,
-                    })
-                    return task
-                }),
-            )
-        })
+    function makeUnitTestProvider(stubConfig: ProviderStubConfig) {
+        const provider = new UnitTestProvider(stubConfig.providerName)
+        // Assuming shouldRun will resolve the same each time it's called.
+        sinon.stub(provider, "shouldRun").resolves(stubConfig.shouldRunResult)
+        const fetchSessionConfig = sinon.stub(provider, "fetchSessionConfig")
+        if (stubConfig.fetchConfigResults.length) {
+            let call = 0
+            stubConfig.fetchConfigResults.forEach((result) => {
+                if (result == "fulfilled") {
+                    fetchSessionConfig
+                        .onCall(call++)
+                        .resolves({ executables: [] })
+                } else {
+                    fetchSessionConfig
+                        .onCall(call++)
+                        .rejects(new Error("Some error"))
+                }
+            })
+        }
+        const expandTasks = sinon.stub(provider, "expandTasks")
+        if (stubConfig.expectedTestData.length) {
+            let call = 0
+            stubConfig.expectedTestData.forEach((sessionTestData) => {
+                expandTasks.onCall(call++).returns(
+                    sessionTestData.map((taskResultData) => {
+                        const task = sinon.createStubInstance(Fetch)
+                        task.execute.resolves({
+                            testType: "some test type",
+                            setupResult: {},
+                            data: taskResultData,
+                        })
+                        return task
+                    }),
+                )
+            })
+        }
         return provider
     }
 })
