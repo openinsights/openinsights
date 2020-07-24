@@ -21,12 +21,12 @@ const defaultIsValidEntryFunc: ResourceTimingEntryValidationPredicate = (e) =>
     e.requestStart !== 0 && e.connectStart !== e.connectEnd
 
 /**
- * Class representing a basic "fetch" test. It fetches a supplied resource from the 
- * network and collects the corresponding ResourceTimingEntry from the 
- * Performance timeline. 
+ * Class representing a basic "fetch" test. It fetches a supplied resource from the
+ * network and collects the corresponding ResourceTimingEntry from the
+ * Performance timeline.
  *
- * Along with its parent class {@link Test}, the class provides a number of hooks 
- * enabling providers to control certain implementation details supporting their 
+ * Along with its parent class {@link Test}, the class provides a number of hooks
+ * enabling providers to control certain implementation details supporting their
  * use case.
  */
 export default class Fetch extends Test {
