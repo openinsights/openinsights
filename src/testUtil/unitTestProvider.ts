@@ -28,7 +28,7 @@ export default class UnitTestProvider extends ProviderBase {
     handleError(): void {
         throw new Error("Method not implemented.")
     }
-    shouldRun(): Promise<boolean> {
+    shouldRun(): boolean {
         throw new Error("Method not implemented.")
     }
 }

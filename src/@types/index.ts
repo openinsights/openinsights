@@ -285,10 +285,8 @@ export interface Provider {
      * A hook called very early by the core module, enabling providers an
      * opportunity to determine if they should participate in the session,
      * e.g. based on user agent feature detection, random downsampling, etc.
-     * It returns a Promise, in case a provider would like to make a network
-     * request in order to make this determination.
      */
-    shouldRun(): Promise<boolean>
+    shouldRun(): boolean
 
     /**
      * @remarks

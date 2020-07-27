@@ -112,7 +112,7 @@ export default abstract class ProviderBase implements Provider {
     /**
      * See {@link Provider.shouldRun}.
      */
-    abstract shouldRun(): Promise<boolean>
+    abstract shouldRun(): boolean
 
     /**
      * See {@link Provider.encodeBeaconData}.

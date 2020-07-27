@@ -31,7 +31,7 @@
  *
  * @packageDocumentation
  */
-import { ClientSettings, ExecutableContainer, SessionResult } from "./@types"
+import { ClientSettings, SessionConfig, SessionResult } from "./@types"
 import defaultSessionProcessFunc from "./util/defaultSessionProcessFunc"
 import whenReady from "./util/loadWhenDocumentReady"
 
@@ -80,20 +80,18 @@ function startLater(
  * @param settings The settings object passed to {@link init}.
  */
 function start(settings: ClientSettings): Promise<SessionResult> {
+    const activeProviders = settings.providers.filter((p) => p.shouldRun())
     return Promise.allSettled(
-        settings.providers
-            .filter((provider) => provider.shouldRun())
-            .map((provider) => provider.fetchSessionConfig()),
+        activeProviders.map((provider) => provider.fetchSessionConfig()),
     ).then((settled) => {
-        const sessionConfigs = settled
-            .filter((r) => r.status === "fulfilled")
-            .map(
-                (r) => (r as PromiseFulfilledResult<ExecutableContainer>).value,
-            )
-        sessionConfigs.forEach((v, i) => {
-            const p = settings.providers[i]
-            p.setSessionConfig(v)
-            v.executables = p.expandTasks()
+        const sessionConfigs: Array<SessionConfig> = []
+        settled.forEach((result, idx) => {
+            if (result.status === "fulfilled") {
+                const provider = activeProviders[idx]
+                provider.setSessionConfig(result.value)
+                result.value.executables = provider.expandTasks()
+                sessionConfigs.push(result.value)
+            }
         })
         const process = settings.sessionProcess || defaultSessionProcessFunc
         return process(sessionConfigs)

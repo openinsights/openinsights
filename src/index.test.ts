@@ -144,6 +144,62 @@ describe("init", () => {
                 [{ value: "baz" }],
             ]),
         },
+        {
+            description: "One provider skipped",
+            preConfigStartDelay: 0,
+            providers: [
+                makeUnitTestProvider({
+                    providerName: "Foo",
+                    shouldRunResult: true,
+                    fetchConfigResults: ["fulfilled"],
+                    expectedTestData: [[[{ value: "foo" }]]],
+                }),
+                makeUnitTestProvider({
+                    providerName: "Bar",
+                    shouldRunResult: false,
+                    fetchConfigResults: [],
+                    expectedTestData: [],
+                }),
+                makeUnitTestProvider({
+                    providerName: "Baz",
+                    shouldRunResult: true,
+                    fetchConfigResults: ["fulfilled"],
+                    expectedTestData: [[[{ value: "baz" }]]],
+                }),
+            ],
+            validateSessionResultFunc: createSessionResultValidationFunc([
+                [{ value: "foo" }],
+                [{ value: "baz" }],
+            ]),
+        },
+        {
+            description: "One provider session config request failed",
+            preConfigStartDelay: 0,
+            providers: [
+                makeUnitTestProvider({
+                    providerName: "Foo",
+                    shouldRunResult: true,
+                    fetchConfigResults: ["fulfilled"],
+                    expectedTestData: [[[{ value: "foo" }]]],
+                }),
+                makeUnitTestProvider({
+                    providerName: "Bar",
+                    shouldRunResult: true,
+                    fetchConfigResults: ["rejected"],
+                    expectedTestData: [],
+                }),
+                makeUnitTestProvider({
+                    providerName: "Baz",
+                    shouldRunResult: true,
+                    fetchConfigResults: ["fulfilled"],
+                    expectedTestData: [[[{ value: "baz" }]]],
+                }),
+            ],
+            validateSessionResultFunc: createSessionResultValidationFunc([
+                [{ value: "foo" }],
+                [{ value: "baz" }],
+            ]),
+        },
     ]
     let sandbox: sinon.SinonSandbox
     /* eslint-disable @typescript-eslint/no-explicit-any*/
@@ -185,7 +241,7 @@ describe("init", () => {
     function makeUnitTestProvider(stubConfig: ProviderStubConfig) {
         const provider = new UnitTestProvider(stubConfig.providerName)
         // Assuming shouldRun will resolve the same each time it's called.
-        sinon.stub(provider, "shouldRun").resolves(stubConfig.shouldRunResult)
+        sinon.stub(provider, "shouldRun").returns(stubConfig.shouldRunResult)
         const fetchSessionConfig = sinon.stub(provider, "fetchSessionConfig")
         if (stubConfig.fetchConfigResults.length) {
             let call = 0
