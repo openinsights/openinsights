@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>State | open-insights</title>
+	<title>ProviderStubConfig | open-insights</title>
 	<meta name="description" content="Documentation for open-insights">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,78 +56,93 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_lib_beacon_.html">&quot;lib/beacon&quot;</a>
+					<a href="../modules/_index_test_.html">&quot;index.test&quot;</a>
 				</li>
 				<li>
-					<a href="_lib_beacon_.state.html">State</a>
+					<a href="_index_test_.providerstubconfig.html">ProviderStubConfig</a>
 				</li>
 			</ul>
-			<h1>Enumeration State</h1>
+			<h1>Interface ProviderStubConfig</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Beacon.State represents the possible values of the Beacon.Data.state flag.</p>
-					</div>
-				</div>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ProviderStubConfig</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_lib_beacon_.state.html#failure" class="tsd-kind-icon">Failure</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_lib_beacon_.state.html#success" class="tsd-kind-icon">Success</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_lib_beacon_.state.html#unknown" class="tsd-kind-icon">Unknown</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_index_test_.providerstubconfig.html#expectedtestdata" class="tsd-kind-icon">expected<wbr>Test<wbr>Data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_index_test_.providerstubconfig.html#fetchconfigresults" class="tsd-kind-icon">fetch<wbr>Config<wbr>Results</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_index_test_.providerstubconfig.html#providername" class="tsd-kind-icon">provider<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_index_test_.providerstubconfig.html#shouldrunresult" class="tsd-kind-icon">should<wbr>Run<wbr>Result</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="failure" class="tsd-anchor"></a>
-					<h3>Failure</h3>
-					<div class="tsd-signature tsd-kind-icon">Failure<span class="tsd-signature-symbol">:</span></div>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="expectedtestdata" class="tsd-anchor"></a>
+					<h3>expected<wbr>Test<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">expected<wbr>Test<wbr>Data<span class="tsd-signature-symbol">:</span> <a href="../modules/_index_test_.html#sessiontestdata" class="tsd-signature-type">SessionTestData</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The test failed.</p>
+							<p>The expected &quot;data&quot; objects included in the <a href="__types_index_.sessionresult.html">SessionResult</a>
+								objects resulting from the unit test, partitioned by session
+							and <a href="../classes/_lib_test_.test.html">Test</a>.</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="success" class="tsd-anchor"></a>
-					<h3>Success</h3>
-					<div class="tsd-signature tsd-kind-icon">Success<span class="tsd-signature-symbol">:</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="fetchconfigresults" class="tsd-anchor"></a>
+					<h3>fetch<wbr>Config<wbr>Results</h3>
+					<div class="tsd-signature tsd-kind-icon">fetch<wbr>Config<wbr>Results<span class="tsd-signature-symbol">:</span> <a href="../modules/_index_test_.html#promiseresult" class="tsd-signature-type">PromiseResult</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The test completed successfully.</p>
+							<p>Represents the result of zero or more calls to
+							<a href="__types_index_.provider.html#fetchsessionconfig">Provider.fetchSessionConfig</a>.</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>remarks</dt>
+							<dd><p>These are not the actual results of the call, but simply an array of
+									<a href="../modules/_index_test_.html#promiseresult">PromiseResult</a> specifying whether the Promise resolves or
+									rejects. The unit being tested doesn&#39;t really use the result, so we
+								don&#39;t probe that here.</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="unknown" class="tsd-anchor"></a>
-					<h3>Unknown</h3>
-					<div class="tsd-signature tsd-kind-icon">Unknown<span class="tsd-signature-symbol">:</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="providername" class="tsd-anchor"></a>
+					<h3>provider<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">provider<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Test status is undetermined.</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="shouldrunresult" class="tsd-anchor"></a>
+					<h3>should<wbr>Run<wbr>Result</h3>
+					<div class="tsd-signature tsd-kind-icon">should<wbr>Run<wbr>Result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -141,13 +156,13 @@
 						<a href="../modules/__types_index_.html">&quot;@types/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_index_.html">&quot;index&quot;</a>
+						<a href="../modules/__types_index_test_.html">&quot;@types/index.test&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_index_test_.html">&quot;index.test&quot;</a>
+						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/_lib_beacon_.html">&quot;lib/beacon&quot;</a>
+						<a href="../modules/_index_test_.html">&quot;index.test&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_errors_.html">&quot;lib/errors&quot;</a>
@@ -212,24 +227,36 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum tsd-parent-kind-module">
-						<a href="_lib_beacon_.state.html" class="tsd-kind-icon">State</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_index_test_.providerstubconfig.html" class="tsd-kind-icon">Provider<wbr>Stub<wbr>Config</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_lib_beacon_.state.html#failure" class="tsd-kind-icon">Failure</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_index_test_.providerstubconfig.html#expectedtestdata" class="tsd-kind-icon">expected<wbr>Test<wbr>Data</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_lib_beacon_.state.html#success" class="tsd-kind-icon">Success</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_index_test_.providerstubconfig.html#fetchconfigresults" class="tsd-kind-icon">fetch<wbr>Config<wbr>Results</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_lib_beacon_.state.html#unknown" class="tsd-kind-icon">Unknown</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_index_test_.providerstubconfig.html#providername" class="tsd-kind-icon">provider<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_index_test_.providerstubconfig.html#shouldrunresult" class="tsd-kind-icon">should<wbr>Run<wbr>Result</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_lib_beacon_.data.html" class="tsd-kind-icon">Data</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../modules/_index_test_.html#promiseresult" class="tsd-kind-icon">Promise<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../modules/_index_test_.html#sessiontestdata" class="tsd-kind-icon">Session<wbr>Test<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../modules/_index_test_.html#taskresultdata" class="tsd-kind-icon">Task<wbr>Result<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../modules/_index_test_.html#validatesessionresultfunc" class="tsd-kind-icon">Validate<wbr>Session<wbr>Result<wbr>Func</a>
 					</li>
 				</ul>
 			</nav>
@@ -247,10 +274,11 @@
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

@@ -84,9 +84,17 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported"><a href="../interfaces/_index_test_.providerstubconfig.html" class="tsd-kind-icon">Provider<wbr>Stub<wbr>Config</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported"><a href="_index_test_.html#providersetupfunc" class="tsd-kind-icon">Provider<wbr>Setup<wbr>Func</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported"><a href="_index_test_.html#promiseresult" class="tsd-kind-icon">Promise<wbr>Result</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported"><a href="_index_test_.html#sessiontestdata" class="tsd-kind-icon">Session<wbr>Test<wbr>Data</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported"><a href="_index_test_.html#taskresultdata" class="tsd-kind-icon">Task<wbr>Result<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported"><a href="_index_test_.html#validatesessionresultfunc" class="tsd-kind-icon">Validate<wbr>Session<wbr>Result<wbr>Func</a></li>
 							</ul>
 						</section>
@@ -96,25 +104,38 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
-					<a name="providersetupfunc" class="tsd-anchor"></a>
-					<h3>Provider<wbr>Setup<wbr>Func</h3>
-					<div class="tsd-signature tsd-kind-icon">Provider<wbr>Setup<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a></div>
+					<a name="promiseresult" class="tsd-anchor"></a>
+					<h3>Promise<wbr>Result</h3>
+					<div class="tsd-signature tsd-kind-icon">Promise<wbr>Result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"fulfilled"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"rejected"</span></div>
 					<aside class="tsd-sources">
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+					<a name="sessiontestdata" class="tsd-anchor"></a>
+					<h3>Session<wbr>Test<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">Session<wbr>Test<wbr>Data<span class="tsd-signature-symbol">:</span> <a href="_index_test_.html#taskresultdata" class="tsd-signature-type">TaskResultData</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Represents a population of expected data objects returned in the
+								Array<TestResultBundle> for one session. In any test case, there may be more
+									than one of these depending on the number of expected calls to
+							<a href="../interfaces/__types_index_.provider.html#fetchsessionconfig">fetchSessionConfig</a>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+					<a name="taskresultdata" class="tsd-anchor"></a>
+					<h3>Task<wbr>Result<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">Task<wbr>Result<wbr>Data<span class="tsd-signature-symbol">:</span> <a href="__types_index_.html#testresult" class="tsd-signature-type">TestResult</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Represents the list of <a href="__types_index_.html#testresult">TestResult</a> objects associated with a single
+							<a href="../classes/_lib_test_.test.html">Test</a>.</p>
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
@@ -157,13 +178,13 @@
 						<a href="__types_index_.html">&quot;@types/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="__types_index_test_.html">&quot;@types/index.test&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="_index_test_.html">&quot;index.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_lib_beacon_.html">&quot;lib/beacon&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_lib_errors_.html">&quot;lib/errors&quot;</a>
@@ -226,8 +247,17 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../interfaces/_index_test_.providerstubconfig.html" class="tsd-kind-icon">Provider<wbr>Stub<wbr>Config</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_index_test_.html#providersetupfunc" class="tsd-kind-icon">Provider<wbr>Setup<wbr>Func</a>
+						<a href="_index_test_.html#promiseresult" class="tsd-kind-icon">Promise<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_index_test_.html#sessiontestdata" class="tsd-kind-icon">Session<wbr>Test<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_index_test_.html#taskresultdata" class="tsd-kind-icon">Task<wbr>Result<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_index_test_.html#validatesessionresultfunc" class="tsd-kind-icon">Validate<wbr>Session<wbr>Result<wbr>Func</a>

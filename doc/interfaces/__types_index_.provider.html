@@ -213,7 +213,7 @@
 					<a name="encodebeacondata" class="tsd-anchor"></a>
 					<h3>encode<wbr>Beacon<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">encode<wbr>Beacon<wbr>Data<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, data<span class="tsd-signature-symbol">: </span><a href="_lib_beacon_.data.html" class="tsd-signature-type">Data</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">encode<wbr>Beacon<wbr>Data<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, data<span class="tsd-signature-symbol">: </span><a href="__types_index_.beacondata.html" class="tsd-signature-type">BeaconData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -221,7 +221,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook enabling a provider to perform encoding of beacon data before
+									<p>A hook enabling providers to perform encoding of beacon data before
 									sending it, such as <code>JSON.stringify()</code> or other serialization methods.</p>
 								</div>
 							</div>
@@ -234,7 +234,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>data: <a href="_lib_beacon_.data.html" class="tsd-signature-type">Data</a></h5>
+									<h5>data: <a href="__types_index_.beacondata.html" class="tsd-signature-type">BeaconData</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The data to be encoded.</p>
 									</div>
@@ -292,7 +292,7 @@
 					<a name="getresourcerequestheaders" class="tsd-anchor"></a>
 					<h3>get<wbr>Resource<wbr>Request<wbr>Headers</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Resource<wbr>Request<wbr>Headers<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#httpheader" class="tsd-signature-type">HttpHeader</a><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Resource<wbr>Request<wbr>Headers<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -300,9 +300,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook enabling a provider to define a list of zero or more request
-										<a href="../modules/__types_index_.html#httpheader">HttpHeader</a> tuples to be sent with the test, given a
-									provider-defined test configuration.</p>
+									<p>A hook enabling providers to specify a set of zero or more HTTP request
+									headers to be sent with the test.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -314,7 +313,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../modules/__types_index_.html#httpheader" class="tsd-signature-type">HttpHeader</a><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -330,7 +329,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook enabling a provider to generate a test URL at runtime.</p>
+									<p>A hook enabling providers to generate a test URL at runtime.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
@@ -365,7 +364,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook enabling a provider to handle an error emitted by the core
+									<p>A hook enabling providers to handle an error emitted by the core
 									module.</p>
 								</div>
 							</div>
@@ -388,7 +387,7 @@
 					<a name="makebeacondata" class="tsd-anchor"></a>
 					<h3>make<wbr>Beacon<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">make<wbr>Beacon<wbr>Data<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, testData<span class="tsd-signature-symbol">: </span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_beacon_.data.html" class="tsd-signature-type">Data</a></li>
+						<li class="tsd-signature tsd-kind-icon">make<wbr>Beacon<wbr>Data<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, testData<span class="tsd-signature-symbol">: </span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="__types_index_.beacondata.html" class="tsd-signature-type">BeaconData</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -416,7 +415,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_lib_beacon_.data.html" class="tsd-signature-type">Data</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="__types_index_.beacondata.html" class="tsd-signature-type">BeaconData</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -432,7 +431,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook enabling a provider to determine the beacon URL for a test
+									<p>A hook enabling providers to determine the beacon URL for a test.
 									result.</p>
 								</div>
 							</div>
@@ -518,7 +517,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A hook enabling a provider to report test results, i.e. &quot;beaconing&quot;.</p>
+									<p>A hook enabling providers to report test results, i.e. &quot;beaconing&quot;.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -575,7 +574,7 @@
 					<a name="shouldrun" class="tsd-anchor"></a>
 					<h3>should<wbr>Run</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">should<wbr>Run<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">should<wbr>Run<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -585,12 +584,10 @@
 								<div class="lead">
 									<p>A hook called very early by the core module, enabling providers an
 										opportunity to determine if they should participate in the session,
-										e.g. based on user agent feature detection, random downsampling, etc.
-										It returns a Promise, in case a provider would like to make a network
-									request in order to make this determination.</p>
+									e.g. based on user agent feature detection, random downsampling, etc.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -665,13 +662,13 @@
 						<a href="../modules/__types_index_.html">&quot;@types/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/__types_index_test_.html">&quot;@types/index.test&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_index_test_.html">&quot;index.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_beacon_.html">&quot;lib/beacon&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_errors_.html">&quot;lib/errors&quot;</a>
@@ -734,6 +731,12 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/__types_index_.beaconstate.html" class="tsd-kind-icon">Beacon<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="__types_index_.beacondata.html" class="tsd-kind-icon">Beacon<wbr>Data</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.clientsettings.html" class="tsd-kind-icon">Client<wbr>Settings</a>
 					</li>
@@ -838,9 +841,6 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../modules/__types_index_.html#effectiveconnectiontype" class="tsd-kind-icon">Effective<wbr>Connection<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/__types_index_.html#httpheader" class="tsd-kind-icon">Http<wbr>Header</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../modules/__types_index_.html#megabit" class="tsd-kind-icon">Megabit</a>

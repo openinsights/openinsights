@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>NetworkInformation | open-insights</title>
+	<title>BeaconState | open-insights</title>
 	<meta name="description" content="Documentation for open-insights">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/__types_index_.html">&quot;@types/index&quot;</a>
 				</li>
 				<li>
-					<a href="__types_index_.networkinformation.html">NetworkInformation</a>
+					<a href="__types_index_.beaconstate.html">BeaconState</a>
 				</li>
 			</ul>
-			<h1>Interface NetworkInformation</h1>
+			<h1>Enumeration BeaconState</h1>
 		</div>
 	</div>
 </header>
@@ -72,38 +72,63 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The primative type attributes from the navigator.connection object,
-						if present.</p>
+						<p>Beacon.State represents the possible values of the Beacon.Data.state flag.</p>
 					</div>
-					<dl class="tsd-comment-tags">
-						<dt>remarks</dt>
-						<dd><p>See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/connection">https://developer.mozilla.org/en-US/docs/Web/API/Navigator/connection</a></p>
-						</dd>
-					</dl>
 				</div>
 			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">NetworkInformation</span>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-kind-interface tsd-parent-kind-module">
-				<h3 class="tsd-before-signature">Indexable</h3>
-				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="../modules/__types_index_.html#networkconnectiontype" class="tsd-signature-type">NetworkConnectionType</a><span class="tsd-signature-symbol"> | </span><a href="../modules/__types_index_.html#effectiveconnectiontype" class="tsd-signature-type">EffectiveConnectionType</a><span class="tsd-signature-symbol"> | </span><a href="../modules/__types_index_.html#megabit" class="tsd-signature-type">Megabit</a><span class="tsd-signature-symbol"> | </span><a href="../modules/__types_index_.html#millisecond" class="tsd-signature-type">Millisecond</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>The primative type attributes from the navigator.connection object,
-						if present.</p>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Enumeration members</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="__types_index_.beaconstate.html#failure" class="tsd-kind-icon">Failure</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="__types_index_.beaconstate.html#success" class="tsd-kind-icon">Success</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="__types_index_.beaconstate.html#unknown" class="tsd-kind-icon">Unknown</a></li>
+							</ul>
+						</section>
 					</div>
-					<dl class="tsd-comment-tags">
-						<dt>remarks</dt>
-						<dd><p>See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/connection">https://developer.mozilla.org/en-US/docs/Web/API/Navigator/connection</a></p>
-						</dd>
-					</dl>
-				</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Enumeration members</h2>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="failure" class="tsd-anchor"></a>
+					<h3>Failure</h3>
+					<div class="tsd-signature tsd-kind-icon">Failure<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The test failed.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="success" class="tsd-anchor"></a>
+					<h3>Success</h3>
+					<div class="tsd-signature tsd-kind-icon">Success<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The test completed successfully.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="unknown" class="tsd-anchor"></a>
+					<h3>Unknown</h3>
+					<div class="tsd-signature tsd-kind-icon">Unknown<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Test status is undetermined.</p>
+						</div>
+					</div>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -185,54 +210,65 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/__types_index_.beaconstate.html" class="tsd-kind-icon">Beacon<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.beacondata.html" class="tsd-kind-icon">Beacon<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.clientsettings.html" class="tsd-kind-icon">Client<wbr>Settings</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.executable.html" class="tsd-kind-icon">Executable</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.executablecontainer.html" class="tsd-kind-icon">Executable<wbr>Container</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.navigator.html" class="tsd-kind-icon">Navigator</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-						<a href="__types_index_.navigatornetworkinformation.html" class="tsd-kind-icon">Navigator<wbr>Network<wbr>Information</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.networkinformation.html" class="tsd-kind-icon">Network<wbr>Information</a>
+					<li class="current tsd-kind-enum tsd-parent-kind-module">
+						<a href="__types_index_.beaconstate.html" class="tsd-kind-icon">Beacon<wbr>State</a>
+						<ul>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="__types_index_.beaconstate.html#failure" class="tsd-kind-icon">Failure</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="__types_index_.beaconstate.html#success" class="tsd-kind-icon">Success</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="__types_index_.beaconstate.html#unknown" class="tsd-kind-icon">Unknown</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.provider.html" class="tsd-kind-icon">Provider</a>
+						<a href="../interfaces/__types_index_.beacondata.html" class="tsd-kind-icon">Beacon<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.sessionresult.html" class="tsd-kind-icon">Session<wbr>Result</a>
+						<a href="../interfaces/__types_index_.clientsettings.html" class="tsd-kind-icon">Client<wbr>Settings</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.simpleobject.html" class="tsd-kind-icon">Simple<wbr>Object</a>
+						<a href="../interfaces/__types_index_.executable.html" class="tsd-kind-icon">Executable</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.testconfiguration.html" class="tsd-kind-icon">Test<wbr>Configuration</a>
+						<a href="../interfaces/__types_index_.executablecontainer.html" class="tsd-kind-icon">Executable<wbr>Container</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.testresultbundle.html" class="tsd-kind-icon">Test<wbr>Result<wbr>Bundle</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.testsetupresult.html" class="tsd-kind-icon">Test<wbr>Setup<wbr>Result</a>
+						<a href="../interfaces/__types_index_.navigator.html" class="tsd-kind-icon">Navigator</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-						<a href="__types_index_.workernavigator.html" class="tsd-kind-icon">Worker<wbr>Navigator</a>
+						<a href="../interfaces/__types_index_.navigatornetworkinformation.html" class="tsd-kind-icon">Navigator<wbr>Network<wbr>Information</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/__types_index_.networkinformation.html" class="tsd-kind-icon">Network<wbr>Information</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/__types_index_.provider.html" class="tsd-kind-icon">Provider</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/__types_index_.sessionresult.html" class="tsd-kind-icon">Session<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/__types_index_.simpleobject.html" class="tsd-kind-icon">Simple<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-kind-icon">Test<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/__types_index_.testresultbundle.html" class="tsd-kind-icon">Test<wbr>Result<wbr>Bundle</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/__types_index_.testsetupresult.html" class="tsd-kind-icon">Test<wbr>Setup<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../interfaces/__types_index_.workernavigator.html" class="tsd-kind-icon">Worker<wbr>Navigator</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/__types_index_.html#clientinfo" class="tsd-kind-icon">Client<wbr>Info</a>
