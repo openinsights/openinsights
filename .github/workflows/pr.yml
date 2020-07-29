@@ -78,4 +78,4 @@ jobs:
           ${{ runner.os }}-node-
     - run: npm ci
     - run: npm run build:doc
-    - run: git diff-files --name-only --exit-code
+    - run: git diff-files --ignore-all-space --name-only --exit-code
