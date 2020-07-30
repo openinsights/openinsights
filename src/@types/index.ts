@@ -71,7 +71,7 @@ export enum BeaconState {
 }
 
 /**
- * Beacon.Data represents test data to be sent back according to provider
+ * BeaconData represents test data to be sent back according to provider
  * specifications.
  */
 export interface BeaconData {
