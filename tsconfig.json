@@ -1,20 +1,15 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "lib": [
-      "DOM",
-      "ES2015"
-    ],
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "compilerOptions": {
+        "target": "es6",
+        "lib": ["DOM", "ES2015", "ES2020"],
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationDir": "dist/types",
+        "declarationMap": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
 }

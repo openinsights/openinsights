@@ -23,3 +23,35 @@ for a demonstration of how to compile a client.
    RUM clients.
 1. Open Insights gives the site owner control over code compilation and included
    functionality.
+
+## Development
+
+In most cases, developers will reference the core module as a dependency, using it to
+compile a customized client for use on their sites. These instructions are for working
+on the core module itself.
+
+### Install Dependencies
+
+Within the project root directory:
+
+```bash
+npm install
+```
+
+### Run Linter
+
+```bash
+npm run lint
+```
+
+### Run Tests
+
+```bash
+npm run test
+```
+
+### Build Code Documentation
+
+```bash
+npm run build:doc
+```

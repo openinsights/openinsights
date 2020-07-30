@@ -1,44 +1,99 @@
-import loadWhenReady from './util/loadWhenDocumentReady'
-import { DefaultPageSettings } from './util/defaultPageSettings'
-export { PageSettingsBuilder } from './util/pageSettingsBuilder'
+/**
+ * Open Insights is a library for building customized RUM clients.
+ *
+ * @remarks
+ * This is the Open Insights core module. It defines business logic shared by
+ * all RUM clients. An Open Insights "provider" specifies the logic particular
+ * to a particular RUM service. Each of these is contained within its own
+ * package. A "tag owner" builds a RUM client in their own package by importing
+ * and utilizing features from the core module and one or more provider modules.
+ *
+ * @example
+ * ```typescript
+ * import { init, ClientSettingsBuilder } from 'open-insights'
+ * import { Provider, ProviderSettings } from 'open-insights-provider-foo'
+ *
+ * const settingsBuilder = new ClientSettingsBuilder()
+ * const fooSettings: ProviderSettings = {
+ *   setting1: 'some value',
+ *   setting2: 'some value,
+ * }
+ *
+ * settingsBuilder.addProvider(new Provider(fooSettings))
+ *
+ * // Execute a RUM session
+ * init(settingsBuilder.toSettings())
+ *     .then(result => {
+ *         // `result` contains the results from the RUM session after
+ *         // completion
+ *     })
+ * ```
+ *
+ * @packageDocumentation
+ */
+import { ClientSettings, SessionConfig, SessionResult } from "./@types"
+import defaultSessionProcessFunc from "./util/defaultSessionProcessFunc"
+import whenReady from "./util/loadWhenDocumentReady"
 
-export function init(settings: PageSettings): void {
-    loadWhenReady(() => {
-        console.log('Document loaded and ready')
-        settings = settings || DefaultPageSettings
+/**
+ * Called by tag owner code to initialize a RUM session, either immediately or
+ * after some delay.
+ *
+ * @remarks
+ * Waits for the page to load before processing.
+ *
+ * @param settings Specifies settings affecting client behavior. These are
+ * determined by the tag owner at runtime, so may be used to specify page-level
+ * overrides to general defaults.
+ */
+export default function init(settings: ClientSettings): Promise<SessionResult> {
+    return whenReady().then(() => {
         if (settings.preConfigStartDelay) {
-            setTimeout(startLater(settings), settings.preConfigStartDelay)
-        } else {
-            start(settings)
+            return startLater(settings.preConfigStartDelay, settings)
         }
+        return start(settings)
     })
 }
 
-function startLater(settings: PageSettings): () => void {
-    return function () {
-        start(settings)
-    }
+/**
+ * Called internally if a non-zero {@link ClientSettings.preConfigStartDelay}
+ * setting has been specified. Calls {@link start} after the delay.
+ *
+ * @param delay The approximate time to wait (in milliseconds).
+ * @param settings The settings object passed to {@link init}.
+ */
+function startLater(
+    delay: number,
+    settings: ClientSettings,
+): Promise<SessionResult> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            start(settings).then((result) => resolve(result))
+        }, delay)
+    })
 }
 
-function start(settings: PageSettings): void {
-    const promises = settings.providers
-        .filter(p => p.testUserAgent())
-        .map(p => p.fetchConfig())
-    if (promises.length) {
-        Promise.all(promises)
-            .then(providerConfigs => {
-                const temp = <[Provider, unknown, unknown[]][]>providerConfigs
-                for (let config of temp) {
-                    let provider: Provider = config[0]
-                    for (let task of config[2]) {
-                        provider.executeTask(config[1], task)
-                    }
-                }
-            })
-            .catch(error => {
-                console.error(error)
-            })
-    } else {
-        console.log('No providers promised to make config calls')
-    }
+/**
+ * Called immediately by {@link init} if no
+ * {@link ClientSettings.preConfigStartDelay} setting has been specified.
+ *
+ * @param settings The settings object passed to {@link init}.
+ */
+function start(settings: ClientSettings): Promise<SessionResult> {
+    const activeProviders = settings.providers.filter((p) => p.shouldRun())
+    return Promise.allSettled(
+        activeProviders.map((provider) => provider.fetchSessionConfig()),
+    ).then((settled) => {
+        const sessionConfigs: Array<SessionConfig> = []
+        settled.forEach((result, idx) => {
+            if (result.status === "fulfilled") {
+                const provider = activeProviders[idx]
+                provider.setSessionConfig(result.value)
+                result.value.executables = provider.expandTasks()
+                sessionConfigs.push(result.value)
+            }
+        })
+        const process = settings.sessionProcess || defaultSessionProcessFunc
+        return process(sessionConfigs)
+    })
 }

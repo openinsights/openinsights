@@ -1,15 +1,17 @@
-// Utility to load a function when the browsers ready state is complete
-export default function loadWhenReady(fn: () => void): void {
-  // If document is ready, invoke func
-  if (document.readyState === "complete") {
-    fn();
-    return;
-  }
-
-  // Otherwise, attach event listener to invoke when ready
-  document.addEventListener("readystatechange", (): void => {
+/**
+ * Utility to resolve a Promise when the browsers ready state reaches "complete"
+ */
+export default function loadWhenReady(): Promise<void> {
+    // If document is ready, resolve immediately
     if (document.readyState === "complete") {
-      fn();
+        return Promise.resolve()
     }
-  });
+    // Otherwise, attach event listener to resolve when ready
+    return new Promise((resolve) => {
+        document.addEventListener("readystatechange", (): void => {
+            if (document.readyState === "complete") {
+                resolve()
+            }
+        })
+    })
 }
