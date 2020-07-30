@@ -53,7 +53,7 @@ export interface TestSetupResult {
 }
 
 /**
- * Beacon.State represents the possible values of the Beacon.Data.state flag.
+ * BeaconState represents the possible values of the BeaconData.state flag.
  */
 export enum BeaconState {
     /**
