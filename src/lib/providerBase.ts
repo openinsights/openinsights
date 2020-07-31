@@ -34,7 +34,7 @@ export default abstract class ProviderBase implements Provider {
      * requests based on the test configuration.
      */
     getBeaconMethod(testConfig: TestConfiguration): BeaconMethod {
-        return "POST"
+        return BeaconMethod.Post
     }
 
     /**
