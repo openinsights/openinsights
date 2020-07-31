@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rimraf dist && tsc --build",
     "build:doc": "rimraf doc && typedoc",
-    "lint": "tsc --noEmit && eslint --fix src",
+    "lint": "tsc && eslint --fix src",
     "test": "jest --coverage",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
   },
