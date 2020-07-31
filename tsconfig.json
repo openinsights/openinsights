@@ -5,7 +5,8 @@
         "rootDir": "src",
         "outDir": "dist",
         "lib": ["DOM", "ES2015", "ES2020"],
-        "module": "commonjs",
+        "module": "es6",
+        "moduleResolution": "node",
         "strict": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
@@ -13,5 +14,10 @@
         "declarationDir": "dist/types",
         "declarationMap": true
     },
-    "exclude": ["dist", "**/*.test.ts"]
+    "include": ["src/**/*"],
+    "exclude": [
+        "dist",
+        "**/*.test.ts",
+        "src/testUtil"
+    ]
 }
