@@ -1,8 +1,9 @@
 {
   "name": "open-insights",
   "version": "0.1.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "files": ["dist/**/*"],
   "repository": "git@github.com:cbsinteractive/open-insights.git",
   "license": "MIT",
   "scripts": {
