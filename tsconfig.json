@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "es6",
+        "outDir": "dist",
         "lib": ["DOM", "ES2015", "ES2020"],
         "module": "commonjs",
         "strict": true,
@@ -10,6 +11,7 @@
         "declarationDir": "dist/types",
         "declarationMap": true
     },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules", "dist"]
+    "exclude": [
+        "**/*.test.ts"
+    ]
 }
