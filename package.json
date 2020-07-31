@@ -7,7 +7,7 @@
   "repository": "git@github.com:cbsinteractive/open-insights.git",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf dist && tsc --build",
+    "build": "tsc --build",
     "build:doc": "rimraf doc && typedoc",
     "lint": "tsc && eslint --fix src",
     "test": "jest --coverage",
