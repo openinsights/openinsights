@@ -6,6 +6,8 @@ import { SendBeaconResult } from "../@types"
  */
 const hasBeaconSupport = "sendBeacon" in navigator
 
+export type BeaconMethod = "GET" | "POST"
+
 /**
  * Sends beacon data.
  *
@@ -26,7 +28,11 @@ const hasBeaconSupport = "sendBeacon" in navigator
 export default function beacon(
     url: string,
     data: string,
+    method: BeaconMethod,
 ): Promise<SendBeaconResult> {
+    if (method == "GET") {
+        return fetch(url, { method, keepalive: true })
+    }
     if (hasBeaconSupport) {
         if (navigator.sendBeacon(url, data)) {
             return Promise.resolve()
@@ -36,7 +42,7 @@ export default function beacon(
         return Promise.reject(new Error("navigator.sendBeacon failed"))
     }
     return fetch(url, {
-        method: "POST",
+        method,
         body: data,
         keepalive: true,
     })

@@ -10,7 +10,7 @@ import {
     TestResultBundle,
     TestSetupResult,
 } from "../@types"
-import beacon from "../util/beacon"
+import beacon, { BeaconMethod } from "../util/beacon"
 import { KnownErrors } from "./errors"
 
 /**
@@ -27,6 +27,15 @@ export default abstract class ProviderBase implements Provider {
          */
         private _name: string,
     ) {}
+
+    /**
+     * A default implementation of {@link Provider.getBeaconMethod}. Providers
+     * may override this if they ever need to send beacon data using GET
+     * requests based on the test configuration.
+     */
+    getBeaconMethod(testConfig: TestConfiguration): BeaconMethod {
+        return "POST"
+    }
 
     /**
      * See {@link Provider.onSendBeaconRejected}
@@ -134,7 +143,11 @@ export default abstract class ProviderBase implements Provider {
         testConfig: TestConfiguration,
         encodedBeaconData: string,
     ): Promise<SendBeaconResult> {
-        return beacon(this.makeBeaconURL(testConfig), encodedBeaconData)
+        return beacon(
+            this.makeBeaconURL(testConfig),
+            encodedBeaconData,
+            this.getBeaconMethod(testConfig),
+        )
     }
 
     /**

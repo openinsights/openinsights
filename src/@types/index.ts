@@ -1,4 +1,5 @@
 import { KnownErrors } from "../lib/errors"
+import { BeaconMethod } from "../util/beacon"
 
 /**
  * An interface representing simple objects mapping strings to basic primative
@@ -399,6 +400,13 @@ export interface Provider {
         testConfig: TestConfiguration,
         encodedBeaconData: string,
     ): Promise<SendBeaconResult>
+
+    /**
+     * A hook enabling providers to specify the HTTP method used to send
+     * beacon data.
+     * @param testConfig The test configuration.
+     */
+    getBeaconMethod(testConfig: TestConfiguration): BeaconMethod
 }
 
 /**
