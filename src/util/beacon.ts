@@ -6,7 +6,10 @@ import { SendBeaconResult } from "../@types"
  */
 const hasBeaconSupport = "sendBeacon" in navigator
 
-export type BeaconMethod = "GET" | "POST"
+export enum BeaconMethod {
+ Get = "GET",
+ Post = "POST",
+} 
 
 /**
  * Sends beacon data.
