@@ -6,6 +6,11 @@ import { SendBeaconResult } from "../@types"
  */
 const hasBeaconSupport = "sendBeacon" in navigator
 
+export enum BeaconMethod {
+    Get = "GET",
+    Post = "POST",
+}
+
 /**
  * Sends beacon data.
  *
@@ -26,7 +31,11 @@ const hasBeaconSupport = "sendBeacon" in navigator
 export default function beacon(
     url: string,
     data: string,
+    method: BeaconMethod,
 ): Promise<SendBeaconResult> {
+    if (method == BeaconMethod.Get) {
+        return fetch(url, { method, keepalive: true })
+    }
     if (hasBeaconSupport) {
         if (navigator.sendBeacon(url, data)) {
             return Promise.resolve()
@@ -36,7 +45,7 @@ export default function beacon(
         return Promise.reject(new Error("navigator.sendBeacon failed"))
     }
     return fetch(url, {
-        method: "POST",
+        method,
         body: data,
         keepalive: true,
     })
