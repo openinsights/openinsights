@@ -33,7 +33,7 @@ export default function beacon(
     data: string,
     method: BeaconMethod,
 ): Promise<SendBeaconResult> {
-    if (method == "GET") {
+    if (method == BeaconMethod.Get) {
         return fetch(url, { method, keepalive: true })
     }
     if (hasBeaconSupport) {
