@@ -8,3 +8,6 @@ coverage/
 *.tgz
 .yarn-integrity
 dist/
+
+# TypeScript cache
+*.tsbuildinfo
