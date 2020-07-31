@@ -9,7 +9,7 @@
  */
 import sinon from "sinon"
 import { Provider, SessionResult, TestResult } from "./@types"
-import init from "./index"
+import init from "./init"
 import Fetch from "./lib/fetch"
 import { TestCaseConfig, UnitTestProvider } from "./testUtil"
 import ClientSettingsBuilder from "./util/clientSettingsBuilder"
