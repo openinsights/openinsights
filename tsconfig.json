@@ -11,7 +11,5 @@
         "declarationDir": "dist/types",
         "declarationMap": true
     },
-    "exclude": [
-        "**/*.test.ts"
-    ]
+    "exclude": ["dist", "**/*.test.ts"]
 }
