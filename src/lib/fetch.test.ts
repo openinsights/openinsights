@@ -110,7 +110,7 @@ describe("Fetch.execute", () => {
             provider.testSetUp.returns(
                 Promise.resolve(testCase.testSetUpResult),
             )
-            provider.getResourceUrl.returns(new URL(testCase.resourceUrl))
+            provider.getResourceUrl.returns(testCase.resourceUrl)
             const fetch = new Fetch(provider, testCase.fetchConfig)
 
             // Prepare the expected provider hook implementations
@@ -305,7 +305,7 @@ describe("Fetch.test", () => {
             // Setup stubs
             const provider = sinon.createStubInstance(UnitTestProvider)
             provider.getResourceRequestHeaders.returns({})
-            provider.getResourceUrl.returns(new URL(testCase.resourceUrl))
+            provider.getResourceUrl.returns(testCase.resourceUrl)
             if (!isFetchTestError(testCase.fetchTestResult)) {
                 provider.createFetchTestResult.resolves(
                     testCase.fetchTestResult,

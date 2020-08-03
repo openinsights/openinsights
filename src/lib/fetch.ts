@@ -68,7 +68,7 @@ export default class Fetch extends Test {
         return Promise.all<Response, ResourceTimingEntry>([
             this.fetchObject(),
             asyncGetEntry(
-                this.getResourceUrl().href,
+                this.getResourceUrl(),
                 (this._config as FetchConfiguration)
                     .performanceTimingObserverTimeout || defaultTimeout,
                 this._isValidEntryFunc,
@@ -88,7 +88,7 @@ export default class Fetch extends Test {
     /**
      * Calls {@link Provider.getResourceUrl} to generate the URL to be fetched.
      */
-    getResourceUrl(): URL {
+    getResourceUrl(): string {
         return this._provider.getResourceUrl(this._config)
     }
 
@@ -108,7 +108,7 @@ export default class Fetch extends Test {
         if (Object.keys(requestHeaders).length) {
             init.headers = requestHeaders
         }
-        const request = new Request(this.getResourceUrl().href, init)
+        const request = new Request(this.getResourceUrl(), init)
         return fetch(request)
     }
 }

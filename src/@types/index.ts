@@ -350,7 +350,7 @@ export interface Provider {
      * @param testConfig The test configuration, which usually specifies a base
      * URL from which the provider produces the runtime URL.
      */
-    getResourceUrl(testConfig: TestConfiguration): URL
+    getResourceUrl(testConfig: TestConfiguration): string
 
     /**
      * A hook enabling providers to specify a set of zero or more HTTP request

@@ -104,7 +104,7 @@ export default abstract class ProviderBase implements Provider {
     /**
      * See {@link Provider.getResourceUrl}.
      */
-    abstract getResourceUrl(testConfig: TestConfiguration): URL
+    abstract getResourceUrl(testConfig: TestConfiguration): string
 
     /**
      * See {@link Provider.getResourceRequestHeaders}.
