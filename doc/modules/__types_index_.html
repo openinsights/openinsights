@@ -82,14 +82,12 @@
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.beacondata.html" class="tsd-kind-icon">Beacon<wbr>Data</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.clientsettings.html" class="tsd-kind-icon">Client<wbr>Settings</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.executable.html" class="tsd-kind-icon">Executable</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.executablecontainer.html" class="tsd-kind-icon">Executable<wbr>Container</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.navigator.html" class="tsd-kind-icon">Navigator</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported"><a href="../interfaces/__types_index_.navigatornetworkinformation.html" class="tsd-kind-icon">Navigator<wbr>Network<wbr>Information</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.networkinformation.html" class="tsd-kind-icon">Network<wbr>Information</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.provider.html" class="tsd-kind-icon">Provider</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-kind-icon">Session<wbr>Result</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.simpleobject.html" class="tsd-kind-icon">Simple<wbr>Object</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-kind-icon">Test<wbr>Configuration</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.testresultbundle.html" class="tsd-kind-icon">Test<wbr>Result<wbr>Bundle</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/__types_index_.testsetupresult.html" class="tsd-kind-icon">Test<wbr>Setup<wbr>Result</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported"><a href="../interfaces/__types_index_.workernavigator.html" class="tsd-kind-icon">Worker<wbr>Navigator</a></li>
@@ -106,7 +104,6 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="__types_index_.html#resourcetimingentry" class="tsd-kind-icon">Resource<wbr>Timing<wbr>Entry</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="__types_index_.html#resourcetimingentryvalidationpredicate" class="tsd-kind-icon">Resource<wbr>Timing<wbr>Entry<wbr>Validation<wbr>Predicate</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="__types_index_.html#sendbeaconresult" class="tsd-kind-icon">Send<wbr>Beacon<wbr>Result</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="__types_index_.html#sessionconfig" class="tsd-kind-icon">Session<wbr>Config</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="__types_index_.html#sessionprocessfunc" class="tsd-kind-icon">Session<wbr>Process<wbr>Func</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="__types_index_.html#testresult" class="tsd-kind-icon">Test<wbr>Result</a></li>
 							</ul>
@@ -246,39 +243,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="sessionconfig" class="tsd-anchor"></a>
-					<h3>Session<wbr>Config</h3>
-					<div class="tsd-signature tsd-kind-icon">Session<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="../interfaces/__types_index_.executablecontainer.html" class="tsd-signature-type">ExecutableContainer</a></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A type for objects returned by <a href="../interfaces/__types_index_.provider.html#fetchsessionconfig">Provider.fetchSessionConfig</a>
-							representing configuration for a RUM session.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="sessionprocessfunc" class="tsd-anchor"></a>
 					<h3>Session<wbr>Process<wbr>Func</h3>
-					<div class="tsd-signature tsd-kind-icon">Session<wbr>Process<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>sessionConfigs<span class="tsd-signature-symbol">: </span><a href="__types_index_.html#sessionconfig" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Session<wbr>Process<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>executables<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.executable.html" class="tsd-signature-type">Executable</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A function that takes an array of <a href="__types_index_.html#sessionconfig">SessionConfig</a> objects and returns
+							<p>A function that takes an array of <a href="../interfaces/__types_index_.executable.html">Executable</a> test objects and returns
 							a Promise&lt;<a href="../interfaces/__types_index_.sessionresult.html">SessionResult</a>&gt;.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>remarks</dt>
-							<dd><p>In general, the list of <a href="__types_index_.html#sessionconfig">SessionConfig</a> objects passed into this
+							<dd><p>In general, the list of <a href="../interfaces/__types_index_.executable.html">Executable</a> test objects passed into this
 									function would be the result of previous calls to
-								<a href="../interfaces/__types_index_.provider.html#fetchsessionconfig">Provider.fetchSessionConfig</a> for each provider used by the client.</p>
+									<a href="../interfaces/__types_index_.provider.html#fetchsessionconfig">Provider.fetchSessionConfig</a> and @link Provider.expandTasks} for each
+								provider used by the client.</p>
 								<p>The tag owner may override the default sequencing function in order to
 								control the order in which tests run.</p>
 							</dd>
 							<dt>param</dt>
-							<dd><p>List of session configurations for which to
+							<dd><p>List of <a href="../interfaces/__types_index_.executable.html">Executable</a> tests for which to run and
 								generate a list of Promise&lt;<a href="../interfaces/__types_index_.sessionresult.html">SessionResult</a>&gt; objects.</p>
 							</dd>
 						</dl>
@@ -288,14 +273,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>sessionConfigs<span class="tsd-signature-symbol">: </span><a href="__types_index_.html#sessionconfig" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>executables<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.executable.html" class="tsd-signature-type">Executable</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5>sessionConfigs: <a href="__types_index_.html#sessionconfig" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">[]</span></h5>
+												<h5>executables: <a href="../interfaces/__types_index_.executable.html" class="tsd-signature-type">Executable</a><span class="tsd-signature-symbol">[]</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -308,7 +293,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="testresult" class="tsd-anchor"></a>
 					<h3>Test<wbr>Result</h3>
-					<div class="tsd-signature tsd-kind-icon">Test<wbr>Result<span class="tsd-signature-symbol">:</span> <a href="../interfaces/__types_index_.simpleobject.html" class="tsd-signature-type">SimpleObject</a></div>
+					<div class="tsd-signature tsd-kind-icon">Test<wbr>Result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">unknown</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -331,13 +316,10 @@
 						<a href="__types_index_.html">&quot;@types/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="__types_index_test_.html">&quot;@types/index.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_index_test_.html">&quot;index.test&quot;</a>
+						<a href="_init_.html">&quot;init&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_lib_errors_.html">&quot;lib/errors&quot;</a>
@@ -346,31 +328,16 @@
 						<a href="_lib_fetch_.html">&quot;lib/fetch&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_lib_fetch_test_.html">&quot;lib/fetch.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="_lib_getnetworkinformation_.html">&quot;lib/get<wbr>Network<wbr>Information&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_lib_providerbase_.html">&quot;lib/provider<wbr>Base&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_lib_providerbase_test_.html">&quot;lib/provider<wbr>Base.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="_lib_resourcetiming_.html">&quot;lib/resource<wbr>Timing&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_lib_test_.html">&quot;lib/test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_testutil_index_.html">&quot;test<wbr>Util/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_testutil_makeperformancetimingentry_.html">&quot;test<wbr>Util/make<wbr>Performance<wbr>Timing<wbr>Entry&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_testutil_unittestprovider_.html">&quot;test<wbr>Util/unit<wbr>Test<wbr>Provider&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_util_beacon_.html">&quot;util/beacon&quot;</a>
@@ -386,9 +353,6 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_util_loadwhendocumentready_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_util_loadwhendocumentready_test_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready.test&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_util_object_.html">&quot;util/object&quot;</a>
@@ -413,9 +377,6 @@
 						<a href="../interfaces/__types_index_.executable.html" class="tsd-kind-icon">Executable</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/__types_index_.executablecontainer.html" class="tsd-kind-icon">Executable<wbr>Container</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/__types_index_.navigator.html" class="tsd-kind-icon">Navigator</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
@@ -432,9 +393,6 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/__types_index_.simpleobject.html" class="tsd-kind-icon">Simple<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-kind-icon">Test<wbr>Configuration</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/__types_index_.testresultbundle.html" class="tsd-kind-icon">Test<wbr>Result<wbr>Bundle</a>
@@ -470,9 +428,6 @@
 						<a href="__types_index_.html#sendbeaconresult" class="tsd-kind-icon">Send<wbr>Beacon<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="__types_index_.html#sessionconfig" class="tsd-kind-icon">Session<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="__types_index_.html#sessionprocessfunc" class="tsd-kind-icon">Session<wbr>Process<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
@@ -494,13 +449,14 @@
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 			</ul>
 		</div>
 	</div>

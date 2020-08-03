@@ -101,124 +101,6 @@ init(settingsBuilder.toSettings())
 					</dl>
 				</div>
 			</section>
-			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
-				<section class="tsd-panel tsd-index-panel">
-					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_index_.html#init" class="tsd-kind-icon">init</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_index_.html#start" class="tsd-kind-icon">start</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_index_.html#startlater" class="tsd-kind-icon">start<wbr>Later</a></li>
-							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="init" class="tsd-anchor"></a>
-					<h3>init</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span>settings<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Called by tag owner code to initialize a RUM session, either immediately or
-									after some delay.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>Waits for the page to load before processing.</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>settings: <a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Specifies settings affecting client behavior. These are
-											determined by the tag owner at runtime, so may be used to specify page-level
-										overrides to general defaults.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="start" class="tsd-anchor"></a>
-					<h3>start</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span>settings<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Called immediately by <a href="_index_.html#init">init</a> if no
-									<a href="../interfaces/__types_index_.clientsettings.html#preconfigstartdelay">ClientSettings.preConfigStartDelay</a> setting has been specified.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>settings: <a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The settings object passed to <a href="_index_.html#init">init</a>.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="startlater" class="tsd-anchor"></a>
-					<h3>start<wbr>Later</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Later<span class="tsd-signature-symbol">(</span>delay<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, settings<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Called internally if a non-zero <a href="../interfaces/__types_index_.clientsettings.html#preconfigstartdelay">ClientSettings.preConfigStartDelay</a>
-									setting has been specified. Calls <a href="_index_.html#start">start</a> after the delay.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>delay: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The approximate time to wait (in milliseconds).</p>
-									</div>
-								</li>
-								<li>
-									<h5>settings: <a href="../interfaces/__types_index_.clientsettings.html" class="tsd-signature-type">ClientSettings</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The settings object passed to <a href="_index_.html#init">init</a>.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/__types_index_.sessionresult.html" class="tsd-signature-type">SessionResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
@@ -229,14 +111,11 @@ init(settingsBuilder.toSettings())
 					<li class=" tsd-kind-module">
 						<a href="__types_index_.html">&quot;@types/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="__types_index_test_.html">&quot;@types/index.test&quot;</a>
-					</li>
 					<li class="current tsd-kind-module">
 						<a href="_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_index_test_.html">&quot;index.test&quot;</a>
+						<a href="_init_.html">&quot;init&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_lib_errors_.html">&quot;lib/errors&quot;</a>
@@ -245,31 +124,16 @@ init(settingsBuilder.toSettings())
 						<a href="_lib_fetch_.html">&quot;lib/fetch&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_lib_fetch_test_.html">&quot;lib/fetch.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="_lib_getnetworkinformation_.html">&quot;lib/get<wbr>Network<wbr>Information&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_lib_providerbase_.html">&quot;lib/provider<wbr>Base&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_lib_providerbase_test_.html">&quot;lib/provider<wbr>Base.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="_lib_resourcetiming_.html">&quot;lib/resource<wbr>Timing&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_lib_test_.html">&quot;lib/test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_testutil_index_.html">&quot;test<wbr>Util/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_testutil_makeperformancetimingentry_.html">&quot;test<wbr>Util/make<wbr>Performance<wbr>Timing<wbr>Entry&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_testutil_unittestprovider_.html">&quot;test<wbr>Util/unit<wbr>Test<wbr>Provider&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_util_beacon_.html">&quot;util/beacon&quot;</a>
@@ -287,9 +151,6 @@ init(settingsBuilder.toSettings())
 						<a href="_util_loadwhendocumentready_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_util_loadwhendocumentready_test_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="_util_object_.html">&quot;util/object&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -299,15 +160,6 @@ init(settingsBuilder.toSettings())
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_index_.html#init" class="tsd-kind-icon">init</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_index_.html#start" class="tsd-kind-icon">start</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_index_.html#startlater" class="tsd-kind-icon">start<wbr>Later</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -324,13 +176,14 @@ init(settingsBuilder.toSettings())
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 			</ul>
 		</div>
 	</div>
