@@ -18,39 +18,13 @@ export interface SimpleObject {
 }
 
 /**
- * An interface for objects containing a set of executable tasks.
- */
-export interface ExecutableContainer {
-    /**
-     * A list of {@link Executable} objects.
-     */
-    executables: Executable[]
-}
-
-/**
- * A type for objects returned by {@link Provider.fetchSessionConfig}
- * representing configuration for a RUM session.
- */
-export type SessionConfig = ExecutableContainer
-
-/**
- * An interface representing the configuration of a RUM test.
- */
-export interface TestConfiguration {
-    /**
-     * Indicates the test type.
-     */
-    type: string
-}
-
-/**
  * An interface representing the result of a test's setup activity.
  */
 export interface TestSetupResult {
     /**
      * A container for the test setup data
      */
-    data?: SimpleObject
+    data?: unknown
 }
 
 /**
@@ -83,11 +57,11 @@ export interface BeaconData {
     /**
      * The configuration of the associated {@link Test}
      */
-    testConfig: TestConfiguration
+    testConfig: unknown
     /**
      * An object containing provider-defined test data to be beaconed.
      */
-    data?: SimpleObject
+    data?: unknown
 }
 
 /**
@@ -113,7 +87,7 @@ export type ResourceTimingEntryValidationPredicate = (
  * result object for a particular test type, in case multiple transactions are
  * involved.
  */
-export type TestResult = SimpleObject
+export type TestResult = unknown
 
 /**
  * Represents the completed result of a test.
@@ -254,10 +228,10 @@ export interface Provider {
     name: string
 
     /**
-     * The {@link SessionConfig} object obtained from calling
+     * The provider specfic session configuration object obtained from calling
      * {@link Provider.fetchSessionConfig}.
      */
-    sessionConfig?: SessionConfig
+    sessionConfig?: unknown
 
     /**
      * A hook called before each test begins, giving the provider an
@@ -265,7 +239,7 @@ export interface Provider {
      * timestamp.
      * @param testConfig The test configuration.
      */
-    testSetUp(testConfig: TestConfiguration): Promise<TestSetupResult>
+    testSetUp(testConfig: unknown): Promise<TestSetupResult>
 
     /**
      * A hook called after each test has completed, giving the provider an
@@ -280,7 +254,7 @@ export interface Provider {
      * @param value The provider-defined configuration object resulting from a
      * call to {@link Provider.fetchSessionConfig}
      */
-    setSessionConfig(value: SessionConfig): void
+    setSessionConfig(value: unknown): void
 
     /**
      * A hook called very early by the core module, enabling providers an
@@ -292,15 +266,15 @@ export interface Provider {
     /**
      * @remarks
      * A provider implements this in order to define its logic for producing
-     * a {@link SessionConfig} object at runtime.
+     * its specfic session configuration object at runtime.
      */
-    fetchSessionConfig(): Promise<SessionConfig>
+    fetchSessionConfig(): Promise<unknown>
 
     /**
      * A provider implements this in order to define its logic for converting
-     * the configuration from a {@link SessionConfig} object into one or more
-     * {@link Executable} objects (usually {@link Fetch} or other classes
-     * inheriting from {@link Test}).
+     * its session configuration object into one or more {@link Executable}
+     * objects (usually {@link Fetch} or other classes inheriting from
+     * {@link Test}).
      */
     expandTasks(): Executable[]
 
@@ -320,7 +294,7 @@ export interface Provider {
     createFetchTestResult(
         timingEntry: ResourceTimingEntry,
         response: Response,
-        testConfig: TestConfiguration,
+        testConfig: unknown,
         setupResult: TestSetupResult,
     ): Promise<TestResultBundle>
 
@@ -330,17 +304,14 @@ export interface Provider {
      * @param testConfig The test configuration.
      * @param testData The data resulting from running the test.
      */
-    makeBeaconData(
-        testConfig: TestConfiguration,
-        testData: TestResultBundle,
-    ): BeaconData
+    makeBeaconData(testConfig: unknown, testData: TestResultBundle): BeaconData
 
     /**
      * A hook enabling providers to determine the beacon URL for a test.
      * result.
      * @param testConfig The test configuration.
      */
-    makeBeaconURL(testConfig: TestConfiguration): string
+    makeBeaconURL(testConfig: unknown): string
 
     /**
      * A hook enabling providers to generate a test URL at runtime.
@@ -350,16 +321,14 @@ export interface Provider {
      * @param testConfig The test configuration, which usually specifies a base
      * URL from which the provider produces the runtime URL.
      */
-    getResourceUrl(testConfig: TestConfiguration): string
+    getResourceUrl(testConfig: unknown): string
 
     /**
      * A hook enabling providers to specify a set of zero or more HTTP request
      * headers to be sent with the test.
      * @param testConfig The test configuration.
      */
-    getResourceRequestHeaders(
-        testConfig: TestConfiguration,
-    ): Record<string, string>
+    getResourceRequestHeaders(testConfig: unknown): Record<string, string>
 
     /**
      * A hook enabling providers to handle an error emitted by the core
@@ -375,7 +344,7 @@ export interface Provider {
      * @param testConfig The test configuration.
      * @param data The data to be encoded.
      */
-    encodeBeaconData(testConfig: TestConfiguration, data: BeaconData): string
+    encodeBeaconData(testConfig: unknown, data: BeaconData): string
 
     /**
      * Called when the Promise returned by {@link sendBeacon} is rejected.
@@ -397,7 +366,7 @@ export interface Provider {
      * {@link Provider.encodeBeaconData}.
      */
     sendBeacon(
-        testConfig: TestConfiguration,
+        testConfig: unknown,
         encodedBeaconData: string,
     ): Promise<SendBeaconResult>
 
@@ -406,26 +375,27 @@ export interface Provider {
      * beacon data.
      * @param testConfig The test configuration.
      */
-    getBeaconMethod(testConfig: TestConfiguration): BeaconMethod
+    getBeaconMethod(testConfig: unknown): BeaconMethod
 }
 
 /**
- * A function that takes an array of {@link SessionConfig} objects and returns
+ * A function that takes an array of {@link Executable} test objects and returns
  * a Promise<{@link SessionResult}>.
  *
  * @remarks
- * In general, the list of {@link SessionConfig} objects passed into this
+ * In general, the list of {@link Executable} test objects passed into this
  * function would be the result of previous calls to
- * {@link Provider.fetchSessionConfig} for each provider used by the client.
+ * {@link Provider.fetchSessionConfig} and @link Provider.expandTasks} for each
+ * provider used by the client.
  *
  * The tag owner may override the default sequencing function in order to
  * control the order in which tests run.
  *
- * @param sessionConfigs List of session configurations for which to
+ * @param executables List of {@link Executable} tests for which to run and
  * generate a list of Promise<{@link SessionResult}> objects.
  */
 export type SessionProcessFunc = (
-    sessionConfigs: SessionConfig[],
+    executables: Executable[],
 ) => Promise<SessionResult>
 
 /**
@@ -446,7 +416,7 @@ export interface ClientSettings {
      */
     providers: Provider[]
     /**
-     * At runtime, this function takes the list of {@link SessionConfig}
+     * At runtime, this function takes the list of {@link Executable}
      * objects supplied by providers participating in the RUM session
      * and executes any tests they contain.
      *

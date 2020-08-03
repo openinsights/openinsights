@@ -2,14 +2,20 @@ import {
     Provider,
     ResourceTimingEntry,
     ResourceTimingEntryValidationPredicate,
-    TestConfiguration,
     TestResultBundle,
     TestSetupResult,
 } from "../@types"
 import { asyncGetEntry } from "./resourceTiming"
 import { Test } from "./test"
 
-export type FetchConfiguration = TestConfiguration & {
+export interface FetchConfiguration {
+    /**
+     * Indicates the test type.
+     */
+    type: string
+    /**
+     * PerformanceObserver timeout in milliseconds.
+     */
     performanceTimingObserverTimeout?: number
 }
 
@@ -28,8 +34,10 @@ const defaultIsValidEntryFunc: ResourceTimingEntryValidationPredicate = (e) =>
  * Along with its parent class {@link Test}, the class provides a number of hooks
  * enabling providers to control certain implementation details supporting their
  * use case.
+ *
+ * @typeParam TC The type to be used for the internal test configuration.
  */
-export default class Fetch extends Test {
+export default class Fetch<TC extends FetchConfiguration> extends Test<TC> {
     /**
      * The predicate function used to determine the validity of a Resource
      * Timing entry.
@@ -47,7 +55,7 @@ export default class Fetch extends Test {
      */
     constructor(
         provider: Provider,
-        config: FetchConfiguration,
+        config: TC,
         validEntryFunc?: ResourceTimingEntryValidationPredicate,
     ) {
         super(provider, config)

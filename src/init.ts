@@ -1,4 +1,4 @@
-import { ClientSettings, SessionConfig, SessionResult } from "./@types"
+import { ClientSettings, SessionResult, Executable } from "./@types"
 import defaultSessionProcessFunc from "./util/defaultSessionProcessFunc"
 import whenReady from "./util/loadWhenDocumentReady"
 
@@ -51,16 +51,15 @@ function start(settings: ClientSettings): Promise<SessionResult> {
     return Promise.allSettled(
         activeProviders.map((provider) => provider.fetchSessionConfig()),
     ).then((settled) => {
-        const sessionConfigs: Array<SessionConfig> = []
+        const executables: Executable[] = []
         settled.forEach((result, idx) => {
             if (result.status === "fulfilled") {
                 const provider = activeProviders[idx]
                 provider.setSessionConfig(result.value)
-                result.value.executables = provider.expandTasks()
-                sessionConfigs.push(result.value)
+                executables.push(...provider.expandTasks())
             }
         })
         const process = settings.sessionProcess || defaultSessionProcessFunc
-        return process(sessionConfigs)
+        return process(executables)
     })
 }

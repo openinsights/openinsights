@@ -11,7 +11,6 @@ import {
     BeaconState,
     ResourceTimingEntry,
     SimpleObject,
-    TestConfiguration,
     TestResultBundle,
     TestSetupResult,
 } from "../@types"
@@ -47,7 +46,7 @@ type FetchExecuteTestConfig = TestCaseConfig & {
     encodeBeaconDataResult?: string
     expectedRequestHeaders: Record<string, string>
     executeResult: TestResultBundle
-    fetchConfig: TestConfiguration
+    fetchConfig: FetchConfiguration
     finalState: TestState
     asyncGetEntryResult: AsyncGetEntryResult | AsyncGetEntryError
     getResourceRequestHeadersResult: Record<string, string>

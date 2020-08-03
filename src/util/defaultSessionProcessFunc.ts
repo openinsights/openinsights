@@ -7,14 +7,12 @@ import sequence from "./promiseSequence"
  * @remarks
  * See {@link SessionProcessFunc}.
  *
- * @param sessionConfigs Array of {@link SessionConfig} objects from which to
+ * @param sessionConfigs Array of {@link Executable} objects from which to
  * generate a Promise<{@link SessionResult}>
  */
-const defaultSessionProcessFunc: SessionProcessFunc = (sessionConfigs) => {
-    const executables: Executable[] = []
-    for (const c of sessionConfigs) {
-        executables.push(...c.executables)
-    }
+const defaultSessionProcessFunc: SessionProcessFunc = (
+    executables: Executable[],
+) => {
     const makeTaskExecFunc = (task: Executable) => () => task.execute()
     return sequence(executables.map(makeTaskExecFunc)).then((testResults) => {
         return { testResults }

@@ -5,8 +5,6 @@ import {
     Provider,
     ResourceTimingEntry,
     SendBeaconResult,
-    SessionConfig,
-    TestConfiguration,
     TestResultBundle,
     TestSetupResult,
 } from "../@types"
@@ -15,8 +13,11 @@ import { KnownErrors } from "./errors"
 
 /**
  * A common base class for providers.
+ *
+ * @typeParam SC The type to be used for the internal session configuration.
+ * @typeParam TC The type to be used for the test configuration.
  */
-export default abstract class ProviderBase implements Provider {
+export default abstract class ProviderBase<SC, TC> implements Provider {
     /**
      * @param _name A provider-defined name.
      */
@@ -33,7 +34,7 @@ export default abstract class ProviderBase implements Provider {
      * may override this if they ever need to send beacon data using GET
      * requests based on the test configuration.
      */
-    getBeaconMethod(testConfig: TestConfiguration): BeaconMethod {
+    getBeaconMethod(testConfig: TC): BeaconMethod {
         return BeaconMethod.Post
     }
 
@@ -64,7 +65,7 @@ export default abstract class ProviderBase implements Provider {
      * @remarks
      * This is saved at the beginning of a RUM session within {@link start}.
      */
-    private _sessionConfig?: SessionConfig
+    private _sessionConfig?: SC
 
     /**
      * See {@link Provider.name}.
@@ -76,7 +77,7 @@ export default abstract class ProviderBase implements Provider {
     /**
      * See {@link Provider.fetchSessionConfig}.
      */
-    abstract fetchSessionConfig(): Promise<SessionConfig>
+    abstract fetchSessionConfig(): Promise<SC>
 
     /**
      * See {@link Provider.expandTasks}.
@@ -89,7 +90,7 @@ export default abstract class ProviderBase implements Provider {
     abstract createFetchTestResult(
         timingEntry: ResourceTimingEntry,
         response: Response,
-        testConfig: TestConfiguration,
+        testConfig: TC,
         setupResult: TestSetupResult,
     ): Promise<TestResultBundle>
 
@@ -97,21 +98,19 @@ export default abstract class ProviderBase implements Provider {
      * See {@link Provider.makeBeaconData}
      */
     abstract makeBeaconData(
-        testConfig: TestConfiguration,
+        testConfig: TC,
         testData: TestResultBundle,
     ): BeaconData
 
     /**
      * See {@link Provider.getResourceUrl}.
      */
-    abstract getResourceUrl(testConfig: TestConfiguration): string
+    abstract getResourceUrl(testConfig: TC): string
 
     /**
      * See {@link Provider.getResourceRequestHeaders}.
      */
-    abstract getResourceRequestHeaders(
-        testConfig: TestConfiguration,
-    ): Record<string, string>
+    abstract getResourceRequestHeaders(testConfig: TC): Record<string, string>
 
     /**
      * See {@link Provider.handleError}
@@ -128,7 +127,7 @@ export default abstract class ProviderBase implements Provider {
      * @remarks
      * A default implementation that does simple JSON-encoding.
      */
-    encodeBeaconData(testConfig: TestConfiguration, data: BeaconData): string {
+    encodeBeaconData(testConfig: TC, data: BeaconData): string {
         return JSON.stringify(data)
     }
 
@@ -140,7 +139,7 @@ export default abstract class ProviderBase implements Provider {
      * reporting, e.g. utilize WebSockets, invoke a 3rd party library, etc.
      */
     sendBeacon(
-        testConfig: TestConfiguration,
+        testConfig: TC,
         encodedBeaconData: string,
     ): Promise<SendBeaconResult> {
         return beacon(
@@ -153,14 +152,14 @@ export default abstract class ProviderBase implements Provider {
     /**
      * See {@link Provider.setSessionConfig}.
      */
-    setSessionConfig(value: SessionConfig): void {
+    setSessionConfig(value: SC): void {
         this._sessionConfig = value
     }
 
     /**
      * See {@link Provider.sessionConfig}.
      */
-    get sessionConfig(): SessionConfig {
+    get sessionConfig(): SC {
         /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
         return this._sessionConfig!
     }
@@ -171,7 +170,7 @@ export default abstract class ProviderBase implements Provider {
      * A subclass might not override this if it overrides
      * {@link ProviderBase.sendBeacon} instead.
      */
-    makeBeaconURL(testConfig: TestConfiguration): string {
+    makeBeaconURL(testConfig: TC): string {
         throw new Error("Method not implemented.")
     }
 
@@ -181,7 +180,7 @@ export default abstract class ProviderBase implements Provider {
      * A no-op implementation for providers that don't need to perform any
      * setup activity.
      */
-    testSetUp(testConfig: TestConfiguration): Promise<TestSetupResult> {
+    testSetUp(testConfig: TC): Promise<TestSetupResult> {
         return Promise.resolve({})
     }
 
