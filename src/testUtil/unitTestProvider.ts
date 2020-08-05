@@ -19,7 +19,7 @@ export default class UnitTestProvider extends ProviderBase {
     makeBeaconData(): BeaconData {
         throw new Error("Method not implemented.")
     }
-    getResourceUrl(): URL {
+    getResourceUrl(): string {
         throw new Error("Method not implemented.")
     }
     getResourceRequestHeaders(): Record<string, string> {
