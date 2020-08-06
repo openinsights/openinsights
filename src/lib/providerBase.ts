@@ -160,8 +160,9 @@ export default abstract class ProviderBase implements Provider {
     /**
      * See {@link Provider.sessionConfig}.
      */
-    get sessionConfig(): SessionConfig | undefined {
-        return this._sessionConfig
+    get sessionConfig(): SessionConfig {
+        /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
+        return this._sessionConfig!
     }
 
     /**
