@@ -62,7 +62,7 @@
 					<a href="_lib_test_.test.html">Test</a>
 				</li>
 			</ul>
-			<h1>Class Test</h1>
+			<h1>Class Test&lt;TC&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -76,6 +76,19 @@
 						abstract methods in order to define a particular type of RUM test.</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>TC<span class="tsd-signature-symbol">: </span><a href="../interfaces/_lib_test_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The type to be used for the internal test configuration.</p>
+							</div>
+						</div>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
@@ -136,7 +149,7 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Test<span class="tsd-signature-symbol">(</span>_provider<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a>, _config<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_test_.test.html" class="tsd-signature-type">Test</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Test<span class="tsd-signature-symbol">(</span>_provider<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a>, _config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TC</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_test_.test.html" class="tsd-signature-type">Test</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -155,7 +168,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>_config: <a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>_config: <span class="tsd-signature-type">TC</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>The provider-defined configuration for the test</p>
@@ -173,7 +186,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="_config" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _config</h3>
-					<div class="tsd-signature tsd-kind-icon">_config<span class="tsd-signature-symbol">:</span> <a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></div>
+					<div class="tsd-signature tsd-kind-icon">_config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TC</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -295,13 +308,10 @@
 						<a href="../modules/__types_index_.html">&quot;@types/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/__types_index_test_.html">&quot;@types/index.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_index_test_.html">&quot;index.test&quot;</a>
+						<a href="../modules/_init_.html">&quot;init&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_errors_.html">&quot;lib/errors&quot;</a>
@@ -310,31 +320,16 @@
 						<a href="../modules/_lib_fetch_.html">&quot;lib/fetch&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_fetch_test_.html">&quot;lib/fetch.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_getnetworkinformation_.html">&quot;lib/get<wbr>Network<wbr>Information&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_providerbase_.html">&quot;lib/provider<wbr>Base&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_providerbase_test_.html">&quot;lib/provider<wbr>Base.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_resourcetiming_.html">&quot;lib/resource<wbr>Timing&quot;</a>
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_lib_test_.html">&quot;lib/test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_testutil_index_.html">&quot;test<wbr>Util/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_testutil_makeperformancetimingentry_.html">&quot;test<wbr>Util/make<wbr>Performance<wbr>Timing<wbr>Entry&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_testutil_unittestprovider_.html">&quot;test<wbr>Util/unit<wbr>Test<wbr>Provider&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_util_beacon_.html">&quot;util/beacon&quot;</a>
@@ -352,9 +347,6 @@
 						<a href="../modules/_util_loadwhendocumentready_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_util_loadwhendocumentready_test_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_util_object_.html">&quot;util/object&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -369,7 +361,7 @@
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_lib_test_.test.html" class="tsd-kind-icon">Test</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
@@ -397,6 +389,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_lib_test_.testconfiguration.html" class="tsd-kind-icon">Test<wbr>Configuration</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -414,6 +409,7 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>

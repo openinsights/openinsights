@@ -62,7 +62,7 @@
 					<a href="_lib_fetch_.fetch.html">Fetch</a>
 				</li>
 			</ul>
-			<h1>Class Fetch</h1>
+			<h1>Class Fetch&lt;TC&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -81,11 +81,24 @@
 					use case.</p>
 				</div>
 			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>TC<span class="tsd-signature-symbol">: </span><a href="../interfaces/_lib_fetch_.fetchconfiguration.html" class="tsd-signature-type">FetchConfiguration</a></h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The type to be used for the internal test configuration.</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_lib_test_.test.html" class="tsd-signature-type">Test</a>
+						<a href="_lib_test_.test.html" class="tsd-signature-type">Test</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TC</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">Fetch</span>
@@ -142,7 +155,7 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Fetch<span class="tsd-signature-symbol">(</span>provider<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a>, config<span class="tsd-signature-symbol">: </span><a href="../modules/_lib_fetch_.html#fetchconfiguration" class="tsd-signature-type">FetchConfiguration</a>, validEntryFunc<span class="tsd-signature-symbol">?: </span><a href="../modules/__types_index_.html#resourcetimingentryvalidationpredicate" class="tsd-signature-type">ResourceTimingEntryValidationPredicate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_fetch_.fetch.html" class="tsd-signature-type">Fetch</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Fetch<span class="tsd-signature-symbol">(</span>provider<span class="tsd-signature-symbol">: </span><a href="../interfaces/__types_index_.provider.html" class="tsd-signature-type">Provider</a>, config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TC</span>, validEntryFunc<span class="tsd-signature-symbol">?: </span><a href="../modules/__types_index_.html#resourcetimingentryvalidationpredicate" class="tsd-signature-type">ResourceTimingEntryValidationPredicate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_lib_fetch_.fetch.html" class="tsd-signature-type">Fetch</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -168,7 +181,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>config: <a href="../modules/_lib_fetch_.html#fetchconfiguration" class="tsd-signature-type">FetchConfiguration</a></h5>
+									<h5>config: <span class="tsd-signature-type">TC</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>The test configuration.</p>
@@ -195,7 +208,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="_config" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _config</h3>
-					<div class="tsd-signature tsd-kind-icon">_config<span class="tsd-signature-symbol">:</span> <a href="../interfaces/__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></div>
+					<div class="tsd-signature tsd-kind-icon">_config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TC</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_lib_test_.test.html">Test</a>.<a href="_lib_test_.test.html#_config">_config</a></p>
 					</aside>
@@ -367,13 +380,10 @@
 						<a href="../modules/__types_index_.html">&quot;@types/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/__types_index_test_.html">&quot;@types/index.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_index_test_.html">&quot;index.test&quot;</a>
+						<a href="../modules/_init_.html">&quot;init&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_errors_.html">&quot;lib/errors&quot;</a>
@@ -382,31 +392,16 @@
 						<a href="../modules/_lib_fetch_.html">&quot;lib/fetch&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_fetch_test_.html">&quot;lib/fetch.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_getnetworkinformation_.html">&quot;lib/get<wbr>Network<wbr>Information&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_providerbase_.html">&quot;lib/provider<wbr>Base&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_providerbase_test_.html">&quot;lib/provider<wbr>Base.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_resourcetiming_.html">&quot;lib/resource<wbr>Timing&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_test_.html">&quot;lib/test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_testutil_index_.html">&quot;test<wbr>Util/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_testutil_makeperformancetimingentry_.html">&quot;test<wbr>Util/make<wbr>Performance<wbr>Timing<wbr>Entry&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_testutil_unittestprovider_.html">&quot;test<wbr>Util/unit<wbr>Test<wbr>Provider&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_util_beacon_.html">&quot;util/beacon&quot;</a>
@@ -424,9 +419,6 @@
 						<a href="../modules/_util_loadwhendocumentready_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_util_loadwhendocumentready_test_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_util_object_.html">&quot;util/object&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -438,7 +430,7 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_lib_fetch_.fetch.html" class="tsd-kind-icon">Fetch</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
@@ -472,8 +464,8 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/_lib_fetch_.html#fetchconfiguration" class="tsd-kind-icon">Fetch<wbr>Configuration</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_lib_fetch_.fetchconfiguration.html" class="tsd-kind-icon">Fetch<wbr>Configuration</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../modules/_lib_fetch_.html#defaultisvalidentryfunc" class="tsd-kind-icon">default<wbr>IsValid<wbr>Entry<wbr>Func</a>
@@ -495,6 +487,7 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>

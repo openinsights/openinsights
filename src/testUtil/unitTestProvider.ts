@@ -1,13 +1,14 @@
-import {
-    BeaconData,
-    Executable,
-    ExecutableContainer,
-    TestResultBundle,
-} from "../@types"
+import { BeaconData, Executable, TestResultBundle } from "../@types"
 import ProviderBase from "../lib/providerBase"
 
-export default class UnitTestProvider extends ProviderBase {
-    fetchSessionConfig(): Promise<ExecutableContainer> {
+export type UnitTestSessionConfig = unknown
+export type UnitTestTestConfig = unknown
+
+export class UnitTestProvider extends ProviderBase<
+    UnitTestSessionConfig,
+    UnitTestTestConfig
+> {
+    fetchSessionConfig(): Promise<UnitTestSessionConfig> {
         throw new Error("Method not implemented.")
     }
     expandTasks(): Executable[] {

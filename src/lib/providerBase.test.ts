@@ -3,14 +3,12 @@
  */
 
 import sinon from "sinon"
+import { BeaconData, BeaconState, TestResultBundle } from "../@types"
 import {
-    BeaconData,
-    BeaconState,
-    SessionConfig,
-    TestConfiguration,
-    TestResultBundle,
-} from "../@types"
-import { UnitTestProvider } from "../testUtil"
+    UnitTestProvider,
+    UnitTestSessionConfig,
+    UnitTestTestConfig,
+} from "../testUtil"
 
 describe("ProviderBase", () => {
     beforeEach(() => {
@@ -32,7 +30,7 @@ describe("ProviderBase", () => {
         "encodeBeaconData",
         makeProviderTest({
             testFun: (provider) => {
-                const testConfig: TestConfiguration = {
+                const testConfig: UnitTestTestConfig = {
                     type: "some type",
                 }
                 const data: BeaconData = {
@@ -59,7 +57,7 @@ describe("ProviderBase", () => {
         makeProviderTest({
             testFun: (provider) => {
                 sinon.stub(provider, "makeBeaconURL").returns("some URL")
-                const testConfig: TestConfiguration = {
+                const testConfig: UnitTestTestConfig = {
                     type: "some type",
                 }
                 // Code under test
@@ -84,11 +82,10 @@ describe("ProviderBase", () => {
         makeProviderTest({
             providerName: "Foo",
             testFun: (provider) => {
-                type FooConfig = SessionConfig & {
+                type FooConfig = UnitTestSessionConfig & {
                     foo: string
                 }
                 const container: FooConfig = {
-                    executables: [],
                     foo: "bar",
                 }
                 provider.setSessionConfig(container)

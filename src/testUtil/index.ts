@@ -1,8 +1,6 @@
-import UnitTestProvider from "./unitTestProvider"
-import makePerformanceTimingEntry from "./makePerformanceTimingEntry"
+export * from "./unitTestProvider"
+export { default as makePerformanceTimingEntry } from "./makePerformanceTimingEntry"
 
-type TestCaseConfig = {
+export type TestCaseConfig = {
     description: string
 }
-
-export { makePerformanceTimingEntry, TestCaseConfig, UnitTestProvider }

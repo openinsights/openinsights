@@ -88,7 +88,6 @@
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
 					<li><a href="../classes/_lib_providerbase_.providerbase.html" class="tsd-signature-type">ProviderBase</a></li>
-					<li><a href="../classes/_testutil_unittestprovider_.unittestprovider.html" class="tsd-signature-type">UnitTestProvider</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -109,6 +108,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#encodebeacondata" class="tsd-kind-icon">encode<wbr>Beacon<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#expandtasks" class="tsd-kind-icon">expand<wbr>Tasks</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#fetchsessionconfig" class="tsd-kind-icon">fetch<wbr>Session<wbr>Config</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#getbeaconmethod" class="tsd-kind-icon">get<wbr>Beacon<wbr>Method</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#getresourcerequestheaders" class="tsd-kind-icon">get<wbr>Resource<wbr>Request<wbr>Headers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#getresourceurl" class="tsd-kind-icon">get<wbr>Resource<wbr>Url</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="__types_index_.provider.html#handleerror" class="tsd-kind-icon">handle<wbr>Error</a></li>
@@ -143,12 +143,12 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sessionconfig" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> session<wbr>Config</h3>
-					<div class="tsd-signature tsd-kind-icon">session<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="../modules/__types_index_.html#sessionconfig" class="tsd-signature-type">SessionConfig</a></div>
+					<div class="tsd-signature tsd-kind-icon">session<wbr>Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">unknown</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The <a href="../modules/__types_index_.html#sessionconfig">SessionConfig</a> object obtained from calling
+							<p>The provider specfic session configuration object obtained from calling
 							<a href="__types_index_.provider.html#fetchsessionconfig">Provider.fetchSessionConfig</a>.</p>
 						</div>
 					</div>
@@ -160,7 +160,7 @@
 					<a name="createfetchtestresult" class="tsd-anchor"></a>
 					<h3>create<wbr>Fetch<wbr>Test<wbr>Result</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Fetch<wbr>Test<wbr>Result<span class="tsd-signature-symbol">(</span>timingEntry<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, setupResult<span class="tsd-signature-symbol">: </span><a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Fetch<wbr>Test<wbr>Result<span class="tsd-signature-symbol">(</span>timingEntry<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#resourcetimingentry" class="tsd-signature-type">ResourceTimingEntry</a>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span>, testConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span>, setupResult<span class="tsd-signature-symbol">: </span><a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -192,7 +192,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>testConfig: <span class="tsd-signature-type">unknown</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The test configuration.</p>
 									</div>
@@ -213,7 +213,7 @@
 					<a name="encodebeacondata" class="tsd-anchor"></a>
 					<h3>encode<wbr>Beacon<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">encode<wbr>Beacon<wbr>Data<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, data<span class="tsd-signature-symbol">: </span><a href="__types_index_.beacondata.html" class="tsd-signature-type">BeaconData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">encode<wbr>Beacon<wbr>Data<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span>, data<span class="tsd-signature-symbol">: </span><a href="__types_index_.beacondata.html" class="tsd-signature-type">BeaconData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -228,7 +228,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>testConfig: <span class="tsd-signature-type">unknown</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The test configuration.</p>
 									</div>
@@ -257,9 +257,9 @@
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>A provider implements this in order to define its logic for converting
-										the configuration from a <a href="../modules/__types_index_.html#sessionconfig">SessionConfig</a> object into one or more
-										<a href="__types_index_.executable.html">Executable</a> objects (usually <a href="../classes/_lib_fetch_.fetch.html">Fetch</a> or other classes
-									inheriting from <a href="../classes/_lib_test_.test.html">Test</a>).</p>
+										its session configuration object into one or more <a href="__types_index_.executable.html">Executable</a>
+										objects (usually <a href="../classes/_lib_fetch_.fetch.html">Fetch</a> or other classes inheriting from
+									<a href="../classes/_lib_test_.test.html">Test</a>).</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="__types_index_.executable.html" class="tsd-signature-type">Executable</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -270,7 +270,7 @@
 					<a name="fetchsessionconfig" class="tsd-anchor"></a>
 					<h3>fetch<wbr>Session<wbr>Config</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">fetch<wbr>Session<wbr>Config<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/__types_index_.html#sessionconfig" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">fetch<wbr>Session<wbr>Config<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -280,11 +280,40 @@
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>A provider implements this in order to define its logic for producing
-										a <a href="../modules/__types_index_.html#sessionconfig">SessionConfig</a> object at runtime.</p>
+										its specfic session configuration object at runtime.</p>
 									</dd>
 								</dl>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/__types_index_.html#sessionconfig" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getbeaconmethod" class="tsd-anchor"></a>
+					<h3>get<wbr>Beacon<wbr>Method</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Beacon<wbr>Method<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_util_beacon_.beaconmethod.html" class="tsd-signature-type">BeaconMethod</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A hook enabling providers to specify the HTTP method used to send
+									beacon data.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>testConfig: <span class="tsd-signature-type">unknown</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The test configuration.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../enums/_util_beacon_.beaconmethod.html" class="tsd-signature-type">BeaconMethod</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -292,7 +321,7 @@
 					<a name="getresourcerequestheaders" class="tsd-anchor"></a>
 					<h3>get<wbr>Resource<wbr>Request<wbr>Headers</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Resource<wbr>Request<wbr>Headers<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Resource<wbr>Request<wbr>Headers<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -307,7 +336,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>testConfig: <span class="tsd-signature-type">unknown</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The test configuration.</p>
 									</div>
@@ -321,7 +350,7 @@
 					<a name="getresourceurl" class="tsd-anchor"></a>
 					<h3>get<wbr>Resource<wbr>Url</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Resource<wbr>Url<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Resource<wbr>Url<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">URL</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -341,7 +370,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>testConfig: <span class="tsd-signature-type">unknown</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The test configuration, which usually specifies a base
 										URL from which the provider produces the runtime URL.</p>
@@ -387,7 +416,7 @@
 					<a name="makebeacondata" class="tsd-anchor"></a>
 					<h3>make<wbr>Beacon<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">make<wbr>Beacon<wbr>Data<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, testData<span class="tsd-signature-symbol">: </span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="__types_index_.beacondata.html" class="tsd-signature-type">BeaconData</a></li>
+						<li class="tsd-signature tsd-kind-icon">make<wbr>Beacon<wbr>Data<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span>, testData<span class="tsd-signature-symbol">: </span><a href="__types_index_.testresultbundle.html" class="tsd-signature-type">TestResultBundle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="__types_index_.beacondata.html" class="tsd-signature-type">BeaconData</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -403,7 +432,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>testConfig: <span class="tsd-signature-type">unknown</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The test configuration.</p>
 									</div>
@@ -423,7 +452,7 @@
 					<a name="makebeaconurl" class="tsd-anchor"></a>
 					<h3>make<wbr>BeaconURL</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">make<wbr>BeaconURL<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">make<wbr>BeaconURL<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -438,7 +467,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>testConfig: <span class="tsd-signature-type">unknown</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The test configuration.</p>
 									</div>
@@ -509,7 +538,7 @@
 					<a name="sendbeacon" class="tsd-anchor"></a>
 					<h3>send<wbr>Beacon</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">send<wbr>Beacon<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a>, encodedBeaconData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-signature-type">SendBeaconResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">send<wbr>Beacon<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span>, encodedBeaconData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-signature-type">SendBeaconResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -523,7 +552,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>testConfig: <span class="tsd-signature-type">unknown</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The test configuration.</p>
 									</div>
@@ -544,7 +573,7 @@
 					<a name="setsessionconfig" class="tsd-anchor"></a>
 					<h3>set<wbr>Session<wbr>Config</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Session<wbr>Config<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../modules/__types_index_.html#sessionconfig" class="tsd-signature-type">SessionConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Session<wbr>Config<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -552,14 +581,14 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Called within <a href="../modules/_index_.html#start">start</a> to sets the provider&#39;s session configuration
+									<p>Called within <a href="../modules/_init_.html#start">start</a> to sets the provider&#39;s session configuration
 									object after calling <a href="../classes/_lib_providerbase_.providerbase.html#fetchsessionconfig">ProviderBase.fetchSessionConfig</a>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <a href="../modules/__types_index_.html#sessionconfig" class="tsd-signature-type">SessionConfig</a></h5>
+									<h5>value: <span class="tsd-signature-type">unknown</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The provider-defined configuration object resulting from a
 										call to <a href="__types_index_.provider.html#fetchsessionconfig">Provider.fetchSessionConfig</a></p>
@@ -595,7 +624,7 @@
 					<a name="testsetup" class="tsd-anchor"></a>
 					<h3>test<wbr>Set<wbr>Up</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">test<wbr>Set<wbr>Up<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">test<wbr>Set<wbr>Up<span class="tsd-signature-symbol">(</span>testConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="__types_index_.testsetupresult.html" class="tsd-signature-type">TestSetupResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -611,7 +640,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>testConfig: <a href="__types_index_.testconfiguration.html" class="tsd-signature-type">TestConfiguration</a></h5>
+									<h5>testConfig: <span class="tsd-signature-type">unknown</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The test configuration.</p>
 									</div>
@@ -662,13 +691,10 @@
 						<a href="../modules/__types_index_.html">&quot;@types/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/__types_index_test_.html">&quot;@types/index.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_index_test_.html">&quot;index.test&quot;</a>
+						<a href="../modules/_init_.html">&quot;init&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_errors_.html">&quot;lib/errors&quot;</a>
@@ -677,31 +703,16 @@
 						<a href="../modules/_lib_fetch_.html">&quot;lib/fetch&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_fetch_test_.html">&quot;lib/fetch.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_getnetworkinformation_.html">&quot;lib/get<wbr>Network<wbr>Information&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_providerbase_.html">&quot;lib/provider<wbr>Base&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_lib_providerbase_test_.html">&quot;lib/provider<wbr>Base.test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_resourcetiming_.html">&quot;lib/resource<wbr>Timing&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_lib_test_.html">&quot;lib/test&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_testutil_index_.html">&quot;test<wbr>Util/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_testutil_makeperformancetimingentry_.html">&quot;test<wbr>Util/make<wbr>Performance<wbr>Timing<wbr>Entry&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_testutil_unittestprovider_.html">&quot;test<wbr>Util/unit<wbr>Test<wbr>Provider&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_util_beacon_.html">&quot;util/beacon&quot;</a>
@@ -717,9 +728,6 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_util_loadwhendocumentready_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_util_loadwhendocumentready_test_.html">&quot;util/load<wbr>When<wbr>Document<wbr>Ready.test&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_util_object_.html">&quot;util/object&quot;</a>
@@ -742,9 +750,6 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.executable.html" class="tsd-kind-icon">Executable</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.executablecontainer.html" class="tsd-kind-icon">Executable<wbr>Container</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.navigator.html" class="tsd-kind-icon">Navigator</a>
@@ -777,6 +782,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="__types_index_.provider.html#fetchsessionconfig" class="tsd-kind-icon">fetch<wbr>Session<wbr>Config</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="__types_index_.provider.html#getbeaconmethod" class="tsd-kind-icon">get<wbr>Beacon<wbr>Method</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="__types_index_.provider.html#getresourcerequestheaders" class="tsd-kind-icon">get<wbr>Resource<wbr>Request<wbr>Headers</a>
@@ -825,9 +833,6 @@
 						<a href="__types_index_.simpleobject.html" class="tsd-kind-icon">Simple<wbr>Object</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="__types_index_.testconfiguration.html" class="tsd-kind-icon">Test<wbr>Configuration</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="__types_index_.testresultbundle.html" class="tsd-kind-icon">Test<wbr>Result<wbr>Bundle</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
@@ -861,9 +866,6 @@
 						<a href="../modules/__types_index_.html#sendbeaconresult" class="tsd-kind-icon">Send<wbr>Beacon<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/__types_index_.html#sessionconfig" class="tsd-kind-icon">Session<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/__types_index_.html#sessionprocessfunc" class="tsd-kind-icon">Session<wbr>Process<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
@@ -890,10 +892,11 @@
 				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>

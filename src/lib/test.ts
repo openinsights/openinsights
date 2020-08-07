@@ -2,9 +2,18 @@ import {
     Executable,
     Provider,
     TestResultBundle,
-    TestConfiguration,
     TestSetupResult,
 } from "../@types"
+
+/**
+ * An interface representing the required configuration of a RUM test.
+ */
+export interface TestConfiguration {
+    /**
+     * Indicates the test type.
+     */
+    type: string
+}
 
 /**
  * The possible states that a {@link Test} can be in.
@@ -33,8 +42,10 @@ export enum TestState {
 /**
  * An abstract class representing a RUM test. Subclasses must implement
  * abstract methods in order to define a particular type of RUM test.
+ *
+ * @typeParam TC The type to be used for the internal test configuration.
  */
-export abstract class Test implements Executable {
+export abstract class Test<TC extends TestConfiguration> implements Executable {
     /**
      * The current test state.
      */
@@ -54,7 +65,7 @@ export abstract class Test implements Executable {
         /**
          * The provider-defined configuration for the test.
          */
-        protected _config: TestConfiguration,
+        protected _config: TC,
     ) {}
 
     /**
