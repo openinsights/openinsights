@@ -31,11 +31,17 @@
  *
  * @packageDocumentation
  */
-import init from "./init"
-import { ClientSettings } from "./@types"
-import ClientSettingsBuilder from "./util/clientSettingsBuilder"
-import Provider from "./lib/providerBase"
-import { Test } from "./lib/test"
-import Fetch from "./lib/fetch"
 
-export { init, ClientSettings, ClientSettingsBuilder, Provider, Test, Fetch }
+// Types
+export * from "./@types"
+
+// Init
+export { default as init } from "./init"
+export { default as ClientSettingsBuilder } from "./util/clientSettingsBuilder"
+
+// Libs
+export { default as Fetch } from "./lib/fetch"
+export { default as getNetworkInformation } from "./lib/getNetworkInformation"
+export { default as Provider } from "./lib/providerBase"
+export * from "./lib/resourceTiming"
+export { Test } from "./lib/test"
