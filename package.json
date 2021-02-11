@@ -7,7 +7,7 @@
     "dist/**/*"
   ],
   "publishConfig": {
-	"access": "public"
+    "access": "public"
   },
   "repository": "git@github.com:openinsights/openinsights.git",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.5",
+    "@types/jest": "^26.0.20",
     "@types/sinon": "^9.0.4",
     "@typescript-eslint/eslint-plugin": "^3.7.0",
     "@typescript-eslint/parser": "^3.7.0",
@@ -36,7 +36,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@fastly/performance-observer-polyfill": "^2.0.0-pre-1",
+    "@fastly/performance-observer-polyfill": "^2.0.0-pre-1.3",
     "unfetch": "^4.1.0"
   }
 }
