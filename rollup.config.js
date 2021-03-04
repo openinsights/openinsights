@@ -16,7 +16,7 @@ const commonPlugins = [
     license({
       banner: {
         content: {
-          file: "LICENSE"
+          file: "LICENSE_TEMPLATE"
         }
       }
     }),
