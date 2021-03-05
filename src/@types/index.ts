@@ -1,6 +1,9 @@
 import { KnownErrors } from "../lib/errors"
 import { BeaconMethod } from "../util/beacon"
 
+export { KnownErrors } from "../lib/errors"
+export { BeaconMethod } from "../util/beacon"
+
 /**
  * An interface representing simple objects mapping strings to basic primative
  * types.

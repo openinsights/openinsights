@@ -1,7 +1,7 @@
-# Open Insights (working title)
+# Open Insights
 
-Based on the original Fastly [Insights.js](https://github.com/fastly/insights.js)
-client, Open Insights is a framework for constructing browser-based RUM clients.
+Open Insights is a framework for constructing browser-based RUM clients.
+
 It allows a site owner to construct their own client using one or more "providers".
 The client is then self-hosted and deployed alongside the rest of their JavaScript
 resources.
