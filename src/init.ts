@@ -48,12 +48,25 @@ function startLater(
  */
 function start(settings: ClientSettings): Promise<SessionResult> {
     const activeProviders = settings.providers.filter((p) => p.shouldRun())
-    return Promise.allSettled(
-        activeProviders.map((provider) => provider.fetchSessionConfig()),
+    // We can't use Promise.allSettled() below due to browser support.
+    // Therefore, we implement it manually via p.then().catch() to collect all
+    // results regardless of their resolution status. I.e. we polyfill.
+    return Promise.all(
+        activeProviders.map((provider) => provider.fetchSessionConfig())
+        .map((p) =>
+            p.then((value) => ({
+                status: "fulfilled",
+                value
+            }))
+            .catch((reason) => ({
+                status: 'rejected',
+                reason
+            }))
+        )
     ).then((settled) => {
         const executables: Executable[] = []
         settled.forEach((result, idx) => {
-            if (result.status === "fulfilled") {
+            if (result.status === "fulfilled" && "value" in result) {
                 const provider = activeProviders[idx]
                 provider.setSessionConfig(result.value)
                 executables.push(...provider.expandTasks())
