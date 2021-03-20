@@ -1,4 +1,4 @@
-on: pull_request
+on: [push, pull_request]
 name: Pull request
 jobs:
   lint:
@@ -19,7 +19,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
     - run: npm ci
-    - run: npm run lint
+    - run: npm run lint-check-only
   test:
     runs-on: ubuntu-latest
     strategy:
