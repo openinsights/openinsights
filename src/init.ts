@@ -52,17 +52,19 @@ function start(settings: ClientSettings): Promise<SessionResult> {
     // Therefore, we implement it manually via p.then().catch() to collect all
     // results regardless of their resolution status. I.e. we polyfill.
     return Promise.all(
-        activeProviders.map((provider) => provider.fetchSessionConfig())
-        .map((p) =>
-            p.then((value) => ({
-                status: "fulfilled",
-                value
-            }))
-            .catch((reason) => ({
-                status: 'rejected',
-                reason
-            }))
-        )
+        activeProviders
+            .map((provider) => provider.fetchSessionConfig())
+            .map((p) =>
+                p
+                    .then((value) => ({
+                        status: "fulfilled",
+                        value,
+                    }))
+                    .catch((reason) => ({
+                        status: "rejected",
+                        reason,
+                    })),
+            ),
     ).then((settled) => {
         const executables: Executable[] = []
         settled.forEach((result, idx) => {
