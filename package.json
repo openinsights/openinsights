@@ -17,6 +17,7 @@
     "build:doc": "rimraf doc && typedoc",
     "build:release": "rimraf dist && rollup -c",
     "lint": "tsc && eslint --fix src",
+    "lint-check-only": "tsc && eslint src",
     "test": "jest --coverage",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "prepublishOnly": "npm run build:release"
