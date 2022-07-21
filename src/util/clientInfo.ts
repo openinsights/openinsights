@@ -35,7 +35,7 @@ export function reset(url: string): void {
  * @param url URL for which to return a Promise<{@link ClientInfo}>
  */
 export function getClientInfo(url: string): Promise<ClientInfo> {
-    if (cache[url]) {
+    if (typeof cache[url] !== "undefined") {
         return cache[url]
     }
     cache[url] = fetch(url).then((res): Promise<ClientInfo> => res.json())

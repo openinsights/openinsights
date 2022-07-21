@@ -1,6 +1,5 @@
 import {
     Provider,
-    ResourceTimingEntry,
     ResourceTimingEntryValidationPredicate,
     TestResultBundle,
     TestSetupResult,
@@ -73,7 +72,7 @@ export default class Fetch<TC extends FetchConfiguration> extends Test<TC> {
      */
     test(setupResult: TestSetupResult): Promise<TestResultBundle> {
         const defaultTimeout = 5000
-        return Promise.all<Response, ResourceTimingEntry>([
+        return Promise.all([
             this.fetchObject(),
             asyncGetEntry(
                 this.getResourceUrl(),
