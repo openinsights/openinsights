@@ -11,8 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
--   Bump cross-fetch from 3.0.5 to 3.1.5.
--   Bump handlebars from 4.7.6 to 4.7.7.
+-   Merge dependabot PRs.
 
 ## [0.1.0] - TBD
 
