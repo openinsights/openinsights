@@ -7,10 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [next] - TBD
 
-After 0.1.0 has been tagged and a Github release made, start accumulating changes here.
+## [0.2.2] - TBD
+
+### Security
+
+-   Bump cross-fetch from 3.0.5 to 3.1.5.
 
 ## [0.1.0] - TBD
 
 ### Added
 
-- Initial implementation of the Open Insights library.
+-   Initial implementation of the Open Insights library.
